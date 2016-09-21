@@ -1,0 +1,107 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Sat Mar 21 07:55:04 2015
+| Host         : artois running 64-bit Ubuntu 12.04.4 LTS
+| Command      : report_timing -file postRoute.timing.rpt
+| Design       : system
+| Device       : 7vx330t-ffg1157
+| Speed File   : -3  PRODUCTION 1.11 2014-03-13
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.369ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_3/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            7.000ns  (clk rise@7.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.727ns  (logic 2.338ns (30.256%)  route 5.389ns (69.743%))
+  Logic Levels:           18  (LUT5=3 LUT6=15)
+  Clock Path Skew:        -0.235ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.656ns = ( 10.656 - 7.000 ) 
+    Source Clock Delay      (SCD):    4.117ns
+    Clock Pessimism Removal (CPR):    0.226ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AL31                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+    AL31                 IBUF (Prop_ibuf_I_O)         0.605     0.605 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.097     2.702    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.782 r  clk_IBUF_BUFG_inst/O
+                         net (fo=341, routed)         1.336     4.117    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X1Y25                                                      r  reg_file/inst1/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X1Y25         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[1])
+                                                      1.564     5.681 r  reg_file/inst1/mem_reg/DOBDO[1]
+                         net (fo=5, routed)           0.586     6.268    pipereg16/DOBDO[1]
+    SLICE_X21Y126        LUT6 (Prop_lut6_I1_O)        0.043     6.311 r  pipereg16/result_reg_i_44/O
+                         net (fo=4, routed)           0.325     6.635    reg_file/inst1/nop6_q[1]
+    SLICE_X21Y125        LUT6 (Prop_lut6_I3_O)        0.043     6.678 r  reg_file/inst1/mem_reg_0_i_47/O
+                         net (fo=3, routed)           0.090     6.768    ifetch/pc_reg/I1
+    SLICE_X21Y125        LUT5 (Prop_lut5_I3_O)        0.043     6.811 r  ifetch/pc_reg/mem_reg_0_i_43/O
+                         net (fo=5, routed)           0.183     6.994    pipereg14/I43
+    SLICE_X21Y127        LUT6 (Prop_lut6_I1_O)        0.043     7.037 r  pipereg14/mem_reg_0_i_35__0/O
+                         net (fo=3, routed)           0.238     7.276    pipereg14/n_0_mem_reg_0_i_35__0
+    SLICE_X20Y129        LUT6 (Prop_lut6_I1_O)        0.043     7.319 f  pipereg14/mem_reg_0_i_62/O
+                         net (fo=5, routed)           0.213     7.532    pipereg14/n_0_mem_reg_0_i_62
+    SLICE_X21Y128        LUT6 (Prop_lut6_I1_O)        0.043     7.575 r  pipereg14/mem_reg_0_i_59/O
+                         net (fo=5, routed)           0.329     7.903    pipereg14/n_0_mem_reg_0_i_59
+    SLICE_X21Y129        LUT6 (Prop_lut6_I2_O)        0.043     7.946 r  pipereg14/mem_reg_0_i_24__0/O
+                         net (fo=5, routed)           0.248     8.194    pipereg14/n_0_mem_reg_0_i_24__0
+    SLICE_X20Y130        LUT6 (Prop_lut6_I1_O)        0.043     8.237 r  pipereg14/mem_reg_0_i_20__0/O
+                         net (fo=5, routed)           0.232     8.470    pipereg14/n_0_mem_reg_0_i_20__0
+    SLICE_X20Y129        LUT6 (Prop_lut6_I1_O)        0.043     8.513 r  pipereg14/mem_reg_i_178/O
+                         net (fo=5, routed)           0.240     8.753    pipereg14/n_0_mem_reg_i_178
+    SLICE_X21Y130        LUT6 (Prop_lut6_I3_O)        0.043     8.796 r  pipereg14/mem_reg_i_224/O
+                         net (fo=5, routed)           0.323     9.119    pipereg14/n_0_mem_reg_i_224
+    SLICE_X22Y131        LUT6 (Prop_lut6_I2_O)        0.043     9.162 r  pipereg14/mem_reg_i_163/O
+                         net (fo=4, routed)           0.246     9.408    pipereg14/n_0_mem_reg_i_163
+    SLICE_X23Y131        LUT6 (Prop_lut6_I4_O)        0.043     9.451 r  pipereg14/mem_reg_i_219/O
+                         net (fo=6, routed)           0.287     9.738    pipereg14/n_0_mem_reg_i_219
+    SLICE_X20Y134        LUT6 (Prop_lut6_I3_O)        0.043     9.781 r  pipereg14/mem_reg_i_216/O
+                         net (fo=3, routed)           0.238    10.019    pipereg14/n_0_mem_reg_i_216
+    SLICE_X23Y135        LUT6 (Prop_lut6_I2_O)        0.043    10.062 r  pipereg14/mem_reg_i_212/O
+                         net (fo=3, routed)           0.242    10.305    pipereg14/n_0_mem_reg_i_212
+    SLICE_X22Y133        LUT6 (Prop_lut6_I2_O)        0.043    10.348 r  pipereg14/mem_reg_i_207/O
+                         net (fo=3, routed)           0.233    10.580    pipereg14/n_0_mem_reg_i_207
+    SLICE_X22Y133        LUT6 (Prop_lut6_I2_O)        0.043    10.623 r  pipereg14/mem_reg_i_121/O
+                         net (fo=5, routed)           0.219    10.842    pipereg14/n_0_mem_reg_i_121
+    SLICE_X23Y132        LUT5 (Prop_lut5_I2_O)        0.043    10.885 r  pipereg14/mem_reg_0_i_50/O
+                         net (fo=3, routed)           0.232    11.117    pipereg14/n_0_mem_reg_0_i_50
+    SLICE_X22Y133        LUT5 (Prop_lut5_I2_O)        0.043    11.160 r  pipereg14/mem_reg_0_i_17__0/O
+                         net (fo=16, routed)          0.685    11.845    data_mem/dmem_replace/WEA[0]
+    RAMB36_X1Y30         RAMB36E1                                     r  data_mem/dmem_replace/mem_reg_3/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        7.000     7.000 r  
+    AL31                                              0.000     7.000 r  clk
+                         net (fo=0)                   0.000     7.000    clk
+    AL31                 IBUF (Prop_ibuf_I_O)         0.490     7.490 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           2.005     9.495    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     9.567 r  clk_IBUF_BUFG_inst/O
+                         net (fo=341, routed)         1.089    10.656    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X1Y30                                                      r  data_mem/dmem_replace/mem_reg_3/CLKARDCLK
+                         clock pessimism              0.226    10.882    
+                         clock uncertainty           -0.035    10.847    
+    RAMB36_X1Y30         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.371    10.476    data_mem/dmem_replace/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                         10.476    
+                         arrival time                         -11.845    
+  -------------------------------------------------------------------
+                         slack                                 -1.369    
+
+
+
+

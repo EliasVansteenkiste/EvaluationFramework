@@ -1,0 +1,760 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Sat Mar 21 08:37:32 2015
+| Host         : artois running 64-bit Ubuntu 12.04.4 LTS
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postplace_timing_max.rpt
+| Design       : mkSMAdapter4B
+| Device       : 7vx330t-ffg1157
+| Speed File   : -3  PRODUCTION 1.11 2014-03-13
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.593ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[11]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.135ns  (logic 1.779ns (43.023%)  route 2.356ns (56.977%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.323     7.955    wmi_mFlagF_q_0__EN
+    SLICE_X4Y154         FDRE                                         r  wmi_mFlagF_q_0_reg[11]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X4Y154                                                      r  wmi_mFlagF_q_0_reg[11]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X4Y154         FDRE (Setup_fdre_C_CE)      -0.194     6.362    wmi_mFlagF_q_0_reg[11]
+  -------------------------------------------------------------------
+                         required time                          6.362    
+                         arrival time                          -7.955    
+  -------------------------------------------------------------------
+                         slack                                 -1.593    
+
+Slack (VIOLATED) :        -1.593ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[12]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.135ns  (logic 1.779ns (43.023%)  route 2.356ns (56.977%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.323     7.955    wmi_mFlagF_q_0__EN
+    SLICE_X4Y154         FDRE                                         r  wmi_mFlagF_q_0_reg[12]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X4Y154                                                      r  wmi_mFlagF_q_0_reg[12]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X4Y154         FDRE (Setup_fdre_C_CE)      -0.194     6.362    wmi_mFlagF_q_0_reg[12]
+  -------------------------------------------------------------------
+                         required time                          6.362    
+                         arrival time                          -7.955    
+  -------------------------------------------------------------------
+                         slack                                 -1.593    
+
+Slack (VIOLATED) :        -1.593ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[13]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.135ns  (logic 1.779ns (43.023%)  route 2.356ns (56.977%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.323     7.955    wmi_mFlagF_q_0__EN
+    SLICE_X4Y154         FDRE                                         r  wmi_mFlagF_q_0_reg[13]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X4Y154                                                      r  wmi_mFlagF_q_0_reg[13]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X4Y154         FDRE (Setup_fdre_C_CE)      -0.194     6.362    wmi_mFlagF_q_0_reg[13]
+  -------------------------------------------------------------------
+                         required time                          6.362    
+                         arrival time                          -7.955    
+  -------------------------------------------------------------------
+                         slack                                 -1.593    
+
+Slack (VIOLATED) :        -1.593ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[3]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.135ns  (logic 1.779ns (43.023%)  route 2.356ns (56.977%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.323     7.955    wmi_mFlagF_q_0__EN
+    SLICE_X4Y154         FDRE                                         r  wmi_mFlagF_q_0_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X4Y154                                                      r  wmi_mFlagF_q_0_reg[3]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X4Y154         FDRE (Setup_fdre_C_CE)      -0.194     6.362    wmi_mFlagF_q_0_reg[3]
+  -------------------------------------------------------------------
+                         required time                          6.362    
+                         arrival time                          -7.955    
+  -------------------------------------------------------------------
+                         slack                                 -1.593    
+
+Slack (VIOLATED) :        -1.576ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.119ns  (logic 1.779ns (43.190%)  route 2.340ns (56.810%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.228ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.369ns = ( 6.369 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.307     7.939    wmi_mFlagF_q_0__EN
+    SLICE_X1Y153         FDRE                                         r  wmi_mFlagF_q_0_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.118     6.369    wciS0_Clk_IBUF_BUFG
+    SLICE_X1Y153                                                      r  wmi_mFlagF_q_0_reg[1]/C
+                         clock pessimism              0.224     6.593    
+                         clock uncertainty           -0.035     6.557    
+    SLICE_X1Y153         FDRE (Setup_fdre_C_CE)      -0.194     6.363    wmi_mFlagF_q_0_reg[1]
+  -------------------------------------------------------------------
+                         required time                          6.363    
+                         arrival time                          -7.939    
+  -------------------------------------------------------------------
+                         slack                                 -1.576    
+
+Slack (VIOLATED) :        -1.576ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[23]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.119ns  (logic 1.779ns (43.190%)  route 2.340ns (56.810%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.228ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.369ns = ( 6.369 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.307     7.939    wmi_mFlagF_q_0__EN
+    SLICE_X1Y153         FDRE                                         r  wmi_mFlagF_q_0_reg[23]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.118     6.369    wciS0_Clk_IBUF_BUFG
+    SLICE_X1Y153                                                      r  wmi_mFlagF_q_0_reg[23]/C
+                         clock pessimism              0.224     6.593    
+                         clock uncertainty           -0.035     6.557    
+    SLICE_X1Y153         FDRE (Setup_fdre_C_CE)      -0.194     6.363    wmi_mFlagF_q_0_reg[23]
+  -------------------------------------------------------------------
+                         required time                          6.363    
+                         arrival time                          -7.939    
+  -------------------------------------------------------------------
+                         slack                                 -1.576    
+
+Slack (VIOLATED) :        -1.576ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[4]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.119ns  (logic 1.779ns (43.190%)  route 2.340ns (56.810%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.228ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.369ns = ( 6.369 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.307     7.939    wmi_mFlagF_q_0__EN
+    SLICE_X0Y153         FDRE                                         r  wmi_mFlagF_q_0_reg[4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.118     6.369    wciS0_Clk_IBUF_BUFG
+    SLICE_X0Y153                                                      r  wmi_mFlagF_q_0_reg[4]/C
+                         clock pessimism              0.224     6.593    
+                         clock uncertainty           -0.035     6.557    
+    SLICE_X0Y153         FDRE (Setup_fdre_C_CE)      -0.194     6.363    wmi_mFlagF_q_0_reg[4]
+  -------------------------------------------------------------------
+                         required time                          6.363    
+                         arrival time                          -7.939    
+  -------------------------------------------------------------------
+                         slack                                 -1.576    
+
+Slack (VIOLATED) :        -1.576ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            wmi_mFlagF_q_0_reg[9]/CE
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        4.119ns  (logic 1.779ns (43.190%)  route 2.340ns (56.810%))
+  Logic Levels:           5  (LUT4=1 LUT5=3 LUT6=1)
+  Clock Path Skew:        -0.228ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.369ns = ( 6.369 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.536     6.888    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X9Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/I1
+    SLICE_X9Y152         LUT5 (Prop_lut5_I1_O)        0.043     6.931 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_c_r[1]_i_4/O
+                         net (fo=34, estimated)       0.467     7.398    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_c_r[1]_i_4
+    SLICE_X3Y152                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/I1
+    SLICE_X3Y152         LUT6 (Prop_lut6_I1_O)        0.043     7.441 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_3/O
+                         net (fo=23, estimated)       0.148     7.589    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_mFlagF_q_0[31]_i_3
+    SLICE_X3Y152                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/I0
+    SLICE_X3Y152         LUT5 (Prop_lut5_I0_O)        0.043     7.632 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_mFlagF_q_0[31]_i_1/O
+                         net (fo=22, estimated)       0.307     7.939    wmi_mFlagF_q_0__EN
+    SLICE_X1Y153         FDRE                                         r  wmi_mFlagF_q_0_reg[9]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.118     6.369    wciS0_Clk_IBUF_BUFG
+    SLICE_X1Y153                                                      r  wmi_mFlagF_q_0_reg[9]/C
+                         clock pessimism              0.224     6.593    
+                         clock uncertainty           -0.035     6.557    
+    SLICE_X1Y153         FDRE (Setup_fdre_C_CE)      -0.194     6.363    wmi_mFlagF_q_0_reg[9]
+  -------------------------------------------------------------------
+                         required time                          6.363    
+                         arrival time                          -7.939    
+  -------------------------------------------------------------------
+                         slack                                 -1.576    
+
+Slack (VIOLATED) :        -1.554ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            mesgLengthSoFar_reg[10]/R
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        3.995ns  (logic 1.736ns (43.454%)  route 2.259ns (56.546%))
+  Logic Levels:           4  (LUT3=1 LUT4=2 LUT5=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.617     6.969    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X3Y148                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5/I0
+    SLICE_X3Y148         LUT3 (Prop_lut3_I0_O)        0.043     7.012 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5/O
+                         net (fo=50, estimated)       0.431     7.443    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5
+    SLICE_X5Y154                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/mesgLengthSoFar[0]_i_1/I0
+    SLICE_X5Y154         LUT4 (Prop_lut4_I0_O)        0.043     7.486 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/mesgLengthSoFar[0]_i_1/O
+                         net (fo=12, estimated)       0.329     7.815    n_434_size_fifoc
+    SLICE_X3Y156         FDRE                                         r  mesgLengthSoFar_reg[10]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X3Y156                                                      r  mesgLengthSoFar_reg[10]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X3Y156         FDRE (Setup_fdre_C_R)       -0.295     6.261    mesgLengthSoFar_reg[10]
+  -------------------------------------------------------------------
+                         required time                          6.261    
+                         arrival time                          -7.815    
+  -------------------------------------------------------------------
+                         slack                                 -1.554    
+
+Slack (VIOLATED) :        -1.554ns  (required time - arrival time)
+  Source:                 size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+                            (rising edge-triggered cell FIFO36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            mesgLengthSoFar_reg[11]/R
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (wciS0_Clk rise@3.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        3.995ns  (logic 1.736ns (43.454%)  route 2.259ns (56.546%))
+  Logic Levels:           4  (LUT3=1 LUT4=2 LUT5=1)
+  Clock Path Skew:        -0.229ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.368ns = ( 6.368 - 3.000 ) 
+    Source Clock Delay      (SCD):    3.820ns
+    Clock Pessimism Removal (CPR):    0.224ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000 r  
+    AF30                                              0.000     0.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     0.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.591     0.591 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.792     2.383    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.463 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.358     3.820    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/CLK
+    RAMB36_X0Y29                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/RDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y29         FIFO36E1 (Prop_fifo36e1_RDCLK_DO[52])
+                                                      1.564     5.384 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1/DO[52]
+                         net (fo=8, estimated)        0.658     6.042    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wsiS_reqFifo__D_OUT[52]
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/I0
+    SLICE_X10Y147        LUT4 (Prop_lut4_I0_O)        0.043     6.085 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_7/O
+                         net (fo=1, estimated)        0.224     6.309    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_7
+    SLICE_X10Y147                                                     f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/I2
+    SLICE_X10Y147        LUT5 (Prop_lut5_I2_O)        0.043     6.352 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/wmi_reqF_q_1[28]_i_2/O
+                         net (fo=59, estimated)       0.617     6.969    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_wmi_reqF_q_1[28]_i_2
+    SLICE_X3Y148                                                      r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5/I0
+    SLICE_X3Y148         LUT3 (Prop_lut3_I0_O)        0.043     7.012 f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5/O
+                         net (fo=50, estimated)       0.431     7.443    size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/n_0_genblk5_0.fifo_36_bl_1.fifo_36_bl_1_i_5
+    SLICE_X5Y154                                                      f  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/mesgLengthSoFar[0]_i_1/I0
+    SLICE_X5Y154         LUT4 (Prop_lut4_I0_O)        0.043     7.486 r  size_fifoc/fifo_1/FIFO_SYNC_MACRO_inst/mesgLengthSoFar[0]_i_1/O
+                         net (fo=12, estimated)       0.329     7.815    n_434_size_fifoc
+    SLICE_X3Y156         FDRE                                         r  mesgLengthSoFar_reg[11]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      3.000     3.000 r  
+    AF30                                              0.000     3.000 r  wciS0_Clk
+                         net (fo=0)                   0.000     3.000    wciS0_Clk
+    AF30                                                              r  wciS0_Clk_IBUF_inst/I
+    AF30                 IBUF (Prop_ibuf_I_O)         0.476     3.476 r  wciS0_Clk_IBUF_inst/O
+                         net (fo=1, estimated)        1.702     5.179    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  wciS0_Clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     5.251 r  wciS0_Clk_IBUF_BUFG_inst/O
+                         net (fo=851, estimated)      1.117     6.368    wciS0_Clk_IBUF_BUFG
+    SLICE_X3Y156                                                      r  mesgLengthSoFar_reg[11]/C
+                         clock pessimism              0.224     6.592    
+                         clock uncertainty           -0.035     6.556    
+    SLICE_X3Y156         FDRE (Setup_fdre_C_R)       -0.295     6.261    mesgLengthSoFar_reg[11]
+  -------------------------------------------------------------------
+                         required time                          6.261    
+                         arrival time                          -7.815    
+  -------------------------------------------------------------------
+                         slack                                 -1.554    
+
+
+
+

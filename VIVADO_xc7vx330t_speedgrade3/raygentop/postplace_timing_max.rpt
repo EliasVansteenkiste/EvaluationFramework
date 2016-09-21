@@ -1,0 +1,790 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Sat Mar 21 07:13:11 2015
+| Host         : artois running 64-bit Ubuntu 12.04.4 LTS
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postplace_timing_max.rpt
+| Design       : paj_raygentop_hierarchy_no_mem
+| Device       : 7vx330t-ffg1157
+| Speed File   : -3  PRODUCTION 1.11 2014-03-13
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.803ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.750ns  (logic 1.971ns (71.673%)  route 0.779ns (28.327%))
+  Logic Levels:           5  (CARRY4=4 LUT6=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.983ns = ( 4.983 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.948 r  matmultinst/Cx_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.948    matmultinst/n_8_Cx_reg[11]_i_1
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[15]_i_1/CI
+    SLICE_X12Y227        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.152     6.100 r  matmultinst/Cx_reg[15]_i_1/O[1]
+                         net (fo=1, routed)           0.000     6.100    matmultinst/Cx0[13]
+    SLICE_X12Y227        FDRE                                         r  matmultinst/Cx_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.046     4.983    matmultinst/CLK
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[13]/C
+                         clock pessimism              0.273     5.256    
+                         clock uncertainty           -0.035     5.221    
+    SLICE_X12Y227        FDRE (Setup_fdre_C_D)        0.076     5.297    matmultinst/Cx_reg[13]
+  -------------------------------------------------------------------
+                         required time                          5.297    
+                         arrival time                          -6.100    
+  -------------------------------------------------------------------
+                         slack                                 -0.803    
+
+Slack (VIOLATED) :        -0.797ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.744ns  (logic 1.965ns (71.611%)  route 0.779ns (28.389%))
+  Logic Levels:           5  (CARRY4=4 LUT6=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.983ns = ( 4.983 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.948 r  matmultinst/Cx_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.948    matmultinst/n_8_Cx_reg[11]_i_1
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[15]_i_1/CI
+    SLICE_X12Y227        CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.146     6.094 r  matmultinst/Cx_reg[15]_i_1/O[3]
+                         net (fo=1, routed)           0.000     6.094    matmultinst/Cx0[15]
+    SLICE_X12Y227        FDRE                                         r  matmultinst/Cx_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.046     4.983    matmultinst/CLK
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[15]/C
+                         clock pessimism              0.273     5.256    
+                         clock uncertainty           -0.035     5.221    
+    SLICE_X12Y227        FDRE (Setup_fdre_C_D)        0.076     5.297    matmultinst/Cx_reg[15]
+  -------------------------------------------------------------------
+                         required time                          5.297    
+                         arrival time                          -6.094    
+  -------------------------------------------------------------------
+                         slack                                 -0.797    
+
+Slack (VIOLATED) :        -0.759ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.706ns  (logic 1.927ns (71.212%)  route 0.779ns (28.788%))
+  Logic Levels:           5  (CARRY4=4 LUT6=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.983ns = ( 4.983 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.948 r  matmultinst/Cx_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.948    matmultinst/n_8_Cx_reg[11]_i_1
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[15]_i_1/CI
+    SLICE_X12Y227        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.108     6.056 r  matmultinst/Cx_reg[15]_i_1/O[2]
+                         net (fo=1, routed)           0.000     6.056    matmultinst/Cx0[14]
+    SLICE_X12Y227        FDRE                                         r  matmultinst/Cx_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.046     4.983    matmultinst/CLK
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[14]/C
+                         clock pessimism              0.273     5.256    
+                         clock uncertainty           -0.035     5.221    
+    SLICE_X12Y227        FDRE (Setup_fdre_C_D)        0.076     5.297    matmultinst/Cx_reg[14]
+  -------------------------------------------------------------------
+                         required time                          5.297    
+                         arrival time                          -6.056    
+  -------------------------------------------------------------------
+                         slack                                 -0.759    
+
+Slack (VIOLATED) :        -0.754ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.700ns  (logic 1.921ns (71.148%)  route 0.779ns (28.852%))
+  Logic Levels:           4  (CARRY4=3 LUT6=1)
+  Clock Path Skew:        -0.095ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.982ns = ( 4.982 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.152     6.050 r  matmultinst/Cx_reg[11]_i_1/O[1]
+                         net (fo=1, routed)           0.000     6.050    matmultinst/Cx0[9]
+    SLICE_X12Y226        FDRE                                         r  matmultinst/Cx_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.045     4.982    matmultinst/CLK
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[9]/C
+                         clock pessimism              0.273     5.255    
+                         clock uncertainty           -0.035     5.220    
+    SLICE_X12Y226        FDRE (Setup_fdre_C_D)        0.076     5.296    matmultinst/Cx_reg[9]
+  -------------------------------------------------------------------
+                         required time                          5.296    
+                         arrival time                          -6.050    
+  -------------------------------------------------------------------
+                         slack                                 -0.754    
+
+Slack (VIOLATED) :        -0.753ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.700ns  (logic 1.921ns (71.148%)  route 0.779ns (28.852%))
+  Logic Levels:           5  (CARRY4=4 LUT6=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.983ns = ( 4.983 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.948 r  matmultinst/Cx_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.948    matmultinst/n_8_Cx_reg[11]_i_1
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[15]_i_1/CI
+    SLICE_X12Y227        CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.102     6.050 r  matmultinst/Cx_reg[15]_i_1/O[0]
+                         net (fo=1, routed)           0.000     6.050    matmultinst/Cx0[12]
+    SLICE_X12Y227        FDRE                                         r  matmultinst/Cx_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.046     4.983    matmultinst/CLK
+    SLICE_X12Y227                                                     r  matmultinst/Cx_reg[12]/C
+                         clock pessimism              0.273     5.256    
+                         clock uncertainty           -0.035     5.221    
+    SLICE_X12Y227        FDRE (Setup_fdre_C_D)        0.076     5.297    matmultinst/Cx_reg[12]
+  -------------------------------------------------------------------
+                         required time                          5.297    
+                         arrival time                          -6.050    
+  -------------------------------------------------------------------
+                         slack                                 -0.753    
+
+Slack (VIOLATED) :        -0.748ns  (required time - arrival time)
+  Source:                 matmultinst/am13_reg/am13_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cx_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.694ns  (logic 1.915ns (71.084%)  route 0.779ns (28.916%))
+  Logic Levels:           4  (CARRY4=3 LUT6=1)
+  Clock Path Skew:        -0.095ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.982ns = ( 4.982 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y90                                                       r  matmultinst/am13_reg/am13_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y90          DSP48E1 (Prop_dsp48e1_CLK_P[17])
+                                                      1.430     4.780 r  matmultinst/am13_reg/am13_reg/P[17]
+                         net (fo=3, estimated)        0.772     5.552    matmultinst/p_0_in5_in[1]
+    SLICE_X12Y224                                                     r  matmultinst/Cx[3]_i_7/I0
+    SLICE_X12Y224        LUT6 (Prop_lut6_I0_O)        0.043     5.595 r  matmultinst/Cx[3]_i_7/O
+                         net (fo=1, routed)           0.000     5.595    matmultinst/n_8_Cx[3]_i_7
+    SLICE_X12Y224                                                     r  matmultinst/Cx_reg[3]_i_1/S[1]
+    SLICE_X12Y224        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     5.841 r  matmultinst/Cx_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.007     5.848    matmultinst/n_8_Cx_reg[3]_i_1
+    SLICE_X12Y225                                                     r  matmultinst/Cx_reg[7]_i_1/CI
+    SLICE_X12Y225        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.898 r  matmultinst/Cx_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.898    matmultinst/n_8_Cx_reg[7]_i_1
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]_i_1/CI
+    SLICE_X12Y226        CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.146     6.044 r  matmultinst/Cx_reg[11]_i_1/O[3]
+                         net (fo=1, routed)           0.000     6.044    matmultinst/Cx0[11]
+    SLICE_X12Y226        FDRE                                         r  matmultinst/Cx_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.045     4.982    matmultinst/CLK
+    SLICE_X12Y226                                                     r  matmultinst/Cx_reg[11]/C
+                         clock pessimism              0.273     5.255    
+                         clock uncertainty           -0.035     5.220    
+    SLICE_X12Y226        FDRE (Setup_fdre_C_D)        0.076     5.296    matmultinst/Cx_reg[11]
+  -------------------------------------------------------------------
+                         required time                          5.296    
+                         arrival time                          -6.044    
+  -------------------------------------------------------------------
+                         slack                                 -0.748    
+
+Slack (VIOLATED) :        -0.747ns  (required time - arrival time)
+  Source:                 matmultinst/am32_reg/am32_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cz_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.686ns  (logic 1.913ns (71.221%)  route 0.773ns (28.779%))
+  Logic Levels:           4  (CARRY4=3 LUT6=1)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.988ns = ( 4.988 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.363ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.230     3.363    matmultinst/CLK
+    DSP48_X0Y85                                                       r  matmultinst/am32_reg/am32_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y85          DSP48E1 (Prop_dsp48e1_CLK_P[20])
+                                                      1.430     4.793 r  matmultinst/am32_reg/am32_reg/P[20]
+                         net (fo=3, estimated)        0.773     5.566    matmultinst/p_0_in[4]
+    SLICE_X12Y215                                                     r  matmultinst/Cz[7]_i_9/I1
+    SLICE_X12Y215        LUT6 (Prop_lut6_I1_O)        0.043     5.609 r  matmultinst/Cz[7]_i_9/O
+                         net (fo=1, routed)           0.000     5.609    matmultinst/n_8_Cz[7]_i_9
+    SLICE_X12Y215                                                     r  matmultinst/Cz_reg[7]_i_1/S[0]
+    SLICE_X12Y215        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.238     5.847 r  matmultinst/Cz_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.847    matmultinst/n_8_Cz_reg[7]_i_1
+    SLICE_X12Y216                                                     r  matmultinst/Cz_reg[11]_i_1/CI
+    SLICE_X12Y216        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.897 r  matmultinst/Cz_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.897    matmultinst/n_8_Cz_reg[11]_i_1
+    SLICE_X12Y217                                                     r  matmultinst/Cz_reg[15]_i_1/CI
+    SLICE_X12Y217        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.152     6.049 r  matmultinst/Cz_reg[15]_i_1/O[1]
+                         net (fo=1, routed)           0.000     6.049    matmultinst/Cz0[13]
+    SLICE_X12Y217        FDRE                                         r  matmultinst/Cz_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.051     4.988    matmultinst/CLK
+    SLICE_X12Y217                                                     r  matmultinst/Cz_reg[13]/C
+                         clock pessimism              0.273     5.261    
+                         clock uncertainty           -0.035     5.226    
+    SLICE_X12Y217        FDRE (Setup_fdre_C_D)        0.076     5.302    matmultinst/Cz_reg[13]
+  -------------------------------------------------------------------
+                         required time                          5.302    
+                         arrival time                          -6.049    
+  -------------------------------------------------------------------
+                         slack                                 -0.747    
+
+Slack (VIOLATED) :        -0.741ns  (required time - arrival time)
+  Source:                 matmultinst/am32_reg/am32_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cz_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.680ns  (logic 1.907ns (71.157%)  route 0.773ns (28.843%))
+  Logic Levels:           4  (CARRY4=3 LUT6=1)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.988ns = ( 4.988 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.363ns
+    Clock Pessimism Removal (CPR):    0.273ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.230     3.363    matmultinst/CLK
+    DSP48_X0Y85                                                       r  matmultinst/am32_reg/am32_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y85          DSP48E1 (Prop_dsp48e1_CLK_P[20])
+                                                      1.430     4.793 r  matmultinst/am32_reg/am32_reg/P[20]
+                         net (fo=3, estimated)        0.773     5.566    matmultinst/p_0_in[4]
+    SLICE_X12Y215                                                     r  matmultinst/Cz[7]_i_9/I1
+    SLICE_X12Y215        LUT6 (Prop_lut6_I1_O)        0.043     5.609 r  matmultinst/Cz[7]_i_9/O
+                         net (fo=1, routed)           0.000     5.609    matmultinst/n_8_Cz[7]_i_9
+    SLICE_X12Y215                                                     r  matmultinst/Cz_reg[7]_i_1/S[0]
+    SLICE_X12Y215        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.238     5.847 r  matmultinst/Cz_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.847    matmultinst/n_8_Cz_reg[7]_i_1
+    SLICE_X12Y216                                                     r  matmultinst/Cz_reg[11]_i_1/CI
+    SLICE_X12Y216        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     5.897 r  matmultinst/Cz_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.897    matmultinst/n_8_Cz_reg[11]_i_1
+    SLICE_X12Y217                                                     r  matmultinst/Cz_reg[15]_i_1/CI
+    SLICE_X12Y217        CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.146     6.043 r  matmultinst/Cz_reg[15]_i_1/O[3]
+                         net (fo=1, routed)           0.000     6.043    matmultinst/Cz0[15]
+    SLICE_X12Y217        FDRE                                         r  matmultinst/Cz_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.051     4.988    matmultinst/CLK
+    SLICE_X12Y217                                                     r  matmultinst/Cz_reg[15]/C
+                         clock pessimism              0.273     5.261    
+                         clock uncertainty           -0.035     5.226    
+    SLICE_X12Y217        FDRE (Setup_fdre_C_D)        0.076     5.302    matmultinst/Cz_reg[15]
+  -------------------------------------------------------------------
+                         required time                          5.302    
+                         arrival time                          -6.043    
+  -------------------------------------------------------------------
+                         slack                                 -0.741    
+
+Slack (VIOLATED) :        -0.731ns  (required time - arrival time)
+  Source:                 matmultinst/am22_reg/am22_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cy_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.674ns  (logic 1.965ns (73.485%)  route 0.709ns (26.515%))
+  Logic Levels:           5  (CARRY4=4 LUT3=1)
+  Clock Path Skew:        -0.070ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.981ns = ( 4.981 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.299ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y89                                                       r  matmultinst/am22_reg/am22_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y89          DSP48E1 (Prop_dsp48e1_CLK_P[16])
+                                                      1.430     4.780 r  matmultinst/am22_reg/am22_reg/P[16]
+                         net (fo=3, estimated)        0.617     5.397    matmultinst/p_0_in1_in[0]
+    SLICE_X10Y221                                                     r  matmultinst/Cy[3]_i_4/I0
+    SLICE_X10Y221        LUT3 (Prop_lut3_I0_O)        0.043     5.440 r  matmultinst/Cy[3]_i_4/O
+                         net (fo=1, estimated)        0.092     5.532    matmultinst/n_8_Cy[3]_i_4
+    SLICE_X11Y221                                                     r  matmultinst/Cy_reg[3]_i_1/DI[1]
+    SLICE_X11Y221        CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.242     5.774 r  matmultinst/Cy_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.774    matmultinst/n_8_Cy_reg[3]_i_1
+    SLICE_X11Y222                                                     r  matmultinst/Cy_reg[7]_i_1/CI
+    SLICE_X11Y222        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.049     5.823 r  matmultinst/Cy_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.823    matmultinst/n_8_Cy_reg[7]_i_1
+    SLICE_X11Y223                                                     r  matmultinst/Cy_reg[11]_i_1/CI
+    SLICE_X11Y223        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.049     5.872 r  matmultinst/Cy_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.872    matmultinst/n_8_Cy_reg[11]_i_1
+    SLICE_X11Y224                                                     r  matmultinst/Cy_reg[15]_i_1/CI
+    SLICE_X11Y224        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.152     6.024 r  matmultinst/Cy_reg[15]_i_1/O[1]
+                         net (fo=1, routed)           0.000     6.024    matmultinst/Cy0[13]
+    SLICE_X11Y224        FDRE                                         r  matmultinst/Cy_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.044     4.981    matmultinst/CLK
+    SLICE_X11Y224                                                     r  matmultinst/Cy_reg[13]/C
+                         clock pessimism              0.299     5.280    
+                         clock uncertainty           -0.035     5.245    
+    SLICE_X11Y224        FDRE (Setup_fdre_C_D)        0.048     5.293    matmultinst/Cy_reg[13]
+  -------------------------------------------------------------------
+                         required time                          5.293    
+                         arrival time                          -6.024    
+  -------------------------------------------------------------------
+                         slack                                 -0.731    
+
+Slack (VIOLATED) :        -0.723ns  (required time - arrival time)
+  Source:                 matmultinst/am22_reg/am22_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            matmultinst/Cy_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (tm3_clk_v0 rise@2.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.666ns  (logic 1.957ns (73.406%)  route 0.709ns (26.594%))
+  Logic Levels:           5  (CARRY4=4 LUT3=1)
+  Clock Path Skew:        -0.070ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.981ns = ( 4.981 - 2.000 ) 
+    Source Clock Delay      (SCD):    3.350ns
+    Clock Pessimism Removal (CPR):    0.299ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    Y31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.566     0.566 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.487     2.053    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.080     2.133 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.217     3.350    matmultinst/CLK
+    DSP48_X0Y89                                                       r  matmultinst/am22_reg/am22_reg/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y89          DSP48E1 (Prop_dsp48e1_CLK_P[16])
+                                                      1.430     4.780 r  matmultinst/am22_reg/am22_reg/P[16]
+                         net (fo=3, estimated)        0.617     5.397    matmultinst/p_0_in1_in[0]
+    SLICE_X10Y221                                                     r  matmultinst/Cy[3]_i_4/I0
+    SLICE_X10Y221        LUT3 (Prop_lut3_I0_O)        0.043     5.440 r  matmultinst/Cy[3]_i_4/O
+                         net (fo=1, estimated)        0.092     5.532    matmultinst/n_8_Cy[3]_i_4
+    SLICE_X11Y221                                                     r  matmultinst/Cy_reg[3]_i_1/DI[1]
+    SLICE_X11Y221        CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.242     5.774 r  matmultinst/Cy_reg[3]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.774    matmultinst/n_8_Cy_reg[3]_i_1
+    SLICE_X11Y222                                                     r  matmultinst/Cy_reg[7]_i_1/CI
+    SLICE_X11Y222        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.049     5.823 r  matmultinst/Cy_reg[7]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.823    matmultinst/n_8_Cy_reg[7]_i_1
+    SLICE_X11Y223                                                     r  matmultinst/Cy_reg[11]_i_1/CI
+    SLICE_X11Y223        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.049     5.872 r  matmultinst/Cy_reg[11]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000     5.872    matmultinst/n_8_Cy_reg[11]_i_1
+    SLICE_X11Y224                                                     r  matmultinst/Cy_reg[15]_i_1/CI
+    SLICE_X11Y224        CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.144     6.016 r  matmultinst/Cy_reg[15]_i_1/O[3]
+                         net (fo=1, routed)           0.000     6.016    matmultinst/Cy0[15]
+    SLICE_X11Y224        FDRE                                         r  matmultinst/Cy_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.000     2.000 r  
+    Y31                                               0.000     2.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.000    tm3_clk_v0
+    Y31                                                               r  tm3_clk_v0_IBUF_inst/I
+    Y31                  IBUF (Prop_ibuf_I_O)         0.452     2.452 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.413     3.865    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y0                                                     r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.072     3.937 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=1150, estimated)     1.044     4.981    matmultinst/CLK
+    SLICE_X11Y224                                                     r  matmultinst/Cy_reg[15]/C
+                         clock pessimism              0.299     5.280    
+                         clock uncertainty           -0.035     5.245    
+    SLICE_X11Y224        FDRE (Setup_fdre_C_D)        0.048     5.293    matmultinst/Cy_reg[15]
+  -------------------------------------------------------------------
+                         required time                          5.293    
+                         arrival time                          -6.016    
+  -------------------------------------------------------------------
+                         slack                                 -0.723    
+
+
+
+

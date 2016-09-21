@@ -1,0 +1,88 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Sat Mar 21 07:32:01 2015
+| Host         : artois running 64-bit Ubuntu 12.04.4 LTS
+| Command      : report_timing -file postPlace.timing.rpt
+| Design       : sv_chip2_hierarchy_no_mem
+| Device       : 7vx330t-ffg1157
+| Speed File   : -3  PRODUCTION 1.11 2014-03-13
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.541ns  (required time - arrival time)
+  Source:                 h_fltr_4_left/your_instance_name_f1/dout1/your_instance_name_f1/dout1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            h_fltr_4_left/your_instance_name_f1/dout_reg/your_instance_name_f1/dout_reg/PCIN[0]
+                            (rising edge-triggered cell DSP48E1 clocked by tm3_clk_v0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (tm3_clk_v0 rise@10.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        9.594ns  (logic 8.398ns (87.534%)  route 1.196ns (12.466%))
+  Logic Levels:           5  (DSP48E1=5)
+  Clock Path Skew:        -0.044ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.769ns = ( 12.769 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.064ns
+    Clock Pessimism Removal (CPR):    0.251ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    R31                                               0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0
+    R31                  IBUF (Prop_ibuf_I_O)         0.557     0.557 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.267     1.824    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.080     1.904 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=12948, estimated)    1.160     3.064    h_fltr_4_left/your_instance_name_f1/tm3_clk_v0_IBUF_BUFG
+    DSP48_X4Y73                                                       r  h_fltr_4_left/your_instance_name_f1/dout1/your_instance_name_f1/dout1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X4Y73          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      2.626     5.690 r  h_fltr_4_left/your_instance_name_f1/dout1/your_instance_name_f1/dout1/PCOUT[47]
+                         net (fo=1, estimated)        0.000     5.690    h_fltr_4_left/your_instance_name_f1/n_106_dout1/your_instance_name_f1/dout1
+    DSP48_X4Y74          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
+                                                      1.064     6.754 r  h_fltr_4_left/your_instance_name_f1/dout0/your_instance_name_f1/dout0/PCOUT[47]
+                         net (fo=1, estimated)        0.000     6.754    h_fltr_4_left/your_instance_name_f1/n_106_dout0/your_instance_name_f1/dout0
+    DSP48_X4Y75          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[18])
+                                                      0.938     7.692 r  h_fltr_4_left/your_instance_name_f1/dout0__0/your_instance_name_f1/dout0/P[18]
+                         net (fo=1, estimated)        0.647     8.339    h_fltr_4_left/your_instance_name_f1/n_87_dout0__0/your_instance_name_f1/dout0
+    DSP48_X4Y71          DSP48E1 (Prop_dsp48e1_A[0]_PCOUT[47])
+                                                      1.416     9.755 r  h_fltr_4_left/your_instance_name_f1/dout0__1/your_instance_name_f1/dout0/PCOUT[47]
+                         net (fo=1, estimated)        0.000     9.755    h_fltr_4_left/your_instance_name_f1/n_106_dout0__1/your_instance_name_f1/dout0
+    DSP48_X4Y72          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[19])
+                                                      0.938    10.693 r  h_fltr_4_left/your_instance_name_f1/dout0__2/your_instance_name_f1/dout0/P[19]
+                         net (fo=1, estimated)        0.549    11.242    h_fltr_4_left/your_instance_name_f1/n_86_dout0__2/your_instance_name_f1/dout0
+    DSP48_X3Y73          DSP48E1 (Prop_dsp48e1_A[1]_PCOUT[0])
+                                                      1.416    12.658 r  h_fltr_4_left/your_instance_name_f1/dout0__3/your_instance_name_f1/dout0/PCOUT[0]
+                         net (fo=1, estimated)        0.000    12.658    h_fltr_4_left/your_instance_name_f1/n_153_dout0__3/your_instance_name_f1/dout0
+    DSP48_X3Y74          DSP48E1                                      r  h_fltr_4_left/your_instance_name_f1/dout_reg/your_instance_name_f1/dout_reg/PCIN[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                     10.000    10.000 r  
+    R31                                               0.000    10.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000    10.000    tm3_clk_v0
+    R31                  IBUF (Prop_ibuf_I_O)         0.443    10.443 r  tm3_clk_v0_IBUF_inst/O
+                         net (fo=1, estimated)        1.204    11.647    tm3_clk_v0_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.072    11.719 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=12948, estimated)    1.050    12.769    h_fltr_4_left/your_instance_name_f1/tm3_clk_v0_IBUF_BUFG
+    DSP48_X3Y74                                                       r  h_fltr_4_left/your_instance_name_f1/dout_reg/your_instance_name_f1/dout_reg/CLK
+                         clock pessimism              0.251    13.020    
+                         clock uncertainty           -0.035    12.985    
+    DSP48_X3Y74          DSP48E1 (Setup_dsp48e1_CLK_PCIN[0])
+                                                     -0.868    12.117    h_fltr_4_left/your_instance_name_f1/dout_reg/your_instance_name_f1/dout_reg
+  -------------------------------------------------------------------
+                         required time                         12.117    
+                         arrival time                         -12.658    
+  -------------------------------------------------------------------
+                         slack                                 -0.541    
+
+
+
+

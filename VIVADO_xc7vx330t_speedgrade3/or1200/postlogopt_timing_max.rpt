@@ -1,0 +1,1386 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Sat Mar 21 07:52:00 2015
+| Host         : artois running 64-bit Ubuntu 12.04.4 LTS
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postlogopt_timing_max.rpt
+| Design       : or1200_flat
+| Device       : 7vx330t-ffg1157
+| Speed File   : -3  PRODUCTION 1.11 2014-03-13
+------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.622ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[63]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.385ns  (logic 5.442ns (73.691%)  route 1.943ns (26.309%))
+  Logic Levels:           22  (CARRY4=16 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.319 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.319    or1200_mult_mac/n_0_mul_prod_r_reg[59]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     8.473 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[3]
+                         net (fo=1, unplaced)         0.253     8.726    or1200_mult_mac/mul_prod__3[63]
+                                                                      r  or1200_mult_mac/mul_prod_r[63]_i_2/I4
+                         LUT6 (Prop_lut6_I4_O)        0.120     8.846 r  or1200_mult_mac/mul_prod_r[63]_i_2/O
+                         net (fo=1, unplaced)         0.000     8.846    or1200_mult_mac/n_0_mul_prod_r[63]_i_2
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[63]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[63]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[63]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.846    
+  -------------------------------------------------------------------
+                         slack                                  0.622    
+
+Slack (MET) :             0.663ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[62]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.344ns  (logic 5.410ns (73.667%)  route 1.934ns (26.333%))
+  Logic Levels:           22  (CARRY4=16 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.319 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.319    or1200_mult_mac/n_0_mul_prod_r_reg[59]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+                         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.116     8.435 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[2]
+                         net (fo=1, unplaced)         0.244     8.679    or1200_mult_mac/mul_prod__3[62]
+                                                                      r  or1200_mult_mac/mul_prod_r[62]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.126     8.805 r  or1200_mult_mac/mul_prod_r[62]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.805    or1200_mult_mac/n_0_mul_prod_r[62]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[62]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[62]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[62]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.805    
+  -------------------------------------------------------------------
+                         slack                                  0.663    
+
+Slack (MET) :             0.672ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[59]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.335ns  (logic 5.392ns (73.512%)  route 1.943ns (26.488%))
+  Logic Levels:           21  (CARRY4=15 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     8.423 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/O[3]
+                         net (fo=1, unplaced)         0.253     8.676    or1200_mult_mac/mul_prod__3[59]
+                                                                      r  or1200_mult_mac/mul_prod_r[59]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.120     8.796 r  or1200_mult_mac/mul_prod_r[59]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.796    or1200_mult_mac/n_0_mul_prod_r[59]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[59]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[59]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.796    
+  -------------------------------------------------------------------
+                         slack                                  0.672    
+
+Slack (MET) :             0.700ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[61]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.307ns  (logic 5.448ns (74.560%)  route 1.859ns (25.440%))
+  Logic Levels:           22  (CARRY4=16 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.319 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.319    or1200_mult_mac/n_0_mul_prod_r_reg[59]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.159     8.478 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[1]
+                         net (fo=1, unplaced)         0.169     8.647    or1200_mult_mac/mul_prod__3[61]
+                                                                      r  or1200_mult_mac/mul_prod_r[61]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.121     8.768 r  or1200_mult_mac/mul_prod_r[61]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.768    or1200_mult_mac/n_0_mul_prod_r[61]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[61]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[61]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[61]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.768    
+  -------------------------------------------------------------------
+                         slack                                  0.700    
+
+Slack (MET) :             0.713ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[58]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.294ns  (logic 5.360ns (73.487%)  route 1.934ns (26.514%))
+  Logic Levels:           21  (CARRY4=15 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.116     8.385 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/O[2]
+                         net (fo=1, unplaced)         0.244     8.629    or1200_mult_mac/mul_prod__3[58]
+                                                                      r  or1200_mult_mac/mul_prod_r[58]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.126     8.755 r  or1200_mult_mac/mul_prod_r[58]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.755    or1200_mult_mac/n_0_mul_prod_r[58]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[58]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[58]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[58]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.755    
+  -------------------------------------------------------------------
+                         slack                                  0.713    
+
+Slack (MET) :             0.722ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[55]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.285ns  (logic 5.342ns (73.330%)  route 1.943ns (26.670%))
+  Logic Levels:           20  (CARRY4=14 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     8.373 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[3]
+                         net (fo=1, unplaced)         0.253     8.626    or1200_mult_mac/mul_prod__3[55]
+                                                                      r  or1200_mult_mac/mul_prod_r[55]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.120     8.746 r  or1200_mult_mac/mul_prod_r[55]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.746    or1200_mult_mac/n_0_mul_prod_r[55]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[55]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[55]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.746    
+  -------------------------------------------------------------------
+                         slack                                  0.722    
+
+Slack (MET) :             0.750ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[57]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.257ns  (logic 5.398ns (74.385%)  route 1.859ns (25.615%))
+  Logic Levels:           21  (CARRY4=15 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.159     8.428 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/O[1]
+                         net (fo=1, unplaced)         0.169     8.597    or1200_mult_mac/mul_prod__3[57]
+                                                                      r  or1200_mult_mac/mul_prod_r[57]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.121     8.718 r  or1200_mult_mac/mul_prod_r[57]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.718    or1200_mult_mac/n_0_mul_prod_r[57]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[57]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[57]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[57]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.718    
+  -------------------------------------------------------------------
+                         slack                                  0.750    
+
+Slack (MET) :             0.750ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[60]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.257ns  (logic 5.395ns (74.343%)  route 1.862ns (25.657%))
+  Logic Levels:           22  (CARRY4=16 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.269 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.269    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.319 r  or1200_mult_mac/mul_prod_r_reg[59]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.319    or1200_mult_mac/n_0_mul_prod_r_reg[59]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+                         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.108     8.427 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[0]
+                         net (fo=1, unplaced)         0.172     8.599    or1200_mult_mac/mul_prod__3[60]
+                                                                      r  or1200_mult_mac/mul_prod_r[60]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.119     8.718 r  or1200_mult_mac/mul_prod_r[60]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.718    or1200_mult_mac/n_0_mul_prod_r[60]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[60]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[60]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[60]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.718    
+  -------------------------------------------------------------------
+                         slack                                  0.750    
+
+Slack (MET) :             0.763ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[54]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.244ns  (logic 5.310ns (73.303%)  route 1.934ns (26.697%))
+  Logic Levels:           20  (CARRY4=14 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.219 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.219    or1200_mult_mac/n_0_mul_prod_r_reg[51]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.116     8.335 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[2]
+                         net (fo=1, unplaced)         0.244     8.579    or1200_mult_mac/mul_prod__3[54]
+                                                                      r  or1200_mult_mac/mul_prod_r[54]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.126     8.705 r  or1200_mult_mac/mul_prod_r[54]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.705    or1200_mult_mac/n_0_mul_prod_r[54]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[54]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[54]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[54]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.705    
+  -------------------------------------------------------------------
+                         slack                                  0.763    
+
+Slack (MET) :             0.772ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[51]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk rise@8.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.235ns  (logic 5.292ns (73.146%)  route 1.943ns (26.854%))
+  Logic Levels:           19  (CARRY4=13 DSP48E1=2 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.296ns = ( 9.296 - 8.000 ) 
+    Source Clock Delay      (SCD):    1.461ns
+    Clock Pessimism Removal (CPR):    0.143ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.512     0.512 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.434     0.947    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.080     1.027 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.434     1.461    or1200_operandmuxes/clk_IBUF_BUFG
+                                                                      r  or1200_operandmuxes/operand_a_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.254     1.715 f  or1200_operandmuxes/operand_a_reg[2]/Q
+                         net (fo=25, unplaced)        0.330     2.045    or1200_operandmuxes/O4[2]
+                                                                      f  or1200_operandmuxes/mul_prod_i_35__0/I0
+                         LUT1 (Prop_lut1_I0_O)        0.119     2.164 r  or1200_operandmuxes/mul_prod_i_35__0/O
+                         net (fo=1, unplaced)         0.000     2.164    or1200_operandmuxes/n_0_mul_prod_i_35__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_21__0/S[2]
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.177     2.341 r  or1200_operandmuxes/mul_prod_i_21__0/CO[3]
+                         net (fo=1, unplaced)         0.007     2.348    or1200_operandmuxes/n_0_mul_prod_i_21__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_20__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.398 r  or1200_operandmuxes/mul_prod_i_20__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.398    or1200_operandmuxes/n_0_mul_prod_i_20__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_19__0/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     2.448 r  or1200_operandmuxes/mul_prod_i_19__0/CO[3]
+                         net (fo=1, unplaced)         0.000     2.448    or1200_operandmuxes/n_0_mul_prod_i_19__0
+                                                                      r  or1200_operandmuxes/mul_prod_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     2.602 r  or1200_operandmuxes/mul_prod_i_18/O[3]
+                         net (fo=1, unplaced)         0.427     3.029    or1200_ctrl/x0[15]
+                                                                      r  or1200_ctrl/mul_prod_i_2/I0
+                         LUT4 (Prop_lut4_I0_O)        0.120     3.149 r  or1200_ctrl/mul_prod_i_2/O
+                         net (fo=3, unplaced)         0.434     3.584    or1200_mult_mac/x[15]
+                                                                      r  or1200_mult_mac/mul_prod__1/mul_prod/A[15]
+                         DSP48E1 (Prop_dsp48e1_A[15]_PCOUT[47])
+                                                      2.517     6.101 r  or1200_mult_mac/mul_prod__1/mul_prod/PCOUT[47]
+                         net (fo=1, unplaced)         0.050     6.151    or1200_mult_mac/n_106_mul_prod__1/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod__2/mul_prod/PCIN[47]
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      0.938     7.089 r  or1200_mult_mac/mul_prod__2/mul_prod/P[0]
+                         net (fo=2, unplaced)         0.434     7.523    or1200_mult_mac/n_105_mul_prod__2/mul_prod
+                                                                      r  or1200_mult_mac/mul_prod_r[19]_i_5/I0
+                         LUT2 (Prop_lut2_I0_O)        0.043     7.566 r  or1200_mult_mac/mul_prod_r[19]_i_5/O
+                         net (fo=1, unplaced)         0.000     7.566    or1200_mult_mac/n_0_mul_prod_r[19]_i_5
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.246     7.812 r  or1200_mult_mac/mul_prod_r_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.007     7.819    or1200_mult_mac/n_0_mul_prod_r_reg[19]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.869 r  or1200_mult_mac/mul_prod_r_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.869    or1200_mult_mac/n_0_mul_prod_r_reg[23]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.919 r  or1200_mult_mac/mul_prod_r_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.919    or1200_mult_mac/n_0_mul_prod_r_reg[27]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     7.969 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.969    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.019 r  or1200_mult_mac/mul_prod_r_reg[35]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.019    or1200_mult_mac/n_0_mul_prod_r_reg[35]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.069 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.069    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.119 r  or1200_mult_mac/mul_prod_r_reg[43]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.119    or1200_mult_mac/n_0_mul_prod_r_reg[43]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.050     8.169 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.169    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.154     8.323 r  or1200_mult_mac/mul_prod_r_reg[51]_i_2/O[3]
+                         net (fo=1, unplaced)         0.253     8.576    or1200_mult_mac/mul_prod__3[51]
+                                                                      r  or1200_mult_mac/mul_prod_r[51]_i_1/I4
+                         LUT6 (Prop_lut6_I4_O)        0.120     8.696 r  or1200_mult_mac/mul_prod_r[51]_i_1/O
+                         net (fo=1, unplaced)         0.000     8.696    or1200_mult_mac/n_0_mul_prod_r[51]_i_1
+                         FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[51]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        8.000     8.000 r  
+                                                      0.000     8.000 r  clk
+                         net (fo=0)                   0.000     8.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.399     8.399 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.413     8.812    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.072     8.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=682, unplaced)       0.413     9.296    or1200_mult_mac/clk_IBUF_BUFG
+                                                                      r  or1200_mult_mac/mul_prod_r_reg[51]/C
+                         clock pessimism              0.143     9.439    
+                         clock uncertainty           -0.035     9.404    
+                         FDRE (Setup_fdre_C_D)        0.064     9.468    or1200_mult_mac/mul_prod_r_reg[51]
+  -------------------------------------------------------------------
+                         required time                          9.468    
+                         arrival time                          -8.696    
+  -------------------------------------------------------------------
+                         slack                                  0.772    
+
+
+
+
