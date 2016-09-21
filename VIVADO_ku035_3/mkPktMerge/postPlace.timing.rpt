@@ -1,0 +1,78 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 18:49:59 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -file postPlace.timing.rpt
+| Design       : mkPktMerge
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.183ns  (required time - arrival time)
+  Source:                 fo/fifo_3/rp_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@0.500ns period=1.000ns})
+  Destination:            fo/fifo_3/ram3/mem_reg_2/ADDRBWRADDR[7]
+                            (rising edge-triggered cell RAMB18E2 clocked by CLK  {rise@0.000ns fall@0.500ns period=1.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.000ns  (CLK rise@1.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.687ns  (logic 0.102ns (14.847%)  route 0.585ns (85.153%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.122ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.417ns = ( 3.417 - 1.000 ) 
+    Source Clock Delay      (SCD):    2.807ns
+    Clock Pessimism Removal (CPR):    0.268ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.788ns (routing 0.716ns, distribution 1.072ns)
+  Clock Net Delay (Destination): 1.560ns (routing 0.655ns, distribution 0.905ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  CLK
+                         net (fo=0)                   0.000     0.000    CLK_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  CLK_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    CLK_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  CLK_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    CLK_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  CLK_IBUF_BUFG_inst/O
+    X1Y0 (CLOCK_ROOT)    net (fo=355, estimated)      1.788     2.807    fo/fifo_3/CLK_IBUF_BUFG
+    SLICE_X44Y115                                                     r  fo/fifo_3/rp_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y115        FDRE (Prop_FDRE_C_Q)         0.102     2.909 r  fo/fifo_3/rp_reg[2]/Q
+                         net (fo=7, estimated)        0.585     3.494    fo/fifo_3/ram3/Q[2]
+    RAMB18_X5Y46         RAMB18E2                                     r  fo/fifo_3/ram3/mem_reg_2/ADDRBWRADDR[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        1.000     1.000 r  
+    AG12                                              0.000     1.000 r  CLK
+                         net (fo=0)                   0.000     1.000    CLK_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     1.451 r  CLK_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     1.480    CLK_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     1.503 r  CLK_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     1.798    CLK_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     1.857 r  CLK_IBUF_BUFG_inst/O
+    X1Y0 (CLOCK_ROOT)    net (fo=355, estimated)      1.560     3.417    fo/fifo_3/ram3/CLK_IBUF_BUFG
+    RAMB18_X5Y46                                                      r  fo/fifo_3/ram3/mem_reg_2/CLKBWRCLK
+                         clock pessimism              0.268     3.684    
+                         clock uncertainty           -0.035     3.649    
+    RAMB18_X5Y46         RAMB18E2 (Setup_RAMB18E2_CLKBWRCLK_ADDRBWRADDR[7])
+                                                     -0.338     3.311    fo/fifo_3/ram3/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          3.311    
+                         arrival time                          -3.494    
+  -------------------------------------------------------------------
+                         slack                                 -0.183    
+
+
+
+

@@ -1,0 +1,666 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 18:46:05 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type min -max_paths 10 -sort_by group -input_pins -file postlogopt_timing_min.rpt
+| Design       : sv_chip1_hierarchy_no_mem
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_10_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p0[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[5])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/O[5]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_100[13]
+                         FDRE                                         r  corr_out_10_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_10_reg[13]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_10_reg[13]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_10_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p0[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[6])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/O[6]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_100[14]
+                         FDRE                                         r  corr_out_10_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_10_reg[14]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_10_reg[14]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_10_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_0_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p0[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[7])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[15]_i_1/O[7]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_100[15]
+                         FDRE                                         r  corr_out_10_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_10_reg[15]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_10_reg[15]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_110_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p10[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[5])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/O[5]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1100[13]
+                         FDRE                                         r  corr_out_110_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_110_reg[13]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_110_reg[13]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_110_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p10[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[6])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/O[6]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1100[14]
+                         FDRE                                         r  corr_out_110_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_110_reg[14]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_110_reg[14]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_110_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_10_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p10[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[7])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_110_reg[15]_i_1/O[7]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1100[15]
+                         FDRE                                         r  corr_out_110_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_110_reg[15]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_110_reg[15]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_111_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p11[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[5])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/O[5]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1110[13]
+                         FDRE                                         r  corr_out_111_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_111_reg[13]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_111_reg[13]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_111_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p11[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[6])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/O[6]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1110[14]
+                         FDRE                                         r  corr_out_111_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_111_reg[14]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_111_reg[14]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_111_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_11_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p11[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[7])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_111_reg[15]_i_1/O[7]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1110[15]
+                         FDRE                                         r  corr_out_111_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_111_reg[15]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_111_reg[15]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+Slack (VIOLATED) :        -0.012ns  (arrival time - required time)
+  Source:                 wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_12_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            corr_out_112_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.052ns  (logic 0.052ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.008ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.799ns
+    Source Clock Delay      (SCD):    0.561ns
+    Clock Pessimism Removal (CPR):    0.230ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     0.219 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.219    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.219 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.157     0.377    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.404 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.157     0.561    wrapper_norm_corr_20_inst_p/corr_20_inst/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_12_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.052     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_12_reg[12]/Q
+                         net (fo=2, unplaced)         0.000     0.613    wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_1_p12[12]
+                                                                      r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_112_reg[15]_i_1/DI[4]
+                         CARRY8 (Prop_CARRY8_DI[4]_O[5])
+                                                      0.000     0.613 r  wrapper_norm_corr_20_inst_p/corr_20_inst/corr_out_112_reg[15]_i_1/O[5]
+                         net (fo=1, unplaced)         0.000     0.613    corr_out_1120[13]
+                         FDRE                                         r  corr_out_112_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.437     0.437 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.437    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.437 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.166     0.603    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.634 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.166     0.799    tm3_clk_v0_IBUF_BUFG
+                                                                      r  corr_out_112_reg[13]/C
+                         clock pessimism             -0.230     0.570    
+                         FDRE (Hold_FDRE_C_D)         0.056     0.626    corr_out_112_reg[13]
+  -------------------------------------------------------------------
+                         required time                         -0.626    
+                         arrival time                           0.613    
+  -------------------------------------------------------------------
+                         slack                                 -0.012    
+
+
+
+

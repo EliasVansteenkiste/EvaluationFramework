@@ -1,0 +1,1226 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:58:42 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postlogopt_timing_max.rpt
+| Design       : system
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT3=1 LUT4=1 LUT5=1 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0_i_34__1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0_i_34__1/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/WEA[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT3=1 LUT4=1 LUT5=1 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0_i_34__1/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0_i_34__1/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/WEA[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__0/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__0_i_5__0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__0_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I5[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__0/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__0/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__0
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__0/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__0_i_5__0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__0_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I5[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__0/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__0/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__0
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__1/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__1_i_5__0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__1_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I8[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__1/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__1/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__1
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__1/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__1_i_5__0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__1_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I8[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__1/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__1/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__1
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__10/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=2 LUT5=1 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__10_i_5__0/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__10_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I35[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__10/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__10/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__10
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__11/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT3=1 LUT4=1 LUT5=1 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__11_i_9/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__11_i_9/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I37[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__11/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__11/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__11
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__13/WEA[0]
+                            (rising edge-triggered cell RAMB18E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_122/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_122
+                                                                      r  pipereg14/mem_reg_bram_0_i_40__0/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     7.703 r  pipereg14/mem_reg_bram_0_i_40__0/O
+                         net (fo=3, unplaced)         0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_40__0
+                                                                      r  pipereg14/mem_reg_bram_0__13_i_2__0/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__13_i_2__0/O
+                         net (fo=2, unplaced)         0.270     8.298    data_mem/dmem_replace/I39[0]
+                         RAMB18E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__13/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__13/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB18E2 (Setup_RAMB18E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__13
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+Slack (VIOLATED) :        -2.663ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__3/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.163ns  (logic 1.658ns (23.148%)  route 5.505ns (76.852%))
+  Logic Levels:           18  (LUT4=1 LUT5=2 LUT6=15)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 5.791 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.270     1.136    reg_file/inst1/clk_IBUF_BUFG
+                                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+                         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[3])
+                                                      1.046     2.182 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[3]
+                         net (fo=4, unplaced)         0.270     2.451    pipereg14/DOUTBDOUT[0]
+                                                                      r  pipereg14/nop7_q_OBUF[3]_inst_i_1/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.485 r  pipereg14/nop7_q_OBUF[3]_inst_i_1/O
+                         net (fo=7, unplaced)         0.309     2.794    pipereg14/nop7_q_OBUF[0]
+                                                                      r  pipereg14/mem_reg_bram_0_i_56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.828 r  pipereg14/mem_reg_bram_0_i_56/O
+                         net (fo=3, unplaced)         0.291     3.119    ifetch/pc_reg/nop6_q[1]
+                                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.153 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, unplaced)         0.291     3.444    pipereg14/I41
+                                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.478 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, unplaced)         0.291     3.769    pipereg14/n_0_mem_reg_bram_0_i_47__0
+                                                                      r  pipereg14/mem_reg_bram_0_i_44/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     3.803 r  pipereg14/mem_reg_bram_0_i_44/O
+                         net (fo=5, unplaced)         0.291     4.094    pipereg14/n_0_mem_reg_bram_0_i_44
+                                                                      r  pipereg14/mem_reg_bram_0_i_64/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.128 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, unplaced)         0.291     4.419    pipereg14/n_0_mem_reg_bram_0_i_64
+                                                                      r  pipereg14/mem_reg_bram_0_i_36__0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     4.453 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, unplaced)         0.291     4.744    pipereg14/n_0_mem_reg_bram_0_i_36__0
+                                                                      r  pipereg14/mem_reg_bram_0__11_i_19/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     4.778 r  pipereg14/mem_reg_bram_0__11_i_19/O
+                         net (fo=5, unplaced)         0.291     5.069    pipereg14/n_0_mem_reg_bram_0__11_i_19
+                                                                      r  pipereg14/mem_reg_bram_0_i_182/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.103 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, unplaced)         0.291     5.394    pipereg14/n_0_mem_reg_bram_0_i_182
+                                                                      r  pipereg14/mem_reg_bram_0_i_229/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.034     5.428 r  pipereg14/mem_reg_bram_0_i_229/O
+                         net (fo=5, unplaced)         0.291     5.719    pipereg14/n_0_mem_reg_bram_0_i_229
+                                                                      r  pipereg14/mem_reg_bram_0_i_167/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.753 r  pipereg14/mem_reg_bram_0_i_167/O
+                         net (fo=4, unplaced)         0.291     6.044    pipereg14/n_0_mem_reg_bram_0_i_167
+                                                                      r  pipereg14/mem_reg_bram_0_i_224/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.078 r  pipereg14/mem_reg_bram_0_i_224/O
+                         net (fo=6, unplaced)         0.291     6.369    pipereg14/n_0_mem_reg_bram_0_i_224
+                                                                      r  pipereg14/mem_reg_bram_0_i_220/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.403 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, unplaced)         0.291     6.694    pipereg14/n_0_mem_reg_bram_0_i_220
+                                                                      r  pipereg14/mem_reg_bram_0_i_216/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.728 r  pipereg14/mem_reg_bram_0_i_216/O
+                         net (fo=4, unplaced)         0.291     7.019    pipereg14/n_0_mem_reg_bram_0_i_216
+                                                                      r  pipereg14/mem_reg_bram_0_i_212/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.053 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, unplaced)         0.291     7.344    pipereg14/n_0_mem_reg_bram_0_i_212
+                                                                      r  pipereg14/mem_reg_bram_0_i_121/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.378 r  pipereg14/mem_reg_bram_0_i_121/O
+                         net (fo=4, unplaced)         0.291     7.669    pipereg14/n_0_mem_reg_bram_0_i_121
+                                                                      r  pipereg14/mem_reg_bram_0_i_63/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.703 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, unplaced)        0.291     7.994    pipereg14/n_0_mem_reg_bram_0_i_63
+                                                                      f  pipereg14/mem_reg_bram_0__3_i_5__0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     8.028 r  pipereg14/mem_reg_bram_0__3_i_5__0/O
+                         net (fo=4, unplaced)         0.270     8.298    data_mem/dmem_replace/I14[0]
+                         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__3/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+                                                                      r  clk_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.219 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.219    clk_IBUF_inst/OUT
+                                                                      r  clk_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.219 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.476    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     5.535 r  clk_IBUF_BUFG_inst/O
+                         net (fo=346, unplaced)       0.256     5.791    data_mem/dmem_replace/clk_IBUF_BUFG
+                                                                      r  data_mem/dmem_replace/mem_reg_bram_0__3/CLKARDCLK
+                         clock pessimism              0.331     6.122    
+                         clock uncertainty           -0.035     6.087    
+                         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     5.636    data_mem/dmem_replace/mem_reg_bram_0__3
+  -------------------------------------------------------------------
+                         required time                          5.636    
+                         arrival time                          -8.298    
+  -------------------------------------------------------------------
+                         slack                                 -2.663    
+
+
+
+

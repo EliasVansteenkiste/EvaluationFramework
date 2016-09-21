@@ -1,0 +1,2581 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2015.1.0 (lin64) Build 0 Wed Jan 28 11:59:42 PST 2015
+| Date              : Wed Jan 28 19:27:47 2015
+| Host              : xsjrdevl13 running 64-bit Red Hat Enterprise Linux Client release 5.9 (Tikanga)
+| Design            : diffeq_f_systemC
+| Device            : 7k70t-fbg676
+| Speed File        : -2  PRODUCTION 1.12 2014-09-11
+| Temperature Grade : C
+------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.732ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[12]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.834ns  (logic 8.197ns (75.660%)  route 2.637ns (24.340%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    14.150    temp_i_2/O[1]
+    DSP48_X0Y30          net (fo=2, unset)            0.431    14.581    uport0_dspDelayedAccum[29]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[12])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.581    
+  -------------------------------------------------------------------
+                         slack                                 -0.732    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[11]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.830ns  (logic 8.141ns (75.171%)  route 2.689ns (24.829%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    14.094    temp_i_2/O[0]
+    DSP48_X0Y30          net (fo=2, unset)            0.483    14.577    uport0_dspDelayedAccum[28]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[11])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.577    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.659ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[7]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.761ns  (logic 8.077ns (75.058%)  route 2.684ns (24.942%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    14.025    temp_i_3/O[0]
+    DSP48_X0Y30          net (fo=2, unset)            0.483    14.508    uport0_dspDelayedAccum[24]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[7])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.508    
+  -------------------------------------------------------------------
+                         slack                                 -0.659    
+
+Slack (VIOLATED) :        -0.646ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[13]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.748ns  (logic 8.143ns (75.763%)  route 2.605ns (24.237%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.119    14.096    temp_i_2/O[2]
+    DSP48_X0Y30          net (fo=2, unset)            0.399    14.495    uport0_dspDelayedAccum[30]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[13])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.495    
+  -------------------------------------------------------------------
+                         slack                                 -0.646    
+
+Slack (VIOLATED) :        -0.607ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[10]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.709ns  (logic 8.115ns (75.777%)  route 2.594ns (24.223%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.155    14.063    temp_i_3/O[3]
+    DSP48_X0Y30          net (fo=2, unset)            0.393    14.456    uport0_dspDelayedAccum[27]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[10])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.456    
+  -------------------------------------------------------------------
+                         slack                                 -0.607    
+
+Slack (VIOLATED) :        -0.602ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[14]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.704ns  (logic 8.179ns (76.411%)  route 2.525ns (23.589%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.155    14.132    temp_i_2/O[3]
+    DSP48_X0Y30          net (fo=2, unset)            0.319    14.451    uport0_dspDelayedAccum[31]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[14])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.451    
+  -------------------------------------------------------------------
+                         slack                                 -0.602    
+
+Slack (VIOLATED) :        -0.577ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[9]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.679ns  (logic 8.079ns (75.653%)  route 2.600ns (24.347%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.119    14.027    temp_i_3/O[2]
+    DSP48_X0Y30          net (fo=2, unset)            0.399    14.426    uport0_dspDelayedAccum[26]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[9])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.426    
+  -------------------------------------------------------------------
+                         slack                                 -0.577    
+
+Slack (VIOLATED) :        -0.553ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[8]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.655ns  (logic 8.133ns (76.330%)  route 2.522ns (23.670%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    14.081    temp_i_3/O[1]
+    DSP48_X0Y30          net (fo=2, unset)            0.321    14.402    uport0_dspDelayedAccum[25]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[8])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.402    
+  -------------------------------------------------------------------
+                         slack                                 -0.553    
+
+Slack (VIOLATED) :        -0.497ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[6]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.599ns  (logic 8.005ns (75.526%)  route 2.594ns (24.474%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_O[3])
+                                                      0.300    13.953    temp_i_4/O[3]
+    DSP48_X0Y30          net (fo=2, unset)            0.393    14.346    uport0_dspDelayedAccum[23]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[6])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.346    
+  -------------------------------------------------------------------
+                         slack                                 -0.497    
+
+Slack (VIOLATED) :        -0.473ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[5]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.575ns  (logic 7.975ns (75.414%)  route 2.600ns (24.586%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    13.923    temp_i_4/O[2]
+    DSP48_X0Y30          net (fo=2, unset)            0.399    14.322    uport0_dspDelayedAccum[22]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[5])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.322    
+  -------------------------------------------------------------------
+                         slack                                 -0.473    
+
+Slack (VIOLATED) :        -0.404ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[3]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.506ns  (logic 7.919ns (75.376%)  route 2.587ns (24.624%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    13.653    temp_i_5/CO[3]
+    SLICE_X10Y77         net (fo=1, unset)            0.000    13.653    temp_i_5_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    13.770    temp_i_4/O[0]
+    DSP48_X0Y30          net (fo=2, unset)            0.483    14.253    uport0_dspDelayedAccum[20]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[3])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.253    
+  -------------------------------------------------------------------
+                         slack                                 -0.404    
+
+Slack (VIOLATED) :        -0.298ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[4]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.400ns  (logic 7.975ns (76.683%)  route 2.425ns (23.317%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    13.653    temp_i_5/CO[3]
+    SLICE_X10Y77         net (fo=1, unset)            0.000    13.653    temp_i_5_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.826    temp_i_4/O[1]
+    DSP48_X0Y30          net (fo=2, unset)            0.321    14.147    uport0_dspDelayedAccum[21]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[4])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.147    
+  -------------------------------------------------------------------
+                         slack                                 -0.298    
+
+Slack (VIOLATED) :        -0.180ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[2]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.282ns  (logic 7.785ns (75.715%)  route 2.497ns (24.285%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.167    13.636    temp_i_5/O[3]
+    DSP48_X0Y30          net (fo=2, unset)            0.393    14.029    uport0_dspDelayedAccum[19]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[2])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -14.029    
+  -------------------------------------------------------------------
+                         slack                                 -0.180    
+
+Slack (VIOLATED) :        -0.132ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[1]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.234ns  (logic 7.715ns (75.386%)  route 2.519ns (24.614%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    12.607    temp_i_61/O[1]
+    SLICE_X10Y76         net (fo=3, unset)            0.650    13.257    temp_i_61_n_6
+    SLICE_X10Y76         LUT4 (Prop_lut4_I0_O)        0.043    13.300    temp_i_44/O
+    SLICE_X10Y76         net (fo=1, unset)            0.012    13.312    temp_i_44_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    13.582    temp_i_5/O[2]
+    DSP48_X0Y30          net (fo=2, unset)            0.399    13.981    uport0_dspDelayedAccum[18]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[1])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -13.981    
+  -------------------------------------------------------------------
+                         slack                                 -0.132    
+
+Slack (MET) :             0.012ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.440ns  (logic 8.197ns (78.515%)  route 2.243ns (21.485%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.445ns = ( 13.945 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    14.150    temp_i_2/O[1]
+    SLICE_X10Y79         net (fo=2, unset)            0.037    14.187    uport0_dspDelayedAccum[29]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y79         net (fo=99, unset)           1.140    13.945    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.194    
+                         clock uncertainty           -0.035    14.159    
+    SLICE_X10Y79         FDRE (Setup_fdre_C_D)        0.040    14.199    uport_reg[29]
+  -------------------------------------------------------------------
+                         required time                         14.199    
+                         arrival time                         -14.187    
+  -------------------------------------------------------------------
+                         slack                                  0.012    
+
+Slack (MET) :             0.030ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.422ns  (logic 8.179ns (78.478%)  route 2.243ns (21.522%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.445ns = ( 13.945 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.155    14.132    temp_i_2/O[3]
+    SLICE_X10Y79         net (fo=2, unset)            0.037    14.169    uport0_dspDelayedAccum[31]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y79         net (fo=99, unset)           1.140    13.945    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.194    
+                         clock uncertainty           -0.035    14.159    
+    SLICE_X10Y79         FDRE (Setup_fdre_C_D)        0.040    14.199    uport_reg[31]
+  -------------------------------------------------------------------
+                         required time                         14.199    
+                         arrival time                         -14.169    
+  -------------------------------------------------------------------
+                         slack                                  0.030    
+
+Slack (MET) :             0.066ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[30]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.386ns  (logic 8.143ns (78.404%)  route 2.243ns (21.596%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.445ns = ( 13.945 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.119    14.096    temp_i_2/O[2]
+    SLICE_X10Y79         net (fo=2, unset)            0.037    14.133    uport0_dspDelayedAccum[30]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y79         net (fo=99, unset)           1.140    13.945    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.194    
+                         clock uncertainty           -0.035    14.159    
+    SLICE_X10Y79         FDRE (Setup_fdre_C_D)        0.040    14.199    uport_reg[30]
+  -------------------------------------------------------------------
+                         required time                         14.199    
+                         arrival time                         -14.133    
+  -------------------------------------------------------------------
+                         slack                                  0.066    
+
+Slack (MET) :             0.068ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.384ns  (logic 8.141ns (78.399%)  route 2.243ns (21.601%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.445ns = ( 13.945 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[3])
+                                                      2.607    12.164    uport2/P[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.383    12.547    uport2_n_102
+    SLICE_X11Y81         LUT2 (Prop_lut2_I1_O)        0.043    12.590    temp_i_91/O
+    SLICE_X11Y81         net (fo=1, unset)            0.011    12.601    temp_i_91_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.248    12.849    temp_i_59/CO[3]
+    SLICE_X11Y82         net (fo=1, unset)            0.000    12.849    temp_i_59_n_0
+    SLICE_X11Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.022    temp_i_57/O[1]
+    SLICE_X10Y78         net (fo=3, unset)            0.645    13.667    temp_i_57_n_6
+    SLICE_X10Y78         LUT6 (Prop_lut6_I0_O)        0.043    13.710    temp_i_28/O
+    SLICE_X10Y78         net (fo=1, unset)            0.012    13.722    temp_i_28_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.977    temp_i_3/CO[3]
+    SLICE_X10Y79         net (fo=1, unset)            0.000    13.977    temp_i_3_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    14.094    temp_i_2/O[0]
+    SLICE_X10Y79         net (fo=2, unset)            0.037    14.131    uport0_dspDelayedAccum[28]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y79         net (fo=99, unset)           1.140    13.945    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.194    
+                         clock uncertainty           -0.035    14.159    
+    SLICE_X10Y79         FDRE (Setup_fdre_C_D)        0.040    14.199    uport_reg[28]
+  -------------------------------------------------------------------
+                         required time                         14.199    
+                         arrival time                         -14.131    
+  -------------------------------------------------------------------
+                         slack                                  0.068    
+
+Slack (MET) :             0.079ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[25]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.371ns  (logic 8.133ns (78.421%)  route 2.238ns (21.579%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.055ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.443ns = ( 13.943 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    14.081    temp_i_3/O[1]
+    SLICE_X10Y78         net (fo=2, unset)            0.037    14.118    uport0_dspDelayedAccum[25]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y78         net (fo=99, unset)           1.138    13.943    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.192    
+                         clock uncertainty           -0.035    14.157    
+    SLICE_X10Y78         FDRE (Setup_fdre_C_D)        0.040    14.197    uport_reg[25]
+  -------------------------------------------------------------------
+                         required time                         14.197    
+                         arrival time                         -14.118    
+  -------------------------------------------------------------------
+                         slack                                  0.079    
+
+Slack (MET) :             0.097ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.353ns  (logic 8.115ns (78.383%)  route 2.238ns (21.617%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.055ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.443ns = ( 13.943 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.155    14.063    temp_i_3/O[3]
+    SLICE_X10Y78         net (fo=2, unset)            0.037    14.100    uport0_dspDelayedAccum[27]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y78         net (fo=99, unset)           1.138    13.943    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.192    
+                         clock uncertainty           -0.035    14.157    
+    SLICE_X10Y78         FDRE (Setup_fdre_C_D)        0.040    14.197    uport_reg[27]
+  -------------------------------------------------------------------
+                         required time                         14.197    
+                         arrival time                         -14.100    
+  -------------------------------------------------------------------
+                         slack                                  0.097    
+
+Slack (MET) :             0.119ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            temp/B[0]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        9.983ns  (logic 7.542ns (75.548%)  route 2.441ns (24.452%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.452ns = ( 13.952 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    12.607    temp_i_61/O[1]
+    SLICE_X10Y76         net (fo=3, unset)            0.650    13.257    temp_i_61_n_6
+    SLICE_X10Y76         LUT4 (Prop_lut4_I0_O)        0.043    13.300    temp_i_44/O
+    SLICE_X10Y76         net (fo=1, unset)            0.012    13.312    temp_i_44_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    13.409    temp_i_5/O[1]
+    DSP48_X0Y30          net (fo=2, unset)            0.321    13.730    uport0_dspDelayedAccum[17]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y30          net (fo=99, unset)           1.147    13.952    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.201    
+                         clock uncertainty           -0.035    14.165    
+    DSP48_X0Y30          DSP48E1 (Setup_dsp48e1_CLK_B[0])
+                                                     -0.317    13.848    temp
+  -------------------------------------------------------------------
+                         required time                         13.848    
+                         arrival time                         -13.730    
+  -------------------------------------------------------------------
+                         slack                                  0.119    
+
+Slack (MET) :             0.133ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[26]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.317ns  (logic 8.079ns (78.308%)  route 2.238ns (21.692%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.055ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.443ns = ( 13.943 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.119    14.027    temp_i_3/O[2]
+    SLICE_X10Y78         net (fo=2, unset)            0.037    14.064    uport0_dspDelayedAccum[26]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y78         net (fo=99, unset)           1.138    13.943    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.192    
+                         clock uncertainty           -0.035    14.157    
+    SLICE_X10Y78         FDRE (Setup_fdre_C_D)        0.040    14.197    uport_reg[26]
+  -------------------------------------------------------------------
+                         required time                         14.197    
+                         arrival time                         -14.064    
+  -------------------------------------------------------------------
+                         slack                                  0.133    
+
+Slack (MET) :             0.135ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.315ns  (logic 8.077ns (78.303%)  route 2.238ns (21.697%))
+  Logic Levels:           13  (CARRY4=8 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.055ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.443ns = ( 13.943 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255    13.908    temp_i_4/CO[3]
+    SLICE_X10Y78         net (fo=1, unset)            0.000    13.908    temp_i_4_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    14.025    temp_i_3/O[0]
+    SLICE_X10Y78         net (fo=2, unset)            0.037    14.062    uport0_dspDelayedAccum[24]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y78         net (fo=99, unset)           1.138    13.943    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.192    
+                         clock uncertainty           -0.035    14.157    
+    SLICE_X10Y78         FDRE (Setup_fdre_C_D)        0.040    14.197    uport_reg[24]
+  -------------------------------------------------------------------
+                         required time                         14.197    
+                         arrival time                         -14.062    
+  -------------------------------------------------------------------
+                         slack                                  0.135    
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[23]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.243ns  (logic 8.005ns (78.151%)  route 2.238ns (21.849%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.056ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.442ns = ( 13.942 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_O[3])
+                                                      0.300    13.953    temp_i_4/O[3]
+    SLICE_X10Y77         net (fo=2, unset)            0.037    13.990    uport0_dspDelayedAccum[23]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y77         net (fo=99, unset)           1.137    13.942    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.191    
+                         clock uncertainty           -0.035    14.156    
+    SLICE_X10Y77         FDRE (Setup_fdre_C_D)        0.040    14.196    uport_reg[23]
+  -------------------------------------------------------------------
+                         required time                         14.196    
+                         arrival time                         -13.990    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+Slack (MET) :             0.236ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.213ns  (logic 7.975ns (78.087%)  route 2.238ns (21.913%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.056ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.442ns = ( 13.942 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[1])
+                                                      2.607    12.164    uport2/P[1]
+    SLICE_X11Y80         net (fo=1, unset)            0.378    12.542    uport2_n_104
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.585    temp_i_97/O
+    SLICE_X11Y80         net (fo=1, unset)            0.011    12.596    temp_i_97_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    12.780    temp_i_61/CO[3]
+    SLICE_X11Y81         net (fo=1, unset)            0.000    12.780    temp_i_61_n_0
+    SLICE_X11Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    12.953    temp_i_59/O[1]
+    SLICE_X10Y77         net (fo=3, unset)            0.645    13.598    temp_i_59_n_6
+    SLICE_X10Y77         LUT6 (Prop_lut6_I0_O)        0.043    13.641    temp_i_36/O
+    SLICE_X10Y77         net (fo=1, unset)            0.012    13.653    temp_i_36_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    13.923    temp_i_4/O[2]
+    SLICE_X10Y77         net (fo=2, unset)            0.037    13.960    uport0_dspDelayedAccum[22]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y77         net (fo=99, unset)           1.137    13.942    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.191    
+                         clock uncertainty           -0.035    14.156    
+    SLICE_X10Y77         FDRE (Setup_fdre_C_D)        0.040    14.196    uport_reg[22]
+  -------------------------------------------------------------------
+                         required time                         14.196    
+                         arrival time                         -13.960    
+  -------------------------------------------------------------------
+                         slack                                  0.236    
+
+Slack (MET) :             0.333ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[21]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.116ns  (logic 7.975ns (78.835%)  route 2.141ns (21.164%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.056ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.442ns = ( 13.942 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    13.653    temp_i_5/CO[3]
+    SLICE_X10Y77         net (fo=1, unset)            0.000    13.653    temp_i_5_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173    13.826    temp_i_4/O[1]
+    SLICE_X10Y77         net (fo=2, unset)            0.037    13.863    uport0_dspDelayedAccum[21]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y77         net (fo=99, unset)           1.137    13.942    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.191    
+                         clock uncertainty           -0.035    14.156    
+    SLICE_X10Y77         FDRE (Setup_fdre_C_D)        0.040    14.196    uport_reg[21]
+  -------------------------------------------------------------------
+                         required time                         14.196    
+                         arrival time                         -13.863    
+  -------------------------------------------------------------------
+                         slack                                  0.333    
+
+Slack (MET) :             0.389ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[20]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        10.060ns  (logic 7.919ns (78.718%)  route 2.141ns (21.282%))
+  Logic Levels:           12  (CARRY4=7 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.056ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.442ns = ( 13.942 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.184    13.653    temp_i_5/CO[3]
+    SLICE_X10Y77         net (fo=1, unset)            0.000    13.653    temp_i_5_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.117    13.770    temp_i_4/O[0]
+    SLICE_X10Y77         net (fo=2, unset)            0.037    13.807    uport0_dspDelayedAccum[20]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y77         net (fo=99, unset)           1.137    13.942    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.191    
+                         clock uncertainty           -0.035    14.156    
+    SLICE_X10Y77         FDRE (Setup_fdre_C_D)        0.040    14.196    uport_reg[20]
+  -------------------------------------------------------------------
+                         required time                         14.196    
+                         arrival time                         -13.807    
+  -------------------------------------------------------------------
+                         slack                                  0.389    
+
+Slack (MET) :             0.522ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[19]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        9.926ns  (logic 7.785ns (78.430%)  route 2.141ns (21.570%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.057ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.441ns = ( 13.941 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    12.780    temp_i_61/O[2]
+    SLICE_X10Y76         net (fo=3, unset)            0.635    13.415    temp_i_61_n_5
+    SLICE_X10Y76         LUT6 (Prop_lut6_I1_O)        0.043    13.458    temp_i_43/O
+    SLICE_X10Y76         net (fo=1, unset)            0.011    13.469    temp_i_43_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.167    13.636    temp_i_5/O[3]
+    SLICE_X10Y76         net (fo=2, unset)            0.037    13.673    uport0_dspDelayedAccum[19]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y76         net (fo=99, unset)           1.136    13.941    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.190    
+                         clock uncertainty           -0.035    14.155    
+    SLICE_X10Y76         FDRE (Setup_fdre_C_D)        0.040    14.195    uport_reg[19]
+  -------------------------------------------------------------------
+                         required time                         14.195    
+                         arrival time                         -13.673    
+  -------------------------------------------------------------------
+                         slack                                  0.522    
+
+Slack (MET) :             0.576ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[18]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        9.872ns  (logic 7.715ns (78.150%)  route 2.157ns (21.850%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.057ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.441ns = ( 13.941 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    12.607    temp_i_61/O[1]
+    SLICE_X10Y76         net (fo=3, unset)            0.650    13.257    temp_i_61_n_6
+    SLICE_X10Y76         LUT4 (Prop_lut4_I0_O)        0.043    13.300    temp_i_44/O
+    SLICE_X10Y76         net (fo=1, unset)            0.012    13.312    temp_i_44_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.270    13.582    temp_i_5/O[2]
+    SLICE_X10Y76         net (fo=2, unset)            0.037    13.619    uport0_dspDelayedAccum[18]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y76         net (fo=99, unset)           1.136    13.941    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.190    
+                         clock uncertainty           -0.035    14.155    
+    SLICE_X10Y76         FDRE (Setup_fdre_C_D)        0.040    14.195    uport_reg[18]
+  -------------------------------------------------------------------
+                         required time                         14.195    
+                         arrival time                         -13.619    
+  -------------------------------------------------------------------
+                         slack                                  0.576    
+
+Slack (MET) :             0.749ns  (required time - arrival time)
+  Source:                 temp__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Destination:            uport_reg[17]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.250ns period=10.500ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.500ns  (clk rise@10.500ns - clk rise@0.000ns)
+  Data Path Delay:        9.699ns  (logic 7.542ns (77.761%)  route 2.157ns (22.239%))
+  Logic Levels:           11  (CARRY4=6 DSP48E1=2 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.057ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.441ns = ( 13.941 - 10.500 ) 
+    Source Clock Delay      (SCD):    3.747ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000    
+    D23                                               0.000     0.000    clk
+    D23                  net (fo=0)                   0.000     0.000    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.814     0.814    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.562     2.376    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.469    clk_IBUF_BUFG_inst/O
+    DSP48_X0Y28          net (fo=99, unset)           1.278     3.747    clk_IBUF_BUFG
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y28          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      3.001     6.748    temp__0/PCOUT[47]
+    DSP48_X0Y29          net (fo=1, unset)            0.000     6.748    temp__0_n_106
+    DSP48_X0Y29          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.077     7.825    temp__1/P[0]
+    SLICE_X11Y75         net (fo=2, unset)            0.567     8.392    temp__1_n_105
+    SLICE_X11Y75         LUT2 (Prop_lut2_I0_O)        0.043     8.435    uport2_i_23/O
+    SLICE_X11Y75         net (fo=1, unset)            0.012     8.447    uport2_i_23_n_0
+    SLICE_X11Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.255     8.702    uport2_i_4/CO[3]
+    SLICE_X11Y76         net (fo=1, unset)            0.000     8.702    uport2_i_4_n_0
+    SLICE_X11Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.755    uport2_i_3/CO[3]
+    SLICE_X11Y77         net (fo=1, unset)            0.000     8.755    uport2_i_3_n_0
+    SLICE_X11Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     8.808    uport2_i_2/CO[3]
+    SLICE_X11Y78         net (fo=1, unset)            0.000     8.808    uport2_i_2_n_0
+    SLICE_X11Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     8.981    uport2_i_1/O[1]
+    DSP48_X0Y33          net (fo=2, unset)            0.576     9.557    temp__2[29]
+    DSP48_X0Y33          DSP48E1 (Prop_dsp48e1_B[12]_P[0])
+                                                      2.607    12.164    uport2/P[0]
+    SLICE_X11Y80         net (fo=1, unset)            0.291    12.455    uport2_n_105
+    SLICE_X11Y80         LUT2 (Prop_lut2_I1_O)        0.043    12.498    temp_i_98/O
+    SLICE_X11Y80         net (fo=1, unset)            0.012    12.510    temp_i_98_n_0
+    SLICE_X11Y80         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    12.607    temp_i_61/O[1]
+    SLICE_X10Y76         net (fo=3, unset)            0.650    13.257    temp_i_61_n_6
+    SLICE_X10Y76         LUT4 (Prop_lut4_I0_O)        0.043    13.300    temp_i_44/O
+    SLICE_X10Y76         net (fo=1, unset)            0.012    13.312    temp_i_44_n_0
+    SLICE_X10Y76         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.097    13.409    temp_i_5/O[1]
+    SLICE_X10Y76         net (fo=2, unset)            0.037    13.446    uport0_dspDelayedAccum[17]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.500    10.500    
+    D23                                               0.000    10.500    clk
+    D23                  net (fo=0)                   0.000    10.500    clk
+    D23                  IBUF (Prop_ibuf_I_O)         0.738    11.238    clk_IBUF_inst/O
+    BUFGCTRL_X0Y0        net (fo=1, unset)            1.484    12.722    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083    12.805    clk_IBUF_BUFG_inst/O
+    SLICE_X10Y76         net (fo=99, unset)           1.136    13.941    clk_IBUF_BUFG
+                         clock pessimism              0.249    14.190    
+                         clock uncertainty           -0.035    14.155    
+    SLICE_X10Y76         FDRE (Setup_fdre_C_D)        0.040    14.195    uport_reg[17]
+  -------------------------------------------------------------------
+                         required time                         14.195    
+                         arrival time                         -13.446    
+  -------------------------------------------------------------------
+                         slack                                  0.749    
+
+
+
+

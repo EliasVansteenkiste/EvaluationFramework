@@ -1,0 +1,656 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:36:16 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type min -max_paths 10 -sort_by group -input_pins -file postplace_timing_min.rpt
+| Design       : sv_chip2_hierarchy_no_mem
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.115ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[22]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_n_reg_reg[7]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.294ns  (logic 0.087ns (29.582%)  route 0.207ns (70.418%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.157ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.596ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.739ns (routing 0.698ns, distribution 1.041ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.739     2.596    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X44Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[22]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y59         FDRE (Prop_FDRE_C_Q)         0.087     2.683 r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[22]/Q
+                         net (fo=1, estimated)        0.207     2.890    h_fltr_2_right/n_40_my_steer_fltr_inst
+    SLICE_X43Y60         SRL16E                                       r  h_fltr_2_right/real_n_reg_reg[7]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y60                                                      r  h_fltr_2_right/real_n_reg_reg[7]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y60         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.252     3.005    h_fltr_2_right/real_n_reg_reg[7]_srl2
+  -------------------------------------------------------------------
+                         required time                         -3.005    
+                         arrival time                           2.890    
+  -------------------------------------------------------------------
+                         slack                                 -0.115    
+
+Slack (VIOLATED) :        -0.067ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[21]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_n_reg_reg[6]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.281ns  (logic 0.088ns (31.333%)  route 0.193ns (68.667%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.157ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.596ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.739ns (routing 0.698ns, distribution 1.041ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.739     2.596    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X44Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[21]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y59         FDRE (Prop_FDRE_C_Q)         0.088     2.684 r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[21]/Q
+                         net (fo=1, estimated)        0.193     2.876    h_fltr_2_right/n_41_my_steer_fltr_inst
+    SLICE_X43Y60         SRL16E                                       r  h_fltr_2_right/real_n_reg_reg[6]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y60                                                      r  h_fltr_2_right/real_n_reg_reg[6]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y60         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.944    h_fltr_2_right/real_n_reg_reg[6]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.944    
+                         arrival time                           2.876    
+  -------------------------------------------------------------------
+                         slack                                 -0.067    
+
+Slack (VIOLATED) :        -0.060ns  (arrival time - required time)
+  Source:                 h_fltr_4_right/my_steer_fltr_inst/re_p_tmp_reg[22]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_4_right/real_p_reg_reg[7]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.234ns  (logic 0.087ns (37.140%)  route 0.147ns (62.860%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.042ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.978ns
+    Source Clock Delay      (SCD):    2.596ns
+    Clock Pessimism Removal (CPR):    0.340ns
+  Clock Net Delay (Source):      1.739ns (routing 0.698ns, distribution 1.041ns)
+  Clock Net Delay (Destination): 1.959ns (routing 0.764ns, distribution 1.195ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.739     2.596    h_fltr_4_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X41Y67                                                      r  h_fltr_4_right/my_steer_fltr_inst/re_p_tmp_reg[22]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y67         FDRE (Prop_FDRE_C_Q)         0.087     2.683 r  h_fltr_4_right/my_steer_fltr_inst/re_p_tmp_reg[22]/Q
+                         net (fo=1, estimated)        0.147     2.830    h_fltr_4_right/n_8_my_steer_fltr_inst
+    SLICE_X40Y67         SRL16E                                       r  h_fltr_4_right/real_p_reg_reg[7]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.959     2.978    h_fltr_4_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X40Y67                                                      r  h_fltr_4_right/real_p_reg_reg[7]_srl2/CLK
+                         clock pessimism             -0.340     2.638    
+    SLICE_X40Y67         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.252     2.890    h_fltr_4_right/real_p_reg_reg[7]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.890    
+                         arrival time                           2.830    
+  -------------------------------------------------------------------
+                         slack                                 -0.060    
+
+Slack (VIOLATED) :        -0.057ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[23]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_n_reg_reg[8]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.291ns  (logic 0.088ns (30.209%)  route 0.203ns (69.791%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.157ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.596ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.739ns (routing 0.698ns, distribution 1.041ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.739     2.596    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X44Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[23]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y59         FDRE (Prop_FDRE_C_Q)         0.088     2.684 r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[23]/Q
+                         net (fo=1, estimated)        0.203     2.887    h_fltr_2_right/n_39_my_steer_fltr_inst
+    SLICE_X43Y60         SRL16E                                       r  h_fltr_2_right/real_n_reg_reg[8]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y60                                                      r  h_fltr_2_right/real_n_reg_reg[8]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y60         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.944    h_fltr_2_right/real_n_reg_reg[8]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.944    
+                         arrival time                           2.887    
+  -------------------------------------------------------------------
+                         slack                                 -0.057    
+
+Slack (VIOLATED) :        -0.047ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_p_tmp_reg[22]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_p_reg_reg[7]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.361ns  (logic 0.087ns (24.126%)  route 0.274ns (75.874%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.156ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.597ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.740ns (routing 0.698ns, distribution 1.042ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.740     2.597    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X45Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_p_tmp_reg[22]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X45Y59         FDRE (Prop_FDRE_C_Q)         0.087     2.684 r  h_fltr_2_right/my_steer_fltr_inst/re_p_tmp_reg[22]/Q
+                         net (fo=1, estimated)        0.274     2.957    h_fltr_2_right/n_8_my_steer_fltr_inst
+    SLICE_X43Y61         SRL16E                                       r  h_fltr_2_right/real_p_reg_reg[7]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y61                                                      r  h_fltr_2_right/real_p_reg_reg[7]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y61         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.252     3.005    h_fltr_2_right/real_p_reg_reg[7]_srl2
+  -------------------------------------------------------------------
+                         required time                         -3.005    
+                         arrival time                           2.957    
+  -------------------------------------------------------------------
+                         slack                                 -0.047    
+
+Slack (VIOLATED) :        -0.047ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[18]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_n_reg_reg[3]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.299ns  (logic 0.087ns (29.112%)  route 0.212ns (70.888%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.155ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.598ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.741ns (routing 0.698ns, distribution 1.043ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.741     2.598    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X44Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[18]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y59         FDRE (Prop_FDRE_C_Q)         0.087     2.685 r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[18]/Q
+                         net (fo=1, estimated)        0.212     2.896    h_fltr_2_right/n_44_my_steer_fltr_inst
+    SLICE_X43Y60         SRL16E                                       r  h_fltr_2_right/real_n_reg_reg[3]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y60                                                      r  h_fltr_2_right/real_n_reg_reg[3]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y60         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.944    h_fltr_2_right/real_n_reg_reg[3]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.944    
+                         arrival time                           2.896    
+  -------------------------------------------------------------------
+                         slack                                 -0.047    
+
+Slack (VIOLATED) :        -0.044ns  (arrival time - required time)
+  Source:                 h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[17]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            h_fltr_2_right/real_n_reg_reg[2]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.302ns  (logic 0.088ns (29.163%)  route 0.214ns (70.837%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.155ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.981ns
+    Source Clock Delay      (SCD):    2.598ns
+    Clock Pessimism Removal (CPR):    0.228ns
+  Clock Net Delay (Source):      1.741ns (routing 0.698ns, distribution 1.043ns)
+  Clock Net Delay (Destination): 1.962ns (routing 0.764ns, distribution 1.198ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.741     2.598    h_fltr_2_right/my_steer_fltr_inst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X44Y59                                                      r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[17]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y59         FDRE (Prop_FDRE_C_Q)         0.088     2.686 r  h_fltr_2_right/my_steer_fltr_inst/re_n_tmp_reg[17]/Q
+                         net (fo=1, estimated)        0.214     2.899    h_fltr_2_right/n_45_my_steer_fltr_inst
+    SLICE_X43Y60         SRL16E                                       r  h_fltr_2_right/real_n_reg_reg[2]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.962     2.981    h_fltr_2_right/tm3_clk_v0_IBUF_BUFG
+    SLICE_X43Y60                                                      r  h_fltr_2_right/real_n_reg_reg[2]_srl2/CLK
+                         clock pessimism             -0.228     2.753    
+    SLICE_X43Y60         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.944    h_fltr_2_right/real_n_reg_reg[2]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.944    
+                         arrival time                           2.899    
+  -------------------------------------------------------------------
+                         slack                                 -0.044    
+
+Slack (VIOLATED) :        -0.037ns  (arrival time - required time)
+  Source:                 v_d_reg_s2_right_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            v_fltr_2_right/fifo0/buff2_reg[6]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.250ns  (logic 0.088ns (35.137%)  route 0.162ns (64.863%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.097ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.977ns
+    Source Clock Delay      (SCD):    2.599ns
+    Clock Pessimism Removal (CPR):    0.281ns
+  Clock Net Delay (Source):      1.742ns (routing 0.698ns, distribution 1.044ns)
+  Clock Net Delay (Destination): 1.958ns (routing 0.764ns, distribution 1.194ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.742     2.599    tm3_clk_v0_IBUF_BUFG
+    SLICE_X48Y29                                                      r  v_d_reg_s2_right_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y29         FDRE (Prop_FDRE_C_Q)         0.088     2.687 r  v_d_reg_s2_right_reg[6]/Q
+                         net (fo=1, estimated)        0.162     2.849    v_fltr_2_right/fifo0/Q[6]
+    SLICE_X48Y30         SRL16E                                       r  v_fltr_2_right/fifo0/buff2_reg[6]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.958     2.977    v_fltr_2_right/fifo0/tm3_clk_v0_IBUF_BUFG
+    SLICE_X48Y30                                                      r  v_fltr_2_right/fifo0/buff2_reg[6]_srl2/CLK
+                         clock pessimism             -0.281     2.695    
+    SLICE_X48Y30         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.886    v_fltr_2_right/fifo0/buff2_reg[6]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.886    
+                         arrival time                           2.849    
+  -------------------------------------------------------------------
+                         slack                                 -0.037    
+
+Slack (VIOLATED) :        -0.036ns  (arrival time - required time)
+  Source:                 v_d_reg_s2_left_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            v_fltr_2_left/fifo0/buff2_reg[7]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.323ns  (logic 0.088ns (27.274%)  route 0.235ns (72.726%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.106ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.197ns
+    Source Clock Delay      (SCD):    2.788ns
+    Clock Pessimism Removal (CPR):    0.303ns
+  Clock Net Delay (Source):      1.931ns (routing 0.698ns, distribution 1.233ns)
+  Clock Net Delay (Destination): 2.178ns (routing 0.764ns, distribution 1.414ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.931     2.788    tm3_clk_v0_IBUF_BUFG
+    SLICE_X49Y64                                                      r  v_d_reg_s2_left_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y64         FDRE (Prop_FDRE_C_Q)         0.088     2.876 r  v_d_reg_s2_left_reg[7]/Q
+                         net (fo=1, estimated)        0.235     3.110    v_fltr_2_left/fifo0/Q[7]
+    SLICE_X52Y64         SRL16E                                       r  v_fltr_2_left/fifo0/buff2_reg[7]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    2.178     3.197    v_fltr_2_left/fifo0/tm3_clk_v0_IBUF_BUFG
+    SLICE_X52Y64                                                      r  v_fltr_2_left/fifo0/buff2_reg[7]_srl2/CLK
+                         clock pessimism             -0.303     2.894    
+    SLICE_X52Y64         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.252     3.146    v_fltr_2_left/fifo0/buff2_reg[7]_srl2
+  -------------------------------------------------------------------
+                         required time                         -3.146    
+                         arrival time                           3.110    
+  -------------------------------------------------------------------
+                         slack                                 -0.036    
+
+Slack (VIOLATED) :        -0.026ns  (arrival time - required time)
+  Source:                 v_fltr_1_left/fifo3/dout_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            v_fltr_1_left/fifo4/buff2_reg[6]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by tm3_clk_v0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.222ns  (logic 0.087ns (39.207%)  route 0.135ns (60.793%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.057ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.031ns
+    Source Clock Delay      (SCD):    2.648ns
+    Clock Pessimism Removal (CPR):    0.326ns
+  Clock Net Delay (Source):      1.791ns (routing 0.698ns, distribution 1.093ns)
+  Clock Net Delay (Destination): 2.012ns (routing 0.764ns, distribution 1.248ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     0.451 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     0.480    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     0.503 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     0.798    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     0.857 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    1.791     2.648    v_fltr_1_left/fifo3/tm3_clk_v0_IBUF_BUFG
+    SLICE_X13Y48                                                      r  v_fltr_1_left/fifo3/dout_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y48         FDRE (Prop_FDRE_C_Q)         0.087     2.735 r  v_fltr_1_left/fifo3/dout_reg[6]/Q
+                         net (fo=28, estimated)       0.135     2.869    v_fltr_1_left/fifo4/dout[2]
+    SLICE_X13Y49         SRL16E                                       r  v_fltr_1_left/fifo4/buff2_reg[6]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    AG12                                              0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    tm3_clk_v0_IBUF_inst/OUT
+    AG12                                                              r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    tm3_clk_v0_IBUF
+    BUFGCE_X1Y0                                                       r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=13854, estimated)    2.012     3.031    v_fltr_1_left/fifo4/tm3_clk_v0_IBUF_BUFG
+    SLICE_X13Y49                                                      r  v_fltr_1_left/fifo4/buff2_reg[6]_srl2/CLK
+                         clock pessimism             -0.326     2.704    
+    SLICE_X13Y49         SRL16E (Hold_SRL16E_CLK_D)
+                                                      0.191     2.895    v_fltr_1_left/fifo4/buff2_reg[6]_srl2
+  -------------------------------------------------------------------
+                         required time                         -2.895    
+                         arrival time                           2.869    
+  -------------------------------------------------------------------
+                         slack                                 -0.026    
+
+
+
+

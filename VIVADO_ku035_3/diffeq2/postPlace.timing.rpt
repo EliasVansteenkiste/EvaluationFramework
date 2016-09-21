@@ -1,0 +1,136 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:54:31 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -file postPlace.timing.rpt
+| Design       : diffeq_f_systemC
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.330ns  (required time - arrival time)
+  Source:                 temp__0/temp/DSP_A_B_DATA_INST/CLK
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by clk  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Destination:            temp/temp/DSP_A_B_DATA_INST/B[14]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by clk  {rise@0.000ns fall@3.500ns period=7.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            7.000ns  (clk rise@7.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.012ns  (logic 4.723ns (67.356%)  route 2.289ns (32.644%))
+  Logic Levels:           20  (CARRY8=4 DSP_A_B_DATA=1 DSP_ALU=3 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=3 DSP_PREADD_DATA=2 LUT2=2 LUT3=1)
+  Clock Path Skew:        -0.047ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.468ns = ( 9.468 - 7.000 ) 
+    Source Clock Delay      (SCD):    2.824ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.805ns (routing 0.764ns, distribution 1.041ns)
+  Clock Net Delay (Destination): 1.611ns (routing 0.698ns, distribution 0.913ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=114, estimated)      1.805     2.824    temp__0/temp/CLK
+    DSP48E2_X7Y36                                                     r  temp__0/temp/DSP_A_B_DATA_INST/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48E2_X7Y36        DSP_A_B_DATA (Prop_DSP_A_B_DATA_CLK_A2_DATA[11])
+                                                      0.207     3.031 r  temp__0/temp/DSP_A_B_DATA_INST/A2_DATA[11]
+                         net (fo=1, routed)           0.000     3.031    temp__0/temp/DSP_A_B_DATA.A2_DATA<11>
+    DSP48E2_X7Y36        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[11]_A2A1[11])
+                                                      0.097     3.128 r  temp__0/temp/DSP_PREADD_DATA_INST/A2A1[11]
+                         net (fo=1, routed)           0.000     3.128    temp__0/temp/DSP_PREADD_DATA.A2A1<11>
+    DSP48E2_X7Y36        DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[11]_U[19])
+                                                      0.650     3.778 f  temp__0/temp/DSP_MULTIPLIER_INST/U[19]
+                         net (fo=1, routed)           0.000     3.778    temp__0/temp/DSP_MULTIPLIER.U<19>
+    DSP48E2_X7Y36        DSP_M_DATA (Prop_DSP_M_DATA_U[19]_U_DATA[19])
+                                                      0.058     3.836 r  temp__0/temp/DSP_M_DATA_INST/U_DATA[19]
+                         net (fo=1, routed)           0.000     3.836    temp__0/temp/DSP_M_DATA.U_DATA<19>
+    DSP48E2_X7Y36        DSP_ALU (Prop_DSP_ALU_U_DATA[19]_ALU_OUT[19])
+                                                      0.557     4.393 f  temp__0/temp/DSP_ALU_INST/ALU_OUT[19]
+                         net (fo=1, routed)           0.000     4.393    temp__0/temp/DSP_ALU.ALU_OUT<19>
+    DSP48E2_X7Y36        DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[19]_PCOUT[19])
+                                                      0.071     4.464 r  temp__0/temp/DSP_OUTPUT_INST/PCOUT[19]
+                         net (fo=1, estimated)        0.002     4.466    temp__1/temp/PCIN[19]
+    DSP48E2_X7Y37        DSP_ALU (Prop_DSP_ALU_PCIN[19]_ALU_OUT[3])
+                                                      0.492     4.958 f  temp__1/temp/DSP_ALU_INST/ALU_OUT[3]
+                         net (fo=1, routed)           0.000     4.958    temp__1/temp/DSP_ALU.ALU_OUT<3>
+    DSP48E2_X7Y37        DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[3]_P[3])
+                                                      0.110     5.068 r  temp__1/temp/DSP_OUTPUT_INST/P[3]
+                         net (fo=2, estimated)        0.530     5.598    n_102_temp__1/temp
+    SLICE_X48Y93         LUT2 (Prop_LUT2_I0_O)        0.063     5.661 r  uport2_i_16__0/O
+                         net (fo=1, routed)           0.001     5.662    n_0_uport2_i_16__0
+    SLICE_X48Y93         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.245     5.907 r  uport2_i_2__0/CO[7]
+                         net (fo=1, estimated)        0.000     5.907    n_0_uport2_i_2__0
+    SLICE_X48Y94         CARRY8 (Prop_CARRY8_CI_O[1])
+                                                      0.134     6.041 f  uport2_i_1__0/O[1]
+                         net (fo=2, estimated)        0.417     6.458    uport2/uport2/B[8]
+    DSP48E2_X7Y41        DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[8]_B2_DATA[8])
+                                                      0.181     6.639 r  uport2/uport2/DSP_A_B_DATA_INST/B2_DATA[8]
+                         net (fo=1, routed)           0.000     6.639    uport2/uport2/DSP_A_B_DATA.B2_DATA<8>
+    DSP48E2_X7Y41        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[8]_B2B1[8])
+                                                      0.078     6.717 r  uport2/uport2/DSP_PREADD_DATA_INST/B2B1[8]
+                         net (fo=1, routed)           0.000     6.717    uport2/uport2/DSP_PREADD_DATA.B2B1<8>
+    DSP48E2_X7Y41        DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[8]_V[8])
+                                                      0.538     7.255 f  uport2/uport2/DSP_MULTIPLIER_INST/V[8]
+                         net (fo=1, routed)           0.000     7.255    uport2/uport2/DSP_MULTIPLIER.V<8>
+    DSP48E2_X7Y41        DSP_M_DATA (Prop_DSP_M_DATA_V[8]_V_DATA[8])
+                                                      0.104     7.359 r  uport2/uport2/DSP_M_DATA_INST/V_DATA[8]
+                         net (fo=1, routed)           0.000     7.359    uport2/uport2/DSP_M_DATA.V_DATA<8>
+    DSP48E2_X7Y41        DSP_ALU (Prop_DSP_ALU_V_DATA[8]_ALU_OUT[8])
+                                                      0.514     7.873 f  uport2/uport2/DSP_ALU_INST/ALU_OUT[8]
+                         net (fo=1, routed)           0.000     7.873    uport2/uport2/DSP_ALU.ALU_OUT<8>
+    DSP48E2_X7Y41        DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[8]_P[8])
+                                                      0.074     7.947 r  uport2/uport2/DSP_OUTPUT_INST/P[8]
+                         net (fo=1, estimated)        0.325     8.272    n_97_uport2/uport2
+    SLICE_X48Y98         LUT2 (Prop_LUT2_I1_O)        0.037     8.309 r  uport[31]_i_61/O
+                         net (fo=1, routed)           0.000     8.309    n_0_uport[31]_i_61
+    SLICE_X48Y98         CARRY8 (Prop_CARRY8_S[1]_O[5])
+                                                      0.276     8.585 f  uport_reg[31]_i_51/O[5]
+                         net (fo=3, estimated)        0.220     8.805    n_10_uport_reg[31]_i_51
+    SLICE_X47Y99         LUT3 (Prop_LUT3_I0_O)        0.061     8.866 r  uport[31]_i_20/O
+                         net (fo=1, estimated)        0.450     9.316    n_0_uport[31]_i_20
+    SLICE_X47Y98         CARRY8 (Prop_CARRY8_DI[6]_O[7])
+                                                      0.176     9.492 r  uport_reg[31]_i_2/O[7]
+                         net (fo=2, estimated)        0.344     9.836    temp/temp/B[14]
+    DSP48E2_X7Y40        DSP_A_B_DATA                                 r  temp/temp/DSP_A_B_DATA_INST/B[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        7.000     7.000 r  
+    AG12                                              0.000     7.000 r  clk
+                         net (fo=0)                   0.000     7.000    clk_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     7.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     7.480    clk_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     7.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.295     7.798    clk_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     7.857 r  clk_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=114, estimated)      1.611     9.468    temp/temp/CLK
+    DSP48E2_X7Y40                                                     r  temp/temp/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     9.776    
+                         clock uncertainty           -0.035     9.741    
+    DSP48E2_X7Y40        DSP_A_B_DATA (Setup_DSP_A_B_DATA_CLK_B[14])
+                                                     -0.235     9.506    temp/temp/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          9.506    
+                         arrival time                          -9.836    
+  -------------------------------------------------------------------
+                         slack                                 -0.330    
+
+
+
+

@@ -1,0 +1,2061 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2015.1.0 (lin64) Build 0 Wed Jan 28 11:59:42 PST 2015
+| Date              : Thu Jan 29 12:32:32 2015
+| Host              : xsjrdevl25 running 64-bit Red Hat Enterprise Linux Client release 5.9 (Tikanga)
+| Design            : mkDelayWorker32B
+| Device            : 7v2000t-flg1925
+| Speed File        : -2  PRODUCTION 1.10 2014-09-11
+| Temperature Grade : C
+------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -3.761ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/WEA[1]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.290ns  (logic 2.058ns (38.904%)  route 3.232ns (61.096%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y55         net (fo=24, estimated)       0.643     9.468    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[1])
+                                                     -0.404     5.707    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.707    
+                         arrival time                          -9.468    
+  -------------------------------------------------------------------
+                         slack                                 -3.761    
+
+Slack (VIOLATED) :        -3.761ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/WEA[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.290ns  (logic 2.058ns (38.904%)  route 3.232ns (61.096%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y55         net (fo=24, estimated)       0.643     9.468    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[2])
+                                                     -0.404     5.707    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.707    
+                         arrival time                          -9.468    
+  -------------------------------------------------------------------
+                         slack                                 -3.761    
+
+Slack (VIOLATED) :        -3.761ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/WEA[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.290ns  (logic 2.058ns (38.904%)  route 3.232ns (61.096%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y55         net (fo=24, estimated)       0.643     9.468    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[3])
+                                                     -0.404     5.707    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.707    
+                         arrival time                          -9.468    
+  -------------------------------------------------------------------
+                         slack                                 -3.761    
+
+Slack (VIOLATED) :        -3.742ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.271ns  (logic 2.058ns (39.044%)  route 3.213ns (60.956%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y55         net (fo=24, estimated)       0.624     9.449    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.404     5.707    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.707    
+                         arrival time                          -9.449    
+  -------------------------------------------------------------------
+                         slack                                 -3.742    
+
+Slack (VIOLATED) :        -3.681ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/gb2_reg/D
+                            (rising edge-triggered cell FDRE clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.657ns  (logic 2.187ns (38.660%)  route 3.470ns (61.340%))
+  Logic Levels:           9  (LUT3=3 LUT5=3 LUT6=3)
+  Clock Path Skew:        -0.029ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.767ns = ( 5.767 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.383ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    SLICE_X203Y288       net (fo=24, estimated)       0.246     9.071    ars3/fifo_1/we
+    SLICE_X203Y288       LUT3 (Prop_lut3_I2_O)        0.043     9.114    ars3/fifo_1/gb2_i_5/O
+    SLICE_X203Y288       net (fo=1, estimated)        0.292     9.406    ars3/fifo_1/gb2_i_5_n_0
+    SLICE_X203Y288       LUT6 (Prop_lut6_I0_O)        0.043     9.449    ars3/fifo_1/gb2_i_3/O
+    SLICE_X203Y288       net (fo=1, estimated)        0.291     9.740    ars3/fifo_1/gb2_i_3_n_0
+    SLICE_X203Y288       LUT5 (Prop_lut5_I3_O)        0.043     9.783    ars3/fifo_1/gb2_i_1/O
+    SLICE_X203Y288       net (fo=1, routed)           0.052     9.835    ars3/fifo_1/gb2_i_1_n_0
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    SLICE_X203Y288       net (fo=3169, estimated)     1.562     5.767    ars3/fifo_1/clk
+                         clock pessimism              0.383     6.150    
+                         clock uncertainty           -0.035     6.114    
+    SLICE_X203Y288       FDRE (Setup_fdre_C_D)        0.040     6.154    ars3/fifo_1/gb2_reg
+  -------------------------------------------------------------------
+                         required time                          6.154    
+                         arrival time                          -9.835    
+  -------------------------------------------------------------------
+                         slack                                 -3.681    
+
+Slack (VIOLATED) :        -3.680ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[1]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.431ns  (logic 2.058ns (37.894%)  route 3.373ns (62.106%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X205Y283       net (fo=129, estimated)      0.591     8.997    ars3_i_131_n_0
+    SLICE_X205Y283       LUT6 (Prop_lut6_I0_O)        0.043     9.040    ars3_i_19/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.569     9.609    ars3/fifo_1/ram1/data_a[109]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[1])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.609    
+  -------------------------------------------------------------------
+                         slack                                 -3.680    
+
+Slack (VIOLATED) :        -3.680ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.215ns  (logic 2.058ns (39.463%)  route 3.157ns (60.537%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y56         net (fo=24, estimated)       0.568     9.393    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.404     5.713    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.713    
+                         arrival time                          -9.393    
+  -------------------------------------------------------------------
+                         slack                                 -3.680    
+
+Slack (VIOLATED) :        -3.674ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_2/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.216ns  (logic 2.058ns (39.456%)  route 3.158ns (60.544%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.754ns = ( 5.754 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y59         net (fo=24, estimated)       0.569     9.394    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y59         net (fo=3169, estimated)     1.549     5.754    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.159    
+                         clock uncertainty           -0.035     6.124    
+    RAMB36_X4Y59         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.404     5.720    ars3/fifo_1/ram1/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -9.394    
+  -------------------------------------------------------------------
+                         slack                                 -3.674    
+
+Slack (VIOLATED) :        -3.674ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_2/WEA[1]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.216ns  (logic 2.058ns (39.456%)  route 3.158ns (60.544%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.754ns = ( 5.754 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y59         net (fo=24, estimated)       0.569     9.394    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y59         net (fo=3169, estimated)     1.549     5.754    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.159    
+                         clock uncertainty           -0.035     6.124    
+    RAMB36_X4Y59         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[1])
+                                                     -0.404     5.720    ars3/fifo_1/ram1/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -9.394    
+  -------------------------------------------------------------------
+                         slack                                 -3.674    
+
+Slack (VIOLATED) :        -3.620ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.371ns  (logic 2.058ns (38.317%)  route 3.313ns (61.683%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X204Y286       net (fo=129, estimated)      0.452     8.858    ars3_i_131_n_0
+    SLICE_X204Y286       LUT6 (Prop_lut6_I0_O)        0.043     8.901    ars3_i_17/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.648     9.549    ars3/fifo_1/ram1/data_a[111]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[3])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.549    
+  -------------------------------------------------------------------
+                         slack                                 -3.620    
+
+Slack (VIOLATED) :        -3.609ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_2/WEA[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.151ns  (logic 2.058ns (39.953%)  route 3.093ns (60.047%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.754ns = ( 5.754 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y59         net (fo=24, estimated)       0.504     9.329    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y59         net (fo=3169, estimated)     1.549     5.754    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.159    
+                         clock uncertainty           -0.035     6.124    
+    RAMB36_X4Y59         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[2])
+                                                     -0.404     5.720    ars3/fifo_1/ram1/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -9.329    
+  -------------------------------------------------------------------
+                         slack                                 -3.609    
+
+Slack (VIOLATED) :        -3.609ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_2/WEA[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.151ns  (logic 2.058ns (39.953%)  route 3.093ns (60.047%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.754ns = ( 5.754 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y59         net (fo=24, estimated)       0.504     9.329    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y59         net (fo=3169, estimated)     1.549     5.754    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.159    
+                         clock uncertainty           -0.035     6.124    
+    RAMB36_X4Y59         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[3])
+                                                     -0.404     5.720    ars3/fifo_1/ram1/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -9.329    
+  -------------------------------------------------------------------
+                         slack                                 -3.609    
+
+Slack (VIOLATED) :        -3.606ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/WEA[1]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.141ns  (logic 2.058ns (40.031%)  route 3.083ns (59.969%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y56         net (fo=24, estimated)       0.494     9.319    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[1])
+                                                     -0.404     5.713    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.713    
+                         arrival time                          -9.319    
+  -------------------------------------------------------------------
+                         slack                                 -3.606    
+
+Slack (VIOLATED) :        -3.606ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/WEA[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.141ns  (logic 2.058ns (40.031%)  route 3.083ns (59.969%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y56         net (fo=24, estimated)       0.494     9.319    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[2])
+                                                     -0.404     5.713    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.713    
+                         arrival time                          -9.319    
+  -------------------------------------------------------------------
+                         slack                                 -3.606    
+
+Slack (VIOLATED) :        -3.606ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/WEA[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.141ns  (logic 2.058ns (40.031%)  route 3.083ns (59.969%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y56         net (fo=24, estimated)       0.494     9.319    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[3])
+                                                     -0.404     5.713    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.713    
+                         arrival time                          -9.319    
+  -------------------------------------------------------------------
+                         slack                                 -3.606    
+
+Slack (VIOLATED) :        -3.584ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[4]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.335ns  (logic 2.058ns (38.575%)  route 3.277ns (61.425%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X200Y286       net (fo=129, estimated)      0.486     8.892    ars3_i_131_n_0
+    SLICE_X200Y286       LUT6 (Prop_lut6_I0_O)        0.043     8.935    ars3_i_16/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.578     9.513    ars3/fifo_1/ram1/data_a[112]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[4])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.513    
+  -------------------------------------------------------------------
+                         slack                                 -3.584    
+
+Slack (VIOLATED) :        -3.565ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_2/DIADI[30]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.329ns  (logic 2.058ns (38.619%)  route 3.271ns (61.381%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.754ns = ( 5.754 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X201Y292       net (fo=129, estimated)      0.533     8.939    ars3_i_131_n_0
+    SLICE_X201Y292       LUT6 (Prop_lut6_I0_O)        0.043     8.982    ars3_i_26/O
+    RAMB36_X4Y59         net (fo=1, estimated)        0.525     9.507    ars3/fifo_1/ram1/data_a[102]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y59         net (fo=3169, estimated)     1.549     5.754    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.159    
+                         clock uncertainty           -0.035     6.124    
+    RAMB36_X4Y59         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[30])
+                                                     -0.182     5.942    ars3/fifo_1/ram1/mem_reg_2
+  -------------------------------------------------------------------
+                         required time                          5.942    
+                         arrival time                          -9.507    
+  -------------------------------------------------------------------
+                         slack                                 -3.565    
+
+Slack (VIOLATED) :        -3.558ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_1/WEA[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.099ns  (logic 2.058ns (40.361%)  route 3.041ns (59.639%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.753ns = ( 5.753 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y58         net (fo=24, estimated)       0.452     9.277    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y58         net (fo=3169, estimated)     1.548     5.753    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.158    
+                         clock uncertainty           -0.035     6.123    
+    RAMB36_X4Y58         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[2])
+                                                     -0.404     5.719    ars3/fifo_1/ram1/mem_reg_1
+  -------------------------------------------------------------------
+                         required time                          5.719    
+                         arrival time                          -9.277    
+  -------------------------------------------------------------------
+                         slack                                 -3.558    
+
+Slack (VIOLATED) :        -3.558ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_1/WEA[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.099ns  (logic 2.058ns (40.361%)  route 3.041ns (59.639%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.753ns = ( 5.753 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y58         net (fo=24, estimated)       0.452     9.277    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y58         net (fo=3169, estimated)     1.548     5.753    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.158    
+                         clock uncertainty           -0.035     6.123    
+    RAMB36_X4Y58         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[3])
+                                                     -0.404     5.719    ars3/fifo_1/ram1/mem_reg_1
+  -------------------------------------------------------------------
+                         required time                          5.719    
+                         arrival time                          -9.277    
+  -------------------------------------------------------------------
+                         slack                                 -3.558    
+
+Slack (VIOLATED) :        -3.555ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_1/WEA[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.096ns  (logic 2.058ns (40.385%)  route 3.038ns (59.615%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.753ns = ( 5.753 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y58         net (fo=24, estimated)       0.449     9.274    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y58         net (fo=3169, estimated)     1.548     5.753    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.158    
+                         clock uncertainty           -0.035     6.123    
+    RAMB36_X4Y58         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[0])
+                                                     -0.404     5.719    ars3/fifo_1/ram1/mem_reg_1
+  -------------------------------------------------------------------
+                         required time                          5.719    
+                         arrival time                          -9.274    
+  -------------------------------------------------------------------
+                         slack                                 -3.555    
+
+Slack (VIOLATED) :        -3.555ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_1/WEA[1]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.096ns  (logic 2.058ns (40.385%)  route 3.038ns (59.615%))
+  Logic Levels:           6  (LUT3=2 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.753ns = ( 5.753 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y289       net (fo=129, estimated)      0.376     8.782    ars3_i_131_n_0
+    SLICE_X202Y289       LUT5 (Prop_lut5_I4_O)        0.043     8.825    ars3_i_129/O
+    RAMB36_X4Y58         net (fo=24, estimated)       0.449     9.274    ars3/fifo_1/ram1/wren_a
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y58         net (fo=3169, estimated)     1.548     5.753    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.158    
+                         clock uncertainty           -0.035     6.123    
+    RAMB36_X4Y58         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_WEA[1])
+                                                     -0.404     5.719    ars3/fifo_1/ram1/mem_reg_1
+  -------------------------------------------------------------------
+                         required time                          5.719    
+                         arrival time                          -9.274    
+  -------------------------------------------------------------------
+                         slack                                 -3.555    
+
+Slack (VIOLATED) :        -3.544ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[7]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.295ns  (logic 2.058ns (38.867%)  route 3.237ns (61.133%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X203Y282       net (fo=129, estimated)      0.640     9.046    ars3_i_131_n_0
+    SLICE_X203Y282       LUT6 (Prop_lut6_I0_O)        0.043     9.089    ars3_i_13/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.384     9.473    ars3/fifo_1/ram1/data_a[115]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[7])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.473    
+  -------------------------------------------------------------------
+                         slack                                 -3.544    
+
+Slack (VIOLATED) :        -3.529ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/DIADI[20]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.286ns  (logic 2.058ns (38.933%)  route 3.228ns (61.067%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X201Y287       net (fo=129, estimated)      0.586     8.992    ars3_i_131_n_0
+    SLICE_X201Y287       LUT6 (Prop_lut6_I4_O)        0.043     9.035    ars3_i_108/O
+    RAMB36_X4Y56         net (fo=1, estimated)        0.429     9.464    ars3/fifo_1/ram1/data_a[20]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[20])
+                                                     -0.182     5.935    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.935    
+                         arrival time                          -9.464    
+  -------------------------------------------------------------------
+                         slack                                 -3.529    
+
+Slack (VIOLATED) :        -3.519ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.270ns  (logic 2.058ns (39.051%)  route 3.212ns (60.949%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X201Y282       net (fo=129, estimated)      0.592     8.998    ars3_i_131_n_0
+    SLICE_X201Y282       LUT6 (Prop_lut6_I0_O)        0.043     9.041    ars3_i_18/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.407     9.448    ars3/fifo_1/ram1/data_a[110]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[2])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.448    
+  -------------------------------------------------------------------
+                         slack                                 -3.519    
+
+Slack (VIOLATED) :        -3.517ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.268ns  (logic 2.058ns (39.066%)  route 3.210ns (60.934%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y284       net (fo=129, estimated)      0.477     8.883    ars3_i_131_n_0
+    SLICE_X202Y284       LUT6 (Prop_lut6_I0_O)        0.043     8.926    ars3_i_20/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.520     9.446    ars3/fifo_1/ram1/data_a[108]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[0])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.446    
+  -------------------------------------------------------------------
+                         slack                                 -3.517    
+
+Slack (VIOLATED) :        -3.513ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[16]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.264ns  (logic 2.058ns (39.096%)  route 3.206ns (60.904%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X201Y282       net (fo=129, estimated)      0.593     8.999    ars3_i_131_n_0
+    SLICE_X201Y282       LUT6 (Prop_lut6_I0_O)        0.043     9.042    ars3_i_4/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.400     9.442    ars3/fifo_1/ram1/data_a[124]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[16])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.442    
+  -------------------------------------------------------------------
+                         slack                                 -3.513    
+
+Slack (VIOLATED) :        -3.511ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[15]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.262ns  (logic 2.058ns (39.111%)  route 3.204ns (60.889%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X201Y285       net (fo=129, estimated)      0.579     8.985    ars3_i_131_n_0
+    SLICE_X201Y285       LUT6 (Prop_lut6_I0_O)        0.043     9.028    ars3_i_5/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.412     9.440    ars3/fifo_1/ram1/data_a[123]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[15])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.440    
+  -------------------------------------------------------------------
+                         slack                                 -3.511    
+
+Slack (VIOLATED) :        -3.504ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_0/DIADI[9]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.261ns  (logic 2.058ns (39.118%)  route 3.203ns (60.882%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.747ns = ( 5.747 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y288       net (fo=129, estimated)      0.452     8.858    ars3_i_131_n_0
+    SLICE_X202Y288       LUT6 (Prop_lut6_I4_O)        0.043     8.901    ars3_i_119/O
+    RAMB36_X4Y56         net (fo=1, estimated)        0.538     9.439    ars3/fifo_1/ram1/data_a[9]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y56         net (fo=3169, estimated)     1.542     5.747    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.152    
+                         clock uncertainty           -0.035     6.117    
+    RAMB36_X4Y56         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[9])
+                                                     -0.182     5.935    ars3/fifo_1/ram1/mem_reg_0
+  -------------------------------------------------------------------
+                         required time                          5.935    
+                         arrival time                          -9.439    
+  -------------------------------------------------------------------
+                         slack                                 -3.504    
+
+Slack (VIOLATED) :        -3.502ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[6]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.253ns  (logic 2.058ns (39.178%)  route 3.195ns (60.822%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X202Y283       net (fo=129, estimated)      0.566     8.972    ars3_i_131_n_0
+    SLICE_X202Y283       LUT6 (Prop_lut6_I0_O)        0.043     9.015    ars3_i_14/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.416     9.431    ars3/fifo_1/ram1/data_a[114]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[6])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.431    
+  -------------------------------------------------------------------
+                         slack                                 -3.502    
+
+Slack (VIOLATED) :        -3.501ns  (required time - arrival time)
+  Source:                 ars2/fifo_1/ram1/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            ars3/fifo_1/ram1/mem_reg_3/DIADI[18]
+                            (rising edge-triggered cell RAMB36E1 clocked by wciS0_Clk  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             wciS0_Clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.000ns  (wciS0_Clk rise@2.000ns - wciS0_Clk rise@0.000ns)
+  Data Path Delay:        5.252ns  (logic 2.058ns (39.185%)  route 3.194ns (60.815%))
+  Logic Levels:           6  (LUT3=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.741ns = ( 5.741 - 2.000 ) 
+    Source Clock Delay      (SCD):    4.178ns
+    Clock Pessimism Removal (CPR):    0.406ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock wciS0_Clk rise edge)
+                                                      0.000     0.000    
+    AL37                                              0.000     0.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     0.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.602     0.602    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.712     2.314    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.093     2.407    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y57         net (fo=3169, estimated)     1.772     4.178    ars2/fifo_1/ram1/clock1
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y57         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
+                                                      1.800     5.978    ars2/fifo_1/ram1/mem_reg/DOBDO[0]
+    SLICE_X209Y285       net (fo=2, estimated)        0.678     6.656    ars2/fifo_1/ram1/mem_reg_n_67
+    SLICE_X209Y285       LUT3 (Prop_lut3_I0_O)        0.043     6.699    ars2/fifo_1/ram1/q_b[0]_INST_0/O
+    SLICE_X210Y287       net (fo=6, estimated)        0.599     7.298    ars2_n_31
+    SLICE_X210Y287       LUT6 (Prop_lut6_I0_O)        0.043     7.341    ars2_i_37/O
+    SLICE_X210Y288       net (fo=1, estimated)        0.300     7.641    ars2_i_37_n_0
+    SLICE_X210Y288       LUT3 (Prop_lut3_I2_O)        0.043     7.684    ars2_i_29/O
+    SLICE_X209Y289       net (fo=2, estimated)        0.249     7.933    ars2_i_29_n_0
+    SLICE_X209Y289       LUT6 (Prop_lut6_I4_O)        0.043     7.976    ars2_i_24/O
+    SLICE_X207Y289       net (fo=41, estimated)       0.387     8.363    ars2_i_24_n_0
+    SLICE_X207Y289       LUT5 (Prop_lut5_I1_O)        0.043     8.406    ars3_i_131/O
+    SLICE_X203Y283       net (fo=129, estimated)      0.559     8.965    ars3_i_131_n_0
+    SLICE_X203Y283       LUT6 (Prop_lut6_I0_O)        0.043     9.008    ars3_i_2/O
+    RAMB36_X4Y55         net (fo=1, estimated)        0.422     9.430    ars3/fifo_1/ram1/data_a[126]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock wciS0_Clk rise edge)
+                                                      2.000     2.000    
+    AL37                                              0.000     2.000    wciS0_Clk
+    AL37                 net (fo=0)                   0.000     2.000    wciS0_Clk
+    AL37                 IBUF (Prop_ibuf_I_O)         0.496     2.496    wciS0_Clk_IBUF_inst/O
+    BUFGCTRL_X0Y16       net (fo=1, estimated)        1.626     4.122    wciS0_Clk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.083     4.205    wciS0_Clk_IBUF_BUFG_inst/O
+    SLR Crossing[0->1]   
+    RAMB36_X4Y55         net (fo=3169, estimated)     1.536     5.741    ars3/fifo_1/ram1/clock1
+                         clock pessimism              0.406     6.146    
+                         clock uncertainty           -0.035     6.111    
+    RAMB36_X4Y55         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[18])
+                                                     -0.182     5.929    ars3/fifo_1/ram1/mem_reg_3
+  -------------------------------------------------------------------
+                         required time                          5.929    
+                         arrival time                          -9.430    
+  -------------------------------------------------------------------
+                         slack                                 -3.501    
+
+
+
+

@@ -1,0 +1,1246 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 18:00:25 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postroute_timing_max.rpt
+| Design       : system
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.900ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__5/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.284ns  (logic 2.701ns (42.982%)  route 3.583ns (57.018%))
+  Logic Levels:           18  (LUT3=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.130ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.356ns = ( 7.356 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.526ns (routing 0.465ns, distribution 1.061ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.444     8.507    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y124                                                     f  pipereg14/mem_reg_bram_0__5_i_5__0/I2
+    SLICE_X60Y124        LUT3 (Prop_LUT3_I2_O)        0.061     8.568 r  pipereg14/mem_reg_bram_0__5_i_5__0/O
+                         net (fo=4, routed)           0.437     9.005    data_mem/dmem_replace/I20[0]
+    RAMB36_X6Y28         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__5/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.526     7.356    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y28                                                      r  data_mem/dmem_replace/mem_reg_bram_0__5/CLKARDCLK
+                         clock pessimism              0.235     7.591    
+                         clock uncertainty           -0.035     7.555    
+    RAMB36_X6Y28         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.104    data_mem/dmem_replace/mem_reg_bram_0__5
+  -------------------------------------------------------------------
+                         required time                          7.104    
+                         arrival time                          -9.005    
+  -------------------------------------------------------------------
+                         slack                                 -1.900    
+
+Slack (VIOLATED) :        -1.900ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__5/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.284ns  (logic 2.701ns (42.982%)  route 3.583ns (57.018%))
+  Logic Levels:           18  (LUT3=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.130ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.356ns = ( 7.356 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.526ns (routing 0.465ns, distribution 1.061ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.444     8.507    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y124                                                     f  pipereg14/mem_reg_bram_0__5_i_5__0/I2
+    SLICE_X60Y124        LUT3 (Prop_LUT3_I2_O)        0.061     8.568 r  pipereg14/mem_reg_bram_0__5_i_5__0/O
+                         net (fo=4, routed)           0.437     9.005    data_mem/dmem_replace/I20[0]
+    RAMB36_X6Y28         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__5/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.526     7.356    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y28                                                      r  data_mem/dmem_replace/mem_reg_bram_0__5/CLKARDCLK
+                         clock pessimism              0.235     7.591    
+                         clock uncertainty           -0.035     7.555    
+    RAMB36_X6Y28         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     7.104    data_mem/dmem_replace/mem_reg_bram_0__5
+  -------------------------------------------------------------------
+                         required time                          7.104    
+                         arrival time                          -9.005    
+  -------------------------------------------------------------------
+                         slack                                 -1.900    
+
+Slack (VIOLATED) :        -1.866ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__6/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.243ns  (logic 2.702ns (43.280%)  route 3.541ns (56.720%))
+  Logic Levels:           18  (LUT5=2 LUT6=16)
+  Clock Path Skew:        -0.137ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.349ns = ( 7.349 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.519ns (routing 0.465ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.454     8.517    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y129                                                     f  pipereg14/mem_reg_bram_0__6_i_5__0/I4
+    SLICE_X60Y129        LUT5 (Prop_LUT5_I4_O)        0.062     8.579 r  pipereg14/mem_reg_bram_0__6_i_5__0/O
+                         net (fo=4, routed)           0.385     8.964    data_mem/dmem_replace/I23[0]
+    RAMB36_X6Y29         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__6/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.519     7.349    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y29                                                      r  data_mem/dmem_replace/mem_reg_bram_0__6/CLKARDCLK
+                         clock pessimism              0.235     7.584    
+                         clock uncertainty           -0.035     7.548    
+    RAMB36_X6Y29         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.097    data_mem/dmem_replace/mem_reg_bram_0__6
+  -------------------------------------------------------------------
+                         required time                          7.097    
+                         arrival time                          -8.964    
+  -------------------------------------------------------------------
+                         slack                                 -1.866    
+
+Slack (VIOLATED) :        -1.866ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__6/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.243ns  (logic 2.702ns (43.280%)  route 3.541ns (56.720%))
+  Logic Levels:           18  (LUT5=2 LUT6=16)
+  Clock Path Skew:        -0.137ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.349ns = ( 7.349 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.519ns (routing 0.465ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.454     8.517    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y129                                                     f  pipereg14/mem_reg_bram_0__6_i_5__0/I4
+    SLICE_X60Y129        LUT5 (Prop_LUT5_I4_O)        0.062     8.579 r  pipereg14/mem_reg_bram_0__6_i_5__0/O
+                         net (fo=4, routed)           0.385     8.964    data_mem/dmem_replace/I23[0]
+    RAMB36_X6Y29         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__6/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.519     7.349    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y29                                                      r  data_mem/dmem_replace/mem_reg_bram_0__6/CLKARDCLK
+                         clock pessimism              0.235     7.584    
+                         clock uncertainty           -0.035     7.548    
+    RAMB36_X6Y29         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     7.097    data_mem/dmem_replace/mem_reg_bram_0__6
+  -------------------------------------------------------------------
+                         required time                          7.097    
+                         arrival time                          -8.964    
+  -------------------------------------------------------------------
+                         slack                                 -1.866    
+
+Slack (VIOLATED) :        -1.793ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__4/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.183ns  (logic 2.702ns (43.700%)  route 3.481ns (56.300%))
+  Logic Levels:           18  (LUT5=2 LUT6=16)
+  Clock Path Skew:        -0.124ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.362ns = ( 7.362 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.532ns (routing 0.465ns, distribution 1.067ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.518     8.581    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y131                                                     f  pipereg14/mem_reg_bram_0__4_i_5__0/I4
+    SLICE_X60Y131        LUT5 (Prop_LUT5_I4_O)        0.062     8.643 r  pipereg14/mem_reg_bram_0__4_i_5__0/O
+                         net (fo=4, routed)           0.261     8.904    data_mem/dmem_replace/I17[0]
+    RAMB36_X6Y27         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__4/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.532     7.362    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y27                                                      r  data_mem/dmem_replace/mem_reg_bram_0__4/CLKARDCLK
+                         clock pessimism              0.235     7.597    
+                         clock uncertainty           -0.035     7.561    
+    RAMB36_X6Y27         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.110    data_mem/dmem_replace/mem_reg_bram_0__4
+  -------------------------------------------------------------------
+                         required time                          7.110    
+                         arrival time                          -8.904    
+  -------------------------------------------------------------------
+                         slack                                 -1.793    
+
+Slack (VIOLATED) :        -1.793ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__4/WEA[1]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.183ns  (logic 2.702ns (43.700%)  route 3.481ns (56.300%))
+  Logic Levels:           18  (LUT5=2 LUT6=16)
+  Clock Path Skew:        -0.124ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.362ns = ( 7.362 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.235ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.532ns (routing 0.465ns, distribution 1.067ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.518     8.581    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X60Y131                                                     f  pipereg14/mem_reg_bram_0__4_i_5__0/I4
+    SLICE_X60Y131        LUT5 (Prop_LUT5_I4_O)        0.062     8.643 r  pipereg14/mem_reg_bram_0__4_i_5__0/O
+                         net (fo=4, routed)           0.261     8.904    data_mem/dmem_replace/I17[0]
+    RAMB36_X6Y27         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__4/WEA[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.532     7.362    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X6Y27                                                      r  data_mem/dmem_replace/mem_reg_bram_0__4/CLKARDCLK
+                         clock pessimism              0.235     7.597    
+                         clock uncertainty           -0.035     7.561    
+    RAMB36_X6Y27         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[1])
+                                                     -0.451     7.110    data_mem/dmem_replace/mem_reg_bram_0__4
+  -------------------------------------------------------------------
+                         required time                          7.110    
+                         arrival time                          -8.904    
+  -------------------------------------------------------------------
+                         slack                                 -1.793    
+
+Slack (VIOLATED) :        -1.768ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__8/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.212ns  (logic 2.675ns (43.062%)  route 3.537ns (56.938%))
+  Logic Levels:           18  (LUT4=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.070ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.359ns = ( 7.359 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.293ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.529ns (routing 0.465ns, distribution 1.064ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.409     8.472    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X68Y108                                                     f  pipereg14/mem_reg_bram_0__8_i_5__0/I3
+    SLICE_X68Y108        LUT4 (Prop_LUT4_I3_O)        0.035     8.507 r  pipereg14/mem_reg_bram_0__8_i_5__0/O
+                         net (fo=4, routed)           0.426     8.933    data_mem/dmem_replace/I29[0]
+    RAMB36_X7Y21         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__8/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.529     7.359    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X7Y21                                                      r  data_mem/dmem_replace/mem_reg_bram_0__8/CLKARDCLK
+                         clock pessimism              0.293     7.651    
+                         clock uncertainty           -0.035     7.616    
+    RAMB36_X7Y21         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.165    data_mem/dmem_replace/mem_reg_bram_0__8
+  -------------------------------------------------------------------
+                         required time                          7.165    
+                         arrival time                          -8.933    
+  -------------------------------------------------------------------
+                         slack                                 -1.768    
+
+Slack (VIOLATED) :        -1.768ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__7/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.209ns  (logic 2.675ns (43.083%)  route 3.534ns (56.917%))
+  Logic Levels:           18  (LUT4=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.072ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.356ns = ( 7.356 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.293ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.526ns (routing 0.465ns, distribution 1.061ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.416     8.479    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X68Y104                                                     f  pipereg14/mem_reg_bram_0__7_i_15__0/I3
+    SLICE_X68Y104        LUT4 (Prop_LUT4_I3_O)        0.035     8.514 r  pipereg14/mem_reg_bram_0__7_i_15__0/O
+                         net (fo=4, routed)           0.416     8.930    data_mem/dmem_replace/I26[0]
+    RAMB36_X7Y20         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__7/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.526     7.356    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X7Y20                                                      r  data_mem/dmem_replace/mem_reg_bram_0__7/CLKARDCLK
+                         clock pessimism              0.293     7.648    
+                         clock uncertainty           -0.035     7.613    
+    RAMB36_X7Y20         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.162    data_mem/dmem_replace/mem_reg_bram_0__7
+  -------------------------------------------------------------------
+                         required time                          7.162    
+                         arrival time                          -8.930    
+  -------------------------------------------------------------------
+                         slack                                 -1.768    
+
+Slack (VIOLATED) :        -1.754ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__10/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.201ns  (logic 2.676ns (43.154%)  route 3.525ns (56.846%))
+  Logic Levels:           18  (LUT4=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.067ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.362ns = ( 7.362 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.292ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.532ns (routing 0.465ns, distribution 1.067ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.548     8.611    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X73Y115                                                     f  pipereg14/mem_reg_bram_0__10_i_5__0/I3
+    SLICE_X73Y115        LUT4 (Prop_LUT4_I3_O)        0.036     8.647 r  pipereg14/mem_reg_bram_0__10_i_5__0/O
+                         net (fo=4, routed)           0.275     8.922    data_mem/dmem_replace/I35[0]
+    RAMB36_X7Y23         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__10/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.532     7.362    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X7Y23                                                      r  data_mem/dmem_replace/mem_reg_bram_0__10/CLKARDCLK
+                         clock pessimism              0.292     7.654    
+                         clock uncertainty           -0.035     7.619    
+    RAMB36_X7Y23         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.168    data_mem/dmem_replace/mem_reg_bram_0__10
+  -------------------------------------------------------------------
+                         required time                          7.168    
+                         arrival time                          -8.922    
+  -------------------------------------------------------------------
+                         slack                                 -1.754    
+
+Slack (VIOLATED) :        -1.753ns  (required time - arrival time)
+  Source:                 reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            data_mem/dmem_replace/mem_reg_bram_0__9/WEA[0]
+                            (rising edge-triggered cell RAMB36E2 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.199ns  (logic 2.755ns (44.443%)  route 3.444ns (55.557%))
+  Logic Levels:           18  (LUT4=1 LUT5=1 LUT6=16)
+  Clock Path Skew:        -0.068ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.361ns = ( 7.361 - 5.000 ) 
+    Source Clock Delay      (SCD):    2.721ns
+    Clock Pessimism Removal (CPR):    0.292ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.702ns (routing 0.511ns, distribution 1.191ns)
+  Clock Net Delay (Destination): 1.531ns (routing 0.465ns, distribution 1.066ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.702     2.721    reg_file/inst1/clk_IBUF_BUFG
+    RAMB36_X6Y19                                                      r  reg_file/inst1/mem_reg_bram_0/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X6Y19         RAMB36E2 (Prop_RAMB36E2_CLKBWRCLK_DOUTBDOUT[0])
+                                                      1.047     3.768 r  reg_file/inst1/mem_reg_bram_0/DOUTBDOUT[0]
+                         net (fo=5, routed)           0.259     4.027    pipereg16/DOUTBDOUT[0]
+    SLICE_X59Y95                                                      r  pipereg16/result_reg_i_46/I1
+    SLICE_X59Y95         LUT6 (Prop_LUT6_I1_O)        0.153     4.180 r  pipereg16/result_reg_i_46/O
+                         net (fo=7, routed)           0.136     4.316    pipereg16/O5[0]
+    SLICE_X59Y97                                                      r  pipereg16/mem_reg_bram_0_i_75/I2
+    SLICE_X59Y97         LUT5 (Prop_LUT5_I2_O)        0.100     4.416 r  pipereg16/mem_reg_bram_0_i_75/O
+                         net (fo=2, routed)           0.235     4.651    ifetch/pc_reg/I28
+    SLICE_X60Y96                                                      r  ifetch/pc_reg/mem_reg_bram_0_i_55/I4
+    SLICE_X60Y96         LUT6 (Prop_LUT6_I4_O)        0.153     4.804 r  ifetch/pc_reg/mem_reg_bram_0_i_55/O
+                         net (fo=5, routed)           0.141     4.945    pipereg14/I41
+    SLICE_X60Y98                                                      r  pipereg14/mem_reg_bram_0_i_47__0/I1
+    SLICE_X60Y98         LUT6 (Prop_LUT6_I1_O)        0.035     4.980 r  pipereg14/mem_reg_bram_0_i_47__0/O
+                         net (fo=3, routed)           0.130     5.110    pipereg14/n_0_mem_reg_bram_0_i_47__0
+    SLICE_X60Y99                                                      r  pipereg14/mem_reg_bram_0_i_68__1/I1
+    SLICE_X60Y99         LUT6 (Prop_LUT6_I1_O)        0.061     5.171 f  pipereg14/mem_reg_bram_0_i_68__1/O
+                         net (fo=5, routed)           0.284     5.455    pipereg14/n_0_mem_reg_bram_0_i_68__1
+    SLICE_X63Y100                                                     f  pipereg14/mem_reg_bram_0_i_64/I1
+    SLICE_X63Y100        LUT6 (Prop_LUT6_I1_O)        0.062     5.517 r  pipereg14/mem_reg_bram_0_i_64/O
+                         net (fo=5, routed)           0.141     5.658    pipereg14/n_0_mem_reg_bram_0_i_64
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0_i_36__0/I2
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I2_O)        0.115     5.773 r  pipereg14/mem_reg_bram_0_i_36__0/O
+                         net (fo=5, routed)           0.059     5.832    pipereg14/n_0_mem_reg_bram_0_i_36__0
+    SLICE_X63Y101                                                     r  pipereg14/mem_reg_bram_0__11_i_13__0/I1
+    SLICE_X63Y101        LUT6 (Prop_LUT6_I1_O)        0.062     5.894 r  pipereg14/mem_reg_bram_0__11_i_13__0/O
+                         net (fo=5, routed)           0.212     6.106    pipereg14/n_0_mem_reg_bram_0__11_i_13__0
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_182/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.101     6.207 r  pipereg14/mem_reg_bram_0_i_182/O
+                         net (fo=5, routed)           0.057     6.264    pipereg14/n_0_mem_reg_bram_0_i_182
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_175/I1
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I1_O)        0.115     6.379 r  pipereg14/mem_reg_bram_0_i_175/O
+                         net (fo=5, routed)           0.152     6.531    pipereg14/n_0_mem_reg_bram_0_i_175
+    SLICE_X63Y102                                                     r  pipereg14/mem_reg_bram_0_i_226/I3
+    SLICE_X63Y102        LUT6 (Prop_LUT6_I3_O)        0.100     6.631 r  pipereg14/mem_reg_bram_0_i_226/O
+                         net (fo=4, routed)           0.147     6.778    pipereg14/n_0_mem_reg_bram_0_i_226
+    SLICE_X63Y104                                                     r  pipereg14/mem_reg_bram_0_i_225/I2
+    SLICE_X63Y104        LUT6 (Prop_LUT6_I2_O)        0.101     6.879 r  pipereg14/mem_reg_bram_0_i_225/O
+                         net (fo=5, routed)           0.124     7.003    pipereg14/n_0_mem_reg_bram_0_i_225
+    SLICE_X63Y103                                                     r  pipereg14/mem_reg_bram_0_i_220/I3
+    SLICE_X63Y103        LUT6 (Prop_LUT6_I3_O)        0.063     7.066 r  pipereg14/mem_reg_bram_0_i_220/O
+                         net (fo=5, routed)           0.147     7.213    pipereg14/n_0_mem_reg_bram_0_i_220
+    SLICE_X63Y105                                                     r  pipereg14/mem_reg_bram_0_i_217/I3
+    SLICE_X63Y105        LUT6 (Prop_LUT6_I3_O)        0.102     7.315 r  pipereg14/mem_reg_bram_0_i_217/O
+                         net (fo=3, routed)           0.127     7.442    pipereg14/n_0_mem_reg_bram_0_i_217
+    SLICE_X62Y105                                                     r  pipereg14/mem_reg_bram_0_i_212/I3
+    SLICE_X62Y105        LUT6 (Prop_LUT6_I3_O)        0.064     7.506 r  pipereg14/mem_reg_bram_0_i_212/O
+                         net (fo=4, routed)           0.215     7.721    pipereg14/n_0_mem_reg_bram_0_i_212
+    SLICE_X60Y105                                                     r  pipereg14/mem_reg_bram_0_i_122/I3
+    SLICE_X60Y105        LUT6 (Prop_LUT6_I3_O)        0.101     7.822 r  pipereg14/mem_reg_bram_0_i_122/O
+                         net (fo=4, routed)           0.136     7.958    pipereg14/n_0_mem_reg_bram_0_i_122
+    SLICE_X61Y105                                                     r  pipereg14/mem_reg_bram_0_i_63/I3
+    SLICE_X61Y105        LUT6 (Prop_LUT6_I3_O)        0.105     8.063 f  pipereg14/mem_reg_bram_0_i_63/O
+                         net (fo=14, routed)          0.264     8.327    pipereg14/n_0_mem_reg_bram_0_i_63
+    SLICE_X65Y107                                                     f  pipereg14/mem_reg_bram_0__9_i_5__0/I3
+    SLICE_X65Y107        LUT4 (Prop_LUT4_I3_O)        0.115     8.442 r  pipereg14/mem_reg_bram_0__9_i_5__0/O
+                         net (fo=4, routed)           0.478     8.920    data_mem/dmem_replace/I32[0]
+    RAMB36_X7Y22         RAMB36E2                                     r  data_mem/dmem_replace/mem_reg_bram_0__9/WEA[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+    AG12                                              0.000     5.000 r  clk
+                         net (fo=0)                   0.000     5.000    clk_IBUF_inst/I
+    AG12                                                              r  clk_IBUF_inst/INBUF_INST/PAD
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451     5.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029     5.480    clk_IBUF_inst/OUT
+    AG12                                                              r  clk_IBUF_inst/IBUFCTRL_INST/I
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023     5.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268     5.771    clk_IBUF
+    BUFGCE_X1Y0                                                       r  clk_IBUF_BUFG_inst/I
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059     5.830 r  clk_IBUF_BUFG_inst/O
+    X2Y1 (CLOCK_ROOT)    net (fo=346, routed)         1.531     7.361    data_mem/dmem_replace/clk_IBUF_BUFG
+    RAMB36_X7Y22                                                      r  data_mem/dmem_replace/mem_reg_bram_0__9/CLKARDCLK
+                         clock pessimism              0.292     7.653    
+                         clock uncertainty           -0.035     7.618    
+    RAMB36_X7Y22         RAMB36E2 (Setup_RAMB36E2_CLKARDCLK_WEA[0])
+                                                     -0.451     7.167    data_mem/dmem_replace/mem_reg_bram_0__9
+  -------------------------------------------------------------------
+                         required time                          7.167    
+                         arrival time                          -8.920    
+  -------------------------------------------------------------------
+                         slack                                 -1.753    
+
+
+
+

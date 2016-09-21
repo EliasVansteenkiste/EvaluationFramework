@@ -1,0 +1,1346 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:22:12 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postlogopt_timing_max.rpt
+| Design       : bgm
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x10_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x10_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x10_mul/u5/clock_IBUF_BUFG
+                                                                      r  x10_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x10_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x10_mul/u5/fract_denorm[8]
+                                                                      f  x10_mul/u5/shift_out_reg[0]_i_40__9/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x10_mul/u5/shift_out_reg[0]_i_40__9/O
+                         net (fo=1, unplaced)         0.291     1.864    x10_mul/u5/n_44_shift_out_reg[0]_i_40__9
+                                                                      r  x10_mul/u5/shift_out_reg[0]_i_33__9/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x10_mul/u5/shift_out_reg[0]_i_33__9/O
+                         net (fo=1, unplaced)         0.291     2.189    x10_mul/u5/n_44_shift_out_reg[0]_i_33__9
+                                                                      r  x10_mul/u5/shift_out_reg[0]_i_21__9/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x10_mul/u5/shift_out_reg[0]_i_21__9/O
+                         net (fo=1, unplaced)         0.291     2.514    x10_mul/u5/n_44_shift_out_reg[0]_i_21__9
+                                                                      r  x10_mul/u5/shift_out_reg[0]_i_8__9/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x10_mul/u5/shift_out_reg[0]_i_8__9/O
+                         net (fo=2, unplaced)         0.291     2.839    x10_mul/u5/n_44_shift_out_reg[0]_i_8__9
+                                                                      r  x10_mul/u5/out_o1[29]_i_30__9/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x10_mul/u5/out_o1[29]_i_30__9/O
+                         net (fo=1, unplaced)         0.291     3.164    x10_mul/u5/n_44_out_o1[29]_i_30__9
+                                                                      r  x10_mul/u5/out_o1[29]_i_27__17/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x10_mul/u5/out_o1[29]_i_27__17/O
+                         net (fo=2, unplaced)         0.291     3.489    x10_mul/u5/n_44_out_o1[29]_i_27__17
+                                                                      f  x10_mul/u5/out_o1[29]_i_24__17/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x10_mul/u5/out_o1[29]_i_24__17/O
+                         net (fo=2, unplaced)         0.121     3.644    x10_mul/u5/n_44_out_o1[29]_i_24__17
+                                                                      r  x10_mul/u5/out_o1[29]_i_11__17/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x10_mul/u5/out_o1[29]_i_11__17/O
+                         net (fo=2, unplaced)         0.308     4.052    x10_mul/u5/n_44_out_o1[29]_i_11__17
+                                                                      r  x10_mul/u5/out_o1[29]_i_17__17/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x10_mul/u5/out_o1[29]_i_17__17/O
+                         net (fo=1, unplaced)         0.000     4.089    x10_mul/u5/n_44_out_o1[29]_i_17__17
+                                                                      r  x10_mul/u5/out_o1_reg[29]_i_8__9/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x10_mul/u5/out_o1_reg[29]_i_8__9/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x10_mul/u5/n_44_out_o1_reg[29]_i_8__9
+                                                                      r  x10_mul/u5/shift_out_reg[47]_i_33__17/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x10_mul/u5/shift_out_reg[47]_i_33__17/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x10_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x10_mul/u5/out_o1[29]_i_9__9/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x10_mul/u5/out_o1[29]_i_9__9/O
+                         net (fo=11, unplaced)        0.291     5.066    x10_mul/u5/n_44_out_o1[29]_i_9__9
+                                                                      f  x10_mul/u5/shift_out_reg[47]_i_35__17/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x10_mul/u5/shift_out_reg[47]_i_35__17/O
+                         net (fo=6, unplaced)         0.291     5.391    x10_mul/u5/n_44_shift_out_reg[47]_i_35__17
+                                                                      f  x10_mul/u5/out_o1[0]_i_14__9/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x10_mul/u5/out_o1[0]_i_14__9/O
+                         net (fo=2, unplaced)         0.291     5.716    x10_mul/u5/n_44_out_o1[0]_i_14__9
+                                                                      r  x10_mul/u5/out_o1[0]_i_3__17/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x10_mul/u5/out_o1[0]_i_3__17/O
+                         net (fo=2, unplaced)         0.000     5.750    x10_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x10_mul/u4/u7/out_o1_reg[0]_i_4__9/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x10_mul/u4/u7/out_o1_reg[0]_i_4__9/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x10_mul/u4/u7/n_44_out_o1_reg[0]_i_4__9
+                                                                      r  x10_mul/u4/u7/out_o1_reg[15]_i_3__9/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x10_mul/u4/u7/out_o1_reg[15]_i_3__9/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x10_mul/u4/u7/n_44_out_o1_reg[15]_i_3__9
+                                                                      r  x10_mul/u4/u7/out_o1_reg[25]_i_2__9/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x10_mul/u4/u7/out_o1_reg[25]_i_2__9/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x10_mul/u0/fract_out_pl1[0]
+                                                                      f  x10_mul/u0/out_o1[29]_i_5__18/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x10_mul/u0/out_o1[29]_i_5__18/O
+                         net (fo=4, unplaced)         0.291     7.003    x10_mul/u5/I5
+                                                                      r  x10_mul/u5/out_o1[22]_i_4__9/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x10_mul/u5/out_o1[22]_i_4__9/O
+                         net (fo=1, unplaced)         0.291     7.328    x10_mul/u0/I6
+                                                                      r  x10_mul/u0/out_o1[22]_i_1__17/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x10_mul/u0/out_o1[22]_i_1__17/O
+                         net (fo=1, unplaced)         0.000     7.362    x10_mul/n_49_u0
+                         FDRE                                         r  x10_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x10_mul/clock_IBUF_BUFG
+                                                                      r  x10_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x10_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x3_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x3_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x3_mul/u5/clock_IBUF_BUFG
+                                                                      r  x3_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x3_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x3_mul/u5/fract_denorm[8]
+                                                                      f  x3_mul/u5/shift_out_reg[0]_i_40__2/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x3_mul/u5/shift_out_reg[0]_i_40__2/O
+                         net (fo=1, unplaced)         0.291     1.864    x3_mul/u5/n_44_shift_out_reg[0]_i_40__2
+                                                                      r  x3_mul/u5/shift_out_reg[0]_i_33__2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x3_mul/u5/shift_out_reg[0]_i_33__2/O
+                         net (fo=1, unplaced)         0.291     2.189    x3_mul/u5/n_44_shift_out_reg[0]_i_33__2
+                                                                      r  x3_mul/u5/shift_out_reg[0]_i_21__2/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x3_mul/u5/shift_out_reg[0]_i_21__2/O
+                         net (fo=1, unplaced)         0.291     2.514    x3_mul/u5/n_44_shift_out_reg[0]_i_21__2
+                                                                      r  x3_mul/u5/shift_out_reg[0]_i_8__2/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x3_mul/u5/shift_out_reg[0]_i_8__2/O
+                         net (fo=2, unplaced)         0.291     2.839    x3_mul/u5/n_44_shift_out_reg[0]_i_8__2
+                                                                      r  x3_mul/u5/out_o1[29]_i_30__2/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x3_mul/u5/out_o1[29]_i_30__2/O
+                         net (fo=1, unplaced)         0.291     3.164    x3_mul/u5/n_44_out_o1[29]_i_30__2
+                                                                      r  x3_mul/u5/out_o1[29]_i_27__5/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x3_mul/u5/out_o1[29]_i_27__5/O
+                         net (fo=2, unplaced)         0.291     3.489    x3_mul/u5/n_44_out_o1[29]_i_27__5
+                                                                      f  x3_mul/u5/out_o1[29]_i_24__5/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x3_mul/u5/out_o1[29]_i_24__5/O
+                         net (fo=2, unplaced)         0.121     3.644    x3_mul/u5/n_44_out_o1[29]_i_24__5
+                                                                      r  x3_mul/u5/out_o1[29]_i_11__5/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x3_mul/u5/out_o1[29]_i_11__5/O
+                         net (fo=2, unplaced)         0.308     4.052    x3_mul/u5/n_44_out_o1[29]_i_11__5
+                                                                      r  x3_mul/u5/out_o1[29]_i_17__5/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x3_mul/u5/out_o1[29]_i_17__5/O
+                         net (fo=1, unplaced)         0.000     4.089    x3_mul/u5/n_44_out_o1[29]_i_17__5
+                                                                      r  x3_mul/u5/out_o1_reg[29]_i_8__2/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x3_mul/u5/out_o1_reg[29]_i_8__2/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x3_mul/u5/n_44_out_o1_reg[29]_i_8__2
+                                                                      r  x3_mul/u5/shift_out_reg[47]_i_33__5/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x3_mul/u5/shift_out_reg[47]_i_33__5/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x3_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x3_mul/u5/out_o1[29]_i_9__2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x3_mul/u5/out_o1[29]_i_9__2/O
+                         net (fo=11, unplaced)        0.291     5.066    x3_mul/u5/n_44_out_o1[29]_i_9__2
+                                                                      f  x3_mul/u5/shift_out_reg[47]_i_35__5/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x3_mul/u5/shift_out_reg[47]_i_35__5/O
+                         net (fo=6, unplaced)         0.291     5.391    x3_mul/u5/n_44_shift_out_reg[47]_i_35__5
+                                                                      f  x3_mul/u5/out_o1[0]_i_14__2/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x3_mul/u5/out_o1[0]_i_14__2/O
+                         net (fo=2, unplaced)         0.291     5.716    x3_mul/u5/n_44_out_o1[0]_i_14__2
+                                                                      r  x3_mul/u5/out_o1[0]_i_3__6/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x3_mul/u5/out_o1[0]_i_3__6/O
+                         net (fo=2, unplaced)         0.000     5.750    x3_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x3_mul/u4/u7/out_o1_reg[0]_i_4__2/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x3_mul/u4/u7/out_o1_reg[0]_i_4__2/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x3_mul/u4/u7/n_44_out_o1_reg[0]_i_4__2
+                                                                      r  x3_mul/u4/u7/out_o1_reg[15]_i_3__2/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x3_mul/u4/u7/out_o1_reg[15]_i_3__2/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x3_mul/u4/u7/n_44_out_o1_reg[15]_i_3__2
+                                                                      r  x3_mul/u4/u7/out_o1_reg[25]_i_2__2/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x3_mul/u4/u7/out_o1_reg[25]_i_2__2/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x3_mul/u0/fract_out_pl1[0]
+                                                                      f  x3_mul/u0/out_o1[29]_i_5__11/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x3_mul/u0/out_o1[29]_i_5__11/O
+                         net (fo=4, unplaced)         0.291     7.003    x3_mul/u5/I6
+                                                                      r  x3_mul/u5/out_o1[22]_i_4__2/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x3_mul/u5/out_o1[22]_i_4__2/O
+                         net (fo=1, unplaced)         0.291     7.328    x3_mul/u0/I9
+                                                                      r  x3_mul/u0/out_o1[22]_i_1__5/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x3_mul/u0/out_o1[22]_i_1__5/O
+                         net (fo=1, unplaced)         0.000     7.362    x3_mul/n_58_u0
+                         FDRE                                         r  x3_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x3_mul/clock_IBUF_BUFG
+                                                                      r  x3_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x3_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x4_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x4_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x4_mul/u5/clock_IBUF_BUFG
+                                                                      r  x4_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x4_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x4_mul/u5/fract_denorm[8]
+                                                                      f  x4_mul/u5/shift_out_reg[0]_i_40__3/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x4_mul/u5/shift_out_reg[0]_i_40__3/O
+                         net (fo=1, unplaced)         0.291     1.864    x4_mul/u5/n_44_shift_out_reg[0]_i_40__3
+                                                                      r  x4_mul/u5/shift_out_reg[0]_i_33__3/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x4_mul/u5/shift_out_reg[0]_i_33__3/O
+                         net (fo=1, unplaced)         0.291     2.189    x4_mul/u5/n_44_shift_out_reg[0]_i_33__3
+                                                                      r  x4_mul/u5/shift_out_reg[0]_i_21__3/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x4_mul/u5/shift_out_reg[0]_i_21__3/O
+                         net (fo=1, unplaced)         0.291     2.514    x4_mul/u5/n_44_shift_out_reg[0]_i_21__3
+                                                                      r  x4_mul/u5/shift_out_reg[0]_i_8__3/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x4_mul/u5/shift_out_reg[0]_i_8__3/O
+                         net (fo=2, unplaced)         0.291     2.839    x4_mul/u5/n_44_shift_out_reg[0]_i_8__3
+                                                                      r  x4_mul/u5/out_o1[29]_i_30__3/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x4_mul/u5/out_o1[29]_i_30__3/O
+                         net (fo=1, unplaced)         0.291     3.164    x4_mul/u5/n_44_out_o1[29]_i_30__3
+                                                                      r  x4_mul/u5/out_o1[29]_i_27__6/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x4_mul/u5/out_o1[29]_i_27__6/O
+                         net (fo=2, unplaced)         0.291     3.489    x4_mul/u5/n_44_out_o1[29]_i_27__6
+                                                                      f  x4_mul/u5/out_o1[29]_i_24__6/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x4_mul/u5/out_o1[29]_i_24__6/O
+                         net (fo=2, unplaced)         0.121     3.644    x4_mul/u5/n_44_out_o1[29]_i_24__6
+                                                                      r  x4_mul/u5/out_o1[29]_i_11__6/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x4_mul/u5/out_o1[29]_i_11__6/O
+                         net (fo=2, unplaced)         0.308     4.052    x4_mul/u5/n_44_out_o1[29]_i_11__6
+                                                                      r  x4_mul/u5/out_o1[29]_i_17__6/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x4_mul/u5/out_o1[29]_i_17__6/O
+                         net (fo=1, unplaced)         0.000     4.089    x4_mul/u5/n_44_out_o1[29]_i_17__6
+                                                                      r  x4_mul/u5/out_o1_reg[29]_i_8__3/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x4_mul/u5/out_o1_reg[29]_i_8__3/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x4_mul/u5/n_44_out_o1_reg[29]_i_8__3
+                                                                      r  x4_mul/u5/shift_out_reg[47]_i_33__6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x4_mul/u5/shift_out_reg[47]_i_33__6/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x4_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x4_mul/u5/out_o1[29]_i_9__3/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x4_mul/u5/out_o1[29]_i_9__3/O
+                         net (fo=11, unplaced)        0.291     5.066    x4_mul/u5/n_44_out_o1[29]_i_9__3
+                                                                      f  x4_mul/u5/shift_out_reg[47]_i_35__6/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x4_mul/u5/shift_out_reg[47]_i_35__6/O
+                         net (fo=6, unplaced)         0.291     5.391    x4_mul/u5/n_44_shift_out_reg[47]_i_35__6
+                                                                      f  x4_mul/u5/out_o1[0]_i_14__3/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x4_mul/u5/out_o1[0]_i_14__3/O
+                         net (fo=2, unplaced)         0.291     5.716    x4_mul/u5/n_44_out_o1[0]_i_14__3
+                                                                      r  x4_mul/u5/out_o1[0]_i_3__7/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x4_mul/u5/out_o1[0]_i_3__7/O
+                         net (fo=2, unplaced)         0.000     5.750    x4_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x4_mul/u4/u7/out_o1_reg[0]_i_4__3/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x4_mul/u4/u7/out_o1_reg[0]_i_4__3/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x4_mul/u4/u7/n_44_out_o1_reg[0]_i_4__3
+                                                                      r  x4_mul/u4/u7/out_o1_reg[15]_i_3__3/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x4_mul/u4/u7/out_o1_reg[15]_i_3__3/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x4_mul/u4/u7/n_44_out_o1_reg[15]_i_3__3
+                                                                      r  x4_mul/u4/u7/out_o1_reg[25]_i_2__3/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x4_mul/u4/u7/out_o1_reg[25]_i_2__3/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x4_mul/u0/fract_out_pl1[0]
+                                                                      f  x4_mul/u0/out_o1[29]_i_5__12/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x4_mul/u0/out_o1[29]_i_5__12/O
+                         net (fo=4, unplaced)         0.291     7.003    x4_mul/u5/I4
+                                                                      r  x4_mul/u5/out_o1[22]_i_4__3/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x4_mul/u5/out_o1[22]_i_4__3/O
+                         net (fo=1, unplaced)         0.291     7.328    x4_mul/u0/I7
+                                                                      r  x4_mul/u0/out_o1[22]_i_1__6/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x4_mul/u0/out_o1[22]_i_1__6/O
+                         net (fo=1, unplaced)         0.000     7.362    x4_mul/n_51_u0
+                         FDRE                                         r  x4_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x4_mul/clock_IBUF_BUFG
+                                                                      r  x4_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x4_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x5_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x5_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x5_mul/u5/clock_IBUF_BUFG
+                                                                      r  x5_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x5_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x5_mul/u5/fract_denorm[8]
+                                                                      f  x5_mul/u5/shift_out_reg[0]_i_40__4/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x5_mul/u5/shift_out_reg[0]_i_40__4/O
+                         net (fo=1, unplaced)         0.291     1.864    x5_mul/u5/n_44_shift_out_reg[0]_i_40__4
+                                                                      r  x5_mul/u5/shift_out_reg[0]_i_33__4/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x5_mul/u5/shift_out_reg[0]_i_33__4/O
+                         net (fo=1, unplaced)         0.291     2.189    x5_mul/u5/n_44_shift_out_reg[0]_i_33__4
+                                                                      r  x5_mul/u5/shift_out_reg[0]_i_21__4/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x5_mul/u5/shift_out_reg[0]_i_21__4/O
+                         net (fo=1, unplaced)         0.291     2.514    x5_mul/u5/n_44_shift_out_reg[0]_i_21__4
+                                                                      r  x5_mul/u5/shift_out_reg[0]_i_8__4/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x5_mul/u5/shift_out_reg[0]_i_8__4/O
+                         net (fo=2, unplaced)         0.291     2.839    x5_mul/u5/n_44_shift_out_reg[0]_i_8__4
+                                                                      r  x5_mul/u5/out_o1[29]_i_30__4/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x5_mul/u5/out_o1[29]_i_30__4/O
+                         net (fo=1, unplaced)         0.291     3.164    x5_mul/u5/n_44_out_o1[29]_i_30__4
+                                                                      r  x5_mul/u5/out_o1[29]_i_27__7/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x5_mul/u5/out_o1[29]_i_27__7/O
+                         net (fo=2, unplaced)         0.291     3.489    x5_mul/u5/n_44_out_o1[29]_i_27__7
+                                                                      f  x5_mul/u5/out_o1[29]_i_24__7/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x5_mul/u5/out_o1[29]_i_24__7/O
+                         net (fo=2, unplaced)         0.121     3.644    x5_mul/u5/n_44_out_o1[29]_i_24__7
+                                                                      r  x5_mul/u5/out_o1[29]_i_11__7/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x5_mul/u5/out_o1[29]_i_11__7/O
+                         net (fo=2, unplaced)         0.308     4.052    x5_mul/u5/n_44_out_o1[29]_i_11__7
+                                                                      r  x5_mul/u5/out_o1[29]_i_17__7/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x5_mul/u5/out_o1[29]_i_17__7/O
+                         net (fo=1, unplaced)         0.000     4.089    x5_mul/u5/n_44_out_o1[29]_i_17__7
+                                                                      r  x5_mul/u5/out_o1_reg[29]_i_8__4/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x5_mul/u5/out_o1_reg[29]_i_8__4/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x5_mul/u5/n_44_out_o1_reg[29]_i_8__4
+                                                                      r  x5_mul/u5/shift_out_reg[47]_i_33__7/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x5_mul/u5/shift_out_reg[47]_i_33__7/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x5_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x5_mul/u5/out_o1[29]_i_9__4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x5_mul/u5/out_o1[29]_i_9__4/O
+                         net (fo=11, unplaced)        0.291     5.066    x5_mul/u5/n_44_out_o1[29]_i_9__4
+                                                                      f  x5_mul/u5/shift_out_reg[47]_i_35__7/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x5_mul/u5/shift_out_reg[47]_i_35__7/O
+                         net (fo=6, unplaced)         0.291     5.391    x5_mul/u5/n_44_shift_out_reg[47]_i_35__7
+                                                                      f  x5_mul/u5/out_o1[0]_i_14__4/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x5_mul/u5/out_o1[0]_i_14__4/O
+                         net (fo=2, unplaced)         0.291     5.716    x5_mul/u5/n_44_out_o1[0]_i_14__4
+                                                                      r  x5_mul/u5/out_o1[0]_i_3__8/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x5_mul/u5/out_o1[0]_i_3__8/O
+                         net (fo=2, unplaced)         0.000     5.750    x5_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x5_mul/u4/u7/out_o1_reg[0]_i_4__4/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x5_mul/u4/u7/out_o1_reg[0]_i_4__4/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x5_mul/u4/u7/n_44_out_o1_reg[0]_i_4__4
+                                                                      r  x5_mul/u4/u7/out_o1_reg[15]_i_3__4/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x5_mul/u4/u7/out_o1_reg[15]_i_3__4/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x5_mul/u4/u7/n_44_out_o1_reg[15]_i_3__4
+                                                                      r  x5_mul/u4/u7/out_o1_reg[25]_i_2__4/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x5_mul/u4/u7/out_o1_reg[25]_i_2__4/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x5_mul/u0/fract_out_pl1[0]
+                                                                      f  x5_mul/u0/out_o1[29]_i_5__13/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x5_mul/u0/out_o1[29]_i_5__13/O
+                         net (fo=4, unplaced)         0.291     7.003    x5_mul/u5/I6
+                                                                      r  x5_mul/u5/out_o1[22]_i_4__4/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x5_mul/u5/out_o1[22]_i_4__4/O
+                         net (fo=1, unplaced)         0.291     7.328    x5_mul/u0/I9
+                                                                      r  x5_mul/u0/out_o1[22]_i_1__7/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x5_mul/u0/out_o1[22]_i_1__7/O
+                         net (fo=1, unplaced)         0.000     7.362    x5_mul/n_58_u0
+                         FDRE                                         r  x5_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x5_mul/clock_IBUF_BUFG
+                                                                      r  x5_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x5_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x6_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x6_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x6_mul/u5/clock_IBUF_BUFG
+                                                                      r  x6_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x6_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x6_mul/u5/fract_denorm[8]
+                                                                      f  x6_mul/u5/shift_out_reg[0]_i_40__5/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x6_mul/u5/shift_out_reg[0]_i_40__5/O
+                         net (fo=1, unplaced)         0.291     1.864    x6_mul/u5/n_44_shift_out_reg[0]_i_40__5
+                                                                      r  x6_mul/u5/shift_out_reg[0]_i_33__5/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x6_mul/u5/shift_out_reg[0]_i_33__5/O
+                         net (fo=1, unplaced)         0.291     2.189    x6_mul/u5/n_44_shift_out_reg[0]_i_33__5
+                                                                      r  x6_mul/u5/shift_out_reg[0]_i_21__5/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x6_mul/u5/shift_out_reg[0]_i_21__5/O
+                         net (fo=1, unplaced)         0.291     2.514    x6_mul/u5/n_44_shift_out_reg[0]_i_21__5
+                                                                      r  x6_mul/u5/shift_out_reg[0]_i_8__5/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x6_mul/u5/shift_out_reg[0]_i_8__5/O
+                         net (fo=2, unplaced)         0.291     2.839    x6_mul/u5/n_44_shift_out_reg[0]_i_8__5
+                                                                      r  x6_mul/u5/out_o1[29]_i_30__5/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x6_mul/u5/out_o1[29]_i_30__5/O
+                         net (fo=1, unplaced)         0.291     3.164    x6_mul/u5/n_44_out_o1[29]_i_30__5
+                                                                      r  x6_mul/u5/out_o1[29]_i_27__8/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x6_mul/u5/out_o1[29]_i_27__8/O
+                         net (fo=2, unplaced)         0.291     3.489    x6_mul/u5/n_44_out_o1[29]_i_27__8
+                                                                      f  x6_mul/u5/out_o1[29]_i_24__8/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x6_mul/u5/out_o1[29]_i_24__8/O
+                         net (fo=2, unplaced)         0.121     3.644    x6_mul/u5/n_44_out_o1[29]_i_24__8
+                                                                      r  x6_mul/u5/out_o1[29]_i_11__8/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x6_mul/u5/out_o1[29]_i_11__8/O
+                         net (fo=2, unplaced)         0.308     4.052    x6_mul/u5/n_44_out_o1[29]_i_11__8
+                                                                      r  x6_mul/u5/out_o1[29]_i_17__8/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x6_mul/u5/out_o1[29]_i_17__8/O
+                         net (fo=1, unplaced)         0.000     4.089    x6_mul/u5/n_44_out_o1[29]_i_17__8
+                                                                      r  x6_mul/u5/out_o1_reg[29]_i_8__5/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x6_mul/u5/out_o1_reg[29]_i_8__5/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x6_mul/u5/n_44_out_o1_reg[29]_i_8__5
+                                                                      r  x6_mul/u5/shift_out_reg[47]_i_33__8/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x6_mul/u5/shift_out_reg[47]_i_33__8/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x6_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x6_mul/u5/out_o1[29]_i_9__5/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x6_mul/u5/out_o1[29]_i_9__5/O
+                         net (fo=11, unplaced)        0.291     5.066    x6_mul/u5/n_44_out_o1[29]_i_9__5
+                                                                      f  x6_mul/u5/shift_out_reg[47]_i_35__8/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x6_mul/u5/shift_out_reg[47]_i_35__8/O
+                         net (fo=6, unplaced)         0.291     5.391    x6_mul/u5/n_44_shift_out_reg[47]_i_35__8
+                                                                      f  x6_mul/u5/out_o1[0]_i_14__5/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x6_mul/u5/out_o1[0]_i_14__5/O
+                         net (fo=2, unplaced)         0.291     5.716    x6_mul/u5/n_44_out_o1[0]_i_14__5
+                                                                      r  x6_mul/u5/out_o1[0]_i_3__9/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x6_mul/u5/out_o1[0]_i_3__9/O
+                         net (fo=2, unplaced)         0.000     5.750    x6_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x6_mul/u4/u7/out_o1_reg[0]_i_4__5/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x6_mul/u4/u7/out_o1_reg[0]_i_4__5/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x6_mul/u4/u7/n_44_out_o1_reg[0]_i_4__5
+                                                                      r  x6_mul/u4/u7/out_o1_reg[15]_i_3__5/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x6_mul/u4/u7/out_o1_reg[15]_i_3__5/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x6_mul/u4/u7/n_44_out_o1_reg[15]_i_3__5
+                                                                      r  x6_mul/u4/u7/out_o1_reg[25]_i_2__5/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x6_mul/u4/u7/out_o1_reg[25]_i_2__5/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x6_mul/u0/fract_out_pl1[0]
+                                                                      f  x6_mul/u0/out_o1[29]_i_5__14/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x6_mul/u0/out_o1[29]_i_5__14/O
+                         net (fo=4, unplaced)         0.291     7.003    x6_mul/u5/I4
+                                                                      r  x6_mul/u5/out_o1[22]_i_4__5/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x6_mul/u5/out_o1[22]_i_4__5/O
+                         net (fo=1, unplaced)         0.291     7.328    x6_mul/u0/I7
+                                                                      r  x6_mul/u0/out_o1[22]_i_1__8/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x6_mul/u0/out_o1[22]_i_1__8/O
+                         net (fo=1, unplaced)         0.000     7.362    x6_mul/n_51_u0
+                         FDRE                                         r  x6_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x6_mul/clock_IBUF_BUFG
+                                                                      r  x6_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x6_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x7_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x7_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x7_mul/u5/clock_IBUF_BUFG
+                                                                      r  x7_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x7_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x7_mul/u5/fract_denorm[8]
+                                                                      f  x7_mul/u5/shift_out_reg[0]_i_40__6/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x7_mul/u5/shift_out_reg[0]_i_40__6/O
+                         net (fo=1, unplaced)         0.291     1.864    x7_mul/u5/n_44_shift_out_reg[0]_i_40__6
+                                                                      r  x7_mul/u5/shift_out_reg[0]_i_33__6/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x7_mul/u5/shift_out_reg[0]_i_33__6/O
+                         net (fo=1, unplaced)         0.291     2.189    x7_mul/u5/n_44_shift_out_reg[0]_i_33__6
+                                                                      r  x7_mul/u5/shift_out_reg[0]_i_21__6/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x7_mul/u5/shift_out_reg[0]_i_21__6/O
+                         net (fo=1, unplaced)         0.291     2.514    x7_mul/u5/n_44_shift_out_reg[0]_i_21__6
+                                                                      r  x7_mul/u5/shift_out_reg[0]_i_8__6/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x7_mul/u5/shift_out_reg[0]_i_8__6/O
+                         net (fo=2, unplaced)         0.291     2.839    x7_mul/u5/n_44_shift_out_reg[0]_i_8__6
+                                                                      r  x7_mul/u5/out_o1[29]_i_30__6/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x7_mul/u5/out_o1[29]_i_30__6/O
+                         net (fo=1, unplaced)         0.291     3.164    x7_mul/u5/n_44_out_o1[29]_i_30__6
+                                                                      r  x7_mul/u5/out_o1[29]_i_27__9/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x7_mul/u5/out_o1[29]_i_27__9/O
+                         net (fo=2, unplaced)         0.291     3.489    x7_mul/u5/n_44_out_o1[29]_i_27__9
+                                                                      f  x7_mul/u5/out_o1[29]_i_24__9/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x7_mul/u5/out_o1[29]_i_24__9/O
+                         net (fo=2, unplaced)         0.121     3.644    x7_mul/u5/n_44_out_o1[29]_i_24__9
+                                                                      r  x7_mul/u5/out_o1[29]_i_11__9/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x7_mul/u5/out_o1[29]_i_11__9/O
+                         net (fo=2, unplaced)         0.308     4.052    x7_mul/u5/n_44_out_o1[29]_i_11__9
+                                                                      r  x7_mul/u5/out_o1[29]_i_17__9/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x7_mul/u5/out_o1[29]_i_17__9/O
+                         net (fo=1, unplaced)         0.000     4.089    x7_mul/u5/n_44_out_o1[29]_i_17__9
+                                                                      r  x7_mul/u5/out_o1_reg[29]_i_8__6/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x7_mul/u5/out_o1_reg[29]_i_8__6/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x7_mul/u5/n_44_out_o1_reg[29]_i_8__6
+                                                                      r  x7_mul/u5/shift_out_reg[47]_i_33__9/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x7_mul/u5/shift_out_reg[47]_i_33__9/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x7_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x7_mul/u5/out_o1[29]_i_9__6/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x7_mul/u5/out_o1[29]_i_9__6/O
+                         net (fo=11, unplaced)        0.291     5.066    x7_mul/u5/n_44_out_o1[29]_i_9__6
+                                                                      f  x7_mul/u5/shift_out_reg[47]_i_35__9/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x7_mul/u5/shift_out_reg[47]_i_35__9/O
+                         net (fo=6, unplaced)         0.291     5.391    x7_mul/u5/n_44_shift_out_reg[47]_i_35__9
+                                                                      f  x7_mul/u5/out_o1[0]_i_14__6/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x7_mul/u5/out_o1[0]_i_14__6/O
+                         net (fo=2, unplaced)         0.291     5.716    x7_mul/u5/n_44_out_o1[0]_i_14__6
+                                                                      r  x7_mul/u5/out_o1[0]_i_3__10/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x7_mul/u5/out_o1[0]_i_3__10/O
+                         net (fo=2, unplaced)         0.000     5.750    x7_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x7_mul/u4/u7/out_o1_reg[0]_i_4__6/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x7_mul/u4/u7/out_o1_reg[0]_i_4__6/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x7_mul/u4/u7/n_44_out_o1_reg[0]_i_4__6
+                                                                      r  x7_mul/u4/u7/out_o1_reg[15]_i_3__6/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x7_mul/u4/u7/out_o1_reg[15]_i_3__6/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x7_mul/u4/u7/n_44_out_o1_reg[15]_i_3__6
+                                                                      r  x7_mul/u4/u7/out_o1_reg[25]_i_2__6/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x7_mul/u4/u7/out_o1_reg[25]_i_2__6/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x7_mul/u0/fract_out_pl1[0]
+                                                                      f  x7_mul/u0/out_o1[29]_i_5__15/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x7_mul/u0/out_o1[29]_i_5__15/O
+                         net (fo=4, unplaced)         0.291     7.003    x7_mul/u5/I6
+                                                                      r  x7_mul/u5/out_o1[22]_i_4__6/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x7_mul/u5/out_o1[22]_i_4__6/O
+                         net (fo=1, unplaced)         0.291     7.328    x7_mul/u0/I9
+                                                                      r  x7_mul/u0/out_o1[22]_i_1__9/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x7_mul/u0/out_o1[22]_i_1__9/O
+                         net (fo=1, unplaced)         0.000     7.362    x7_mul/n_58_u0
+                         FDRE                                         r  x7_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x7_mul/clock_IBUF_BUFG
+                                                                      r  x7_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x7_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x8_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x8_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x8_mul/u5/clock_IBUF_BUFG
+                                                                      r  x8_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x8_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x8_mul/u5/fract_denorm[8]
+                                                                      f  x8_mul/u5/shift_out_reg[0]_i_40__7/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x8_mul/u5/shift_out_reg[0]_i_40__7/O
+                         net (fo=1, unplaced)         0.291     1.864    x8_mul/u5/n_44_shift_out_reg[0]_i_40__7
+                                                                      r  x8_mul/u5/shift_out_reg[0]_i_33__7/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x8_mul/u5/shift_out_reg[0]_i_33__7/O
+                         net (fo=1, unplaced)         0.291     2.189    x8_mul/u5/n_44_shift_out_reg[0]_i_33__7
+                                                                      r  x8_mul/u5/shift_out_reg[0]_i_21__7/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x8_mul/u5/shift_out_reg[0]_i_21__7/O
+                         net (fo=1, unplaced)         0.291     2.514    x8_mul/u5/n_44_shift_out_reg[0]_i_21__7
+                                                                      r  x8_mul/u5/shift_out_reg[0]_i_8__7/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x8_mul/u5/shift_out_reg[0]_i_8__7/O
+                         net (fo=2, unplaced)         0.291     2.839    x8_mul/u5/n_44_shift_out_reg[0]_i_8__7
+                                                                      r  x8_mul/u5/out_o1[29]_i_30__7/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x8_mul/u5/out_o1[29]_i_30__7/O
+                         net (fo=1, unplaced)         0.291     3.164    x8_mul/u5/n_44_out_o1[29]_i_30__7
+                                                                      r  x8_mul/u5/out_o1[29]_i_27__10/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x8_mul/u5/out_o1[29]_i_27__10/O
+                         net (fo=2, unplaced)         0.291     3.489    x8_mul/u5/n_44_out_o1[29]_i_27__10
+                                                                      f  x8_mul/u5/out_o1[29]_i_24__10/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x8_mul/u5/out_o1[29]_i_24__10/O
+                         net (fo=2, unplaced)         0.121     3.644    x8_mul/u5/n_44_out_o1[29]_i_24__10
+                                                                      r  x8_mul/u5/out_o1[29]_i_11__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x8_mul/u5/out_o1[29]_i_11__10/O
+                         net (fo=2, unplaced)         0.308     4.052    x8_mul/u5/n_44_out_o1[29]_i_11__10
+                                                                      r  x8_mul/u5/out_o1[29]_i_17__10/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x8_mul/u5/out_o1[29]_i_17__10/O
+                         net (fo=1, unplaced)         0.000     4.089    x8_mul/u5/n_44_out_o1[29]_i_17__10
+                                                                      r  x8_mul/u5/out_o1_reg[29]_i_8__7/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x8_mul/u5/out_o1_reg[29]_i_8__7/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x8_mul/u5/n_44_out_o1_reg[29]_i_8__7
+                                                                      r  x8_mul/u5/shift_out_reg[47]_i_33__10/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x8_mul/u5/shift_out_reg[47]_i_33__10/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x8_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x8_mul/u5/out_o1[29]_i_9__7/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x8_mul/u5/out_o1[29]_i_9__7/O
+                         net (fo=11, unplaced)        0.291     5.066    x8_mul/u5/n_44_out_o1[29]_i_9__7
+                                                                      f  x8_mul/u5/shift_out_reg[47]_i_35__10/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x8_mul/u5/shift_out_reg[47]_i_35__10/O
+                         net (fo=6, unplaced)         0.291     5.391    x8_mul/u5/n_44_shift_out_reg[47]_i_35__10
+                                                                      f  x8_mul/u5/out_o1[0]_i_14__7/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x8_mul/u5/out_o1[0]_i_14__7/O
+                         net (fo=2, unplaced)         0.291     5.716    x8_mul/u5/n_44_out_o1[0]_i_14__7
+                                                                      r  x8_mul/u5/out_o1[0]_i_3__11/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x8_mul/u5/out_o1[0]_i_3__11/O
+                         net (fo=2, unplaced)         0.000     5.750    x8_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x8_mul/u4/u7/out_o1_reg[0]_i_4__7/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x8_mul/u4/u7/out_o1_reg[0]_i_4__7/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x8_mul/u4/u7/n_44_out_o1_reg[0]_i_4__7
+                                                                      r  x8_mul/u4/u7/out_o1_reg[15]_i_3__7/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x8_mul/u4/u7/out_o1_reg[15]_i_3__7/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x8_mul/u4/u7/n_44_out_o1_reg[15]_i_3__7
+                                                                      r  x8_mul/u4/u7/out_o1_reg[25]_i_2__7/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x8_mul/u4/u7/out_o1_reg[25]_i_2__7/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x8_mul/u0/fract_out_pl1[0]
+                                                                      f  x8_mul/u0/out_o1[29]_i_5__16/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x8_mul/u0/out_o1[29]_i_5__16/O
+                         net (fo=4, unplaced)         0.291     7.003    x8_mul/u5/I4
+                                                                      r  x8_mul/u5/out_o1[22]_i_4__7/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x8_mul/u5/out_o1[22]_i_4__7/O
+                         net (fo=1, unplaced)         0.291     7.328    x8_mul/u0/I7
+                                                                      r  x8_mul/u0/out_o1[22]_i_1__10/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x8_mul/u0/out_o1[22]_i_1__10/O
+                         net (fo=1, unplaced)         0.000     7.362    x8_mul/n_51_u0
+                         FDRE                                         r  x8_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x8_mul/clock_IBUF_BUFG
+                                                                      r  x8_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x8_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.728ns  (required time - arrival time)
+  Source:                 x9_mul/u5/prod_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            x9_mul/out_o1_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.226ns  (logic 1.698ns (27.273%)  route 4.528ns (72.727%))
+  Logic Levels:           21  (CARRY8=5 LUT2=1 LUT3=1 LUT4=2 LUT5=5 LUT6=7)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    x9_mul/u5/clock_IBUF_BUFG
+                                                                      r  x9_mul/u5/prod_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 f  x9_mul/u5/prod_reg[8]/Q
+                         net (fo=13, unplaced)        0.272     1.511    x9_mul/u5/fract_denorm[8]
+                                                                      f  x9_mul/u5/shift_out_reg[0]_i_40__8/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.062     1.573 r  x9_mul/u5/shift_out_reg[0]_i_40__8/O
+                         net (fo=1, unplaced)         0.291     1.864    x9_mul/u5/n_44_shift_out_reg[0]_i_40__8
+                                                                      r  x9_mul/u5/shift_out_reg[0]_i_33__8/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.898 r  x9_mul/u5/shift_out_reg[0]_i_33__8/O
+                         net (fo=1, unplaced)         0.291     2.189    x9_mul/u5/n_44_shift_out_reg[0]_i_33__8
+                                                                      r  x9_mul/u5/shift_out_reg[0]_i_21__8/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     2.223 r  x9_mul/u5/shift_out_reg[0]_i_21__8/O
+                         net (fo=1, unplaced)         0.291     2.514    x9_mul/u5/n_44_shift_out_reg[0]_i_21__8
+                                                                      r  x9_mul/u5/shift_out_reg[0]_i_8__8/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.034     2.548 r  x9_mul/u5/shift_out_reg[0]_i_8__8/O
+                         net (fo=2, unplaced)         0.291     2.839    x9_mul/u5/n_44_shift_out_reg[0]_i_8__8
+                                                                      r  x9_mul/u5/out_o1[29]_i_30__8/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.034     2.873 r  x9_mul/u5/out_o1[29]_i_30__8/O
+                         net (fo=1, unplaced)         0.291     3.164    x9_mul/u5/n_44_out_o1[29]_i_30__8
+                                                                      r  x9_mul/u5/out_o1[29]_i_27__15/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     3.198 f  x9_mul/u5/out_o1[29]_i_27__15/O
+                         net (fo=2, unplaced)         0.291     3.489    x9_mul/u5/n_44_out_o1[29]_i_27__15
+                                                                      f  x9_mul/u5/out_o1[29]_i_24__15/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     3.523 r  x9_mul/u5/out_o1[29]_i_24__15/O
+                         net (fo=2, unplaced)         0.121     3.644    x9_mul/u5/n_44_out_o1[29]_i_24__15
+                                                                      r  x9_mul/u5/out_o1[29]_i_11__15/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     3.744 r  x9_mul/u5/out_o1[29]_i_11__15/O
+                         net (fo=2, unplaced)         0.308     4.052    x9_mul/u5/n_44_out_o1[29]_i_11__15
+                                                                      r  x9_mul/u5/out_o1[29]_i_17__15/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     4.089 r  x9_mul/u5/out_o1[29]_i_17__15/O
+                         net (fo=1, unplaced)         0.000     4.089    x9_mul/u5/n_44_out_o1[29]_i_17__15
+                                                                      r  x9_mul/u5/out_o1_reg[29]_i_8__8/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     4.332 r  x9_mul/u5/out_o1_reg[29]_i_8__8/CO[7]
+                         net (fo=1, unplaced)         0.013     4.345    x9_mul/u5/n_44_out_o1_reg[29]_i_8__8
+                                                                      r  x9_mul/u5/shift_out_reg[47]_i_33__15/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.450 f  x9_mul/u5/shift_out_reg[47]_i_33__15/O[0]
+                         net (fo=5, unplaced)         0.291     4.741    x9_mul/u5/u4/exp_next_mi[8]
+                                                                      f  x9_mul/u5/out_o1[29]_i_9__8/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.775 f  x9_mul/u5/out_o1[29]_i_9__8/O
+                         net (fo=11, unplaced)        0.291     5.066    x9_mul/u5/n_44_out_o1[29]_i_9__8
+                                                                      f  x9_mul/u5/shift_out_reg[47]_i_35__15/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.100 f  x9_mul/u5/shift_out_reg[47]_i_35__15/O
+                         net (fo=6, unplaced)         0.291     5.391    x9_mul/u5/n_44_shift_out_reg[47]_i_35__15
+                                                                      f  x9_mul/u5/out_o1[0]_i_14__8/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.034     5.425 r  x9_mul/u5/out_o1[0]_i_14__8/O
+                         net (fo=2, unplaced)         0.291     5.716    x9_mul/u5/n_44_out_o1[0]_i_14__8
+                                                                      r  x9_mul/u5/out_o1[0]_i_3__15/I3
+                         LUT4 (Prop_LUT4_I3_O)        0.034     5.750 r  x9_mul/u5/out_o1[0]_i_3__15/O
+                         net (fo=2, unplaced)         0.000     5.750    x9_mul/u4/u7/p_0_in51_in[0]
+                                                                      r  x9_mul/u4/u7/out_o1_reg[0]_i_4__8/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     6.080 r  x9_mul/u4/u7/out_o1_reg[0]_i_4__8/CO[7]
+                         net (fo=1, unplaced)         0.013     6.093    x9_mul/u4/u7/n_44_out_o1_reg[0]_i_4__8
+                                                                      r  x9_mul/u4/u7/out_o1_reg[15]_i_3__8/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     6.136 r  x9_mul/u4/u7/out_o1_reg[15]_i_3__8/CO[7]
+                         net (fo=1, unplaced)         0.000     6.136    x9_mul/u4/u7/n_44_out_o1_reg[15]_i_3__8
+                                                                      r  x9_mul/u4/u7/out_o1_reg[25]_i_2__8/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     6.318 f  x9_mul/u4/u7/out_o1_reg[25]_i_2__8/O[7]
+                         net (fo=13, unplaced)        0.309     6.627    x9_mul/u0/fract_out_pl1[0]
+                                                                      f  x9_mul/u0/out_o1[29]_i_5__17/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.712 r  x9_mul/u0/out_o1[29]_i_5__17/O
+                         net (fo=4, unplaced)         0.291     7.003    x9_mul/u5/I6
+                                                                      r  x9_mul/u5/out_o1[22]_i_4__8/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     7.037 r  x9_mul/u5/out_o1[22]_i_4__8/O
+                         net (fo=1, unplaced)         0.291     7.328    x9_mul/u0/I10
+                                                                      r  x9_mul/u0/out_o1[22]_i_1__15/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.034     7.362 r  x9_mul/u0/out_o1[22]_i_1__15/O
+                         net (fo=1, unplaced)         0.000     7.362    x9_mul/n_51_u0
+                         FDRE                                         r  x9_mul/out_o1_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    x9_mul/clock_IBUF_BUFG
+                                                                      r  x9_mul/out_o1_reg[22]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    x9_mul/out_o1_reg[22]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.362    
+  -------------------------------------------------------------------
+                         slack                                 -0.728    
+
+Slack (VIOLATED) :        -0.704ns  (required time - arrival time)
+  Source:                 a0_add/fract_out_q_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            a0_add/out_o1_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.202ns  (logic 1.748ns (28.184%)  route 4.454ns (71.816%))
+  Logic Levels:           21  (CARRY8=5 LUT2=2 LUT3=2 LUT4=2 LUT5=2 LUT6=8)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    a0_add/clock_IBUF_BUFG
+                                                                      r  a0_add/fract_out_q_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.102     1.238 r  a0_add/fract_out_q_reg[10]/Q
+                         net (fo=8, unplaced)         0.300     1.538    a0_add/u4/u7/Q[10]
+                                                                      r  a0_add/u4/u7/shift_out_reg[47]_i_56/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.034     1.572 f  a0_add/u4/u7/shift_out_reg[47]_i_56/O
+                         net (fo=1, unplaced)         0.291     1.863    a0_add/u4/u7/n_44_shift_out_reg[47]_i_56
+                                                                      f  a0_add/u4/u7/shift_out_reg[47]_i_46/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.897 r  a0_add/u4/u7/shift_out_reg[47]_i_46/O
+                         net (fo=1, unplaced)         0.291     2.188    a0_add/u4/u7/n_44_shift_out_reg[47]_i_46
+                                                                      r  a0_add/u4/u7/shift_out_reg[47]_i_38__10/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     2.222 r  a0_add/u4/u7/shift_out_reg[47]_i_38__10/O
+                         net (fo=2, unplaced)         0.291     2.513    a0_add/u4/u7/O3
+                                                                      r  a0_add/u4/u7/shift_out_reg[47]_i_26__10/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     2.547 f  a0_add/u4/u7/shift_out_reg[47]_i_26__10/O
+                         net (fo=4, unplaced)         0.291     2.838    a0_add/n_44_u4
+                                                                      f  a0_add/out_o1[29]_i_29__2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.034     2.872 f  a0_add/out_o1[29]_i_29__2/O
+                         net (fo=2, unplaced)         0.291     3.163    a0_add/n_44_out_o1[29]_i_29__2
+                                                                      f  a0_add/out_o1[29]_i_24__2/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.197 r  a0_add/out_o1[29]_i_24__2/O
+                         net (fo=2, unplaced)         0.118     3.315    a0_add/n_44_out_o1[29]_i_24__2
+                                                                      r  a0_add/out_o1[29]_i_10/I1
+                         LUT3 (Prop_LUT3_I1_O)        0.062     3.377 r  a0_add/out_o1[29]_i_10/O
+                         net (fo=2, unplaced)         0.308     3.685    a0_add/n_44_out_o1[29]_i_10
+                                                                      r  a0_add/out_o1[29]_i_16__2/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     3.722 r  a0_add/out_o1[29]_i_16__2/O
+                         net (fo=1, unplaced)         0.000     3.722    a0_add/n_44_out_o1[29]_i_16__2
+                                                                      r  a0_add/out_o1_reg[29]_i_6/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.965 r  a0_add/out_o1_reg[29]_i_6/CO[7]
+                         net (fo=1, unplaced)         0.013     3.978    a0_add/n_44_out_o1_reg[29]_i_6
+                                                                      r  a0_add/shift_out_reg[47]_i_30__2/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.083 f  a0_add/shift_out_reg[47]_i_30__2/O[0]
+                         net (fo=5, unplaced)         0.121     4.204    a0_add/u4/u7/I10[0]
+                                                                      f  a0_add/u4/u7/shift_out_reg[47]_i_28__10/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     4.304 r  a0_add/u4/u7/shift_out_reg[47]_i_28__10/O
+                         net (fo=37, unplaced)        0.291     4.595    a0_add/u4/u7/O11
+                                                                      r  a0_add/u4/u7/out_o1[30]_i_3/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.629 r  a0_add/u4/u7/out_o1[30]_i_3/O
+                         net (fo=3, unplaced)         0.291     4.920    a0_add/u4/u7/n_44_out_o1[30]_i_3
+                                                                      r  a0_add/u4/u7/shift_out_reg[47]_i_27__2/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     4.954 f  a0_add/u4/u7/shift_out_reg[47]_i_27__2/O
+                         net (fo=28, unplaced)        0.121     5.075    a0_add/u4/u7/n_44_shift_out_reg[47]_i_27__2
+                                                                      f  a0_add/u4/u7/out_o1[7]_i_3/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.085     5.160 r  a0_add/u4/u7/out_o1[7]_i_3/O
+                         net (fo=1, unplaced)         0.241     5.401    a0_add/u4/u7/n_44_out_o1[7]_i_3
+                                                                      r  a0_add/u4/u7/out_o1_reg[7]_i_2/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     5.731 r  a0_add/u4/u7/out_o1_reg[7]_i_2/CO[7]
+                         net (fo=1, unplaced)         0.013     5.744    a0_add/u4/u7/n_44_out_o1_reg[7]_i_2
+                                                                      r  a0_add/u4/u7/out_o1_reg[15]_i_2/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     5.787 r  a0_add/u4/u7/out_o1_reg[15]_i_2/CO[7]
+                         net (fo=1, unplaced)         0.000     5.787    a0_add/u4/u7/n_44_out_o1_reg[15]_i_2
+                                                                      r  a0_add/u4/u7/out_o1_reg[21]_i_5/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     5.969 r  a0_add/u4/u7/out_o1_reg[21]_i_5/O[7]
+                         net (fo=11, unplaced)        0.291     6.260    a0_add/u4/u7/fract_out_pl1[23]
+                                                                      r  a0_add/u4/u7/out_o1[30]_i_2__2/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.294 f  a0_add/u4/u7/out_o1[30]_i_2__2/O
+                         net (fo=3, unplaced)         0.309     6.603    a0_add/u4/u7/n_44_out_o1[30]_i_2__2
+                                                                      f  a0_add/u4/u7/out_o1[31]_i_9/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.688 f  a0_add/u4/u7/out_o1[31]_i_9/O
+                         net (fo=1, unplaced)         0.291     6.979    a0_add/u4/u7/n_44_out_o1[31]_i_9
+                                                                      f  a0_add/u4/u7/out_o1[31]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     7.013 r  a0_add/u4/u7/out_o1[31]_i_4/O
+                         net (fo=1, unplaced)         0.291     7.304    a0_add/u1/I4
+                                                                      r  a0_add/u1/out_o1[31]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.338 r  a0_add/u1/out_o1[31]_i_1/O
+                         net (fo=1, unplaced)         0.000     7.338    a0_add/n_151_u1
+                         FDRE                                         r  a0_add/out_o1_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    a0_add/clock_IBUF_BUFG
+                                                                      r  a0_add/out_o1_reg[31]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    a0_add/out_o1_reg[31]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.338    
+  -------------------------------------------------------------------
+                         slack                                 -0.704    
+
+Slack (VIOLATED) :        -0.704ns  (required time - arrival time)
+  Source:                 a1_add/fract_out_q_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Destination:            a1_add/out_o1_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clock  {rise@0.000ns fall@2.750ns period=5.500ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.500ns  (clock rise@5.500ns - clock rise@0.000ns)
+  Data Path Delay:        6.202ns  (logic 1.748ns (28.184%)  route 4.454ns (71.816%))
+  Logic Levels:           21  (CARRY8=5 LUT2=2 LUT3=2 LUT4=2 LUT5=2 LUT6=8)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 6.291 - 5.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+                                                      0.000     0.000 r  clock
+                         net (fo=0)                   0.000     0.000    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.270     1.136    a1_add/clock_IBUF_BUFG
+                                                                      r  a1_add/fract_out_q_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.102     1.238 r  a1_add/fract_out_q_reg[10]/Q
+                         net (fo=8, unplaced)         0.300     1.538    a1_add/u4/u7/Q[10]
+                                                                      r  a1_add/u4/u7/shift_out_reg[47]_i_56__0/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.034     1.572 f  a1_add/u4/u7/shift_out_reg[47]_i_56__0/O
+                         net (fo=1, unplaced)         0.291     1.863    a1_add/u4/u7/n_44_shift_out_reg[47]_i_56__0
+                                                                      f  a1_add/u4/u7/shift_out_reg[47]_i_46__0/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.034     1.897 r  a1_add/u4/u7/shift_out_reg[47]_i_46__0/O
+                         net (fo=1, unplaced)         0.291     2.188    a1_add/u4/u7/n_44_shift_out_reg[47]_i_46__0
+                                                                      r  a1_add/u4/u7/shift_out_reg[47]_i_38__11/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.034     2.222 r  a1_add/u4/u7/shift_out_reg[47]_i_38__11/O
+                         net (fo=2, unplaced)         0.291     2.513    a1_add/u4/u7/O3
+                                                                      r  a1_add/u4/u7/shift_out_reg[47]_i_26__11/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     2.547 f  a1_add/u4/u7/shift_out_reg[47]_i_26__11/O
+                         net (fo=4, unplaced)         0.291     2.838    a1_add/n_44_u4
+                                                                      f  a1_add/out_o1[29]_i_29__3/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.034     2.872 f  a1_add/out_o1[29]_i_29__3/O
+                         net (fo=2, unplaced)         0.291     3.163    a1_add/n_44_out_o1[29]_i_29__3
+                                                                      f  a1_add/out_o1[29]_i_24__3/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.034     3.197 r  a1_add/out_o1[29]_i_24__3/O
+                         net (fo=2, unplaced)         0.118     3.315    a1_add/n_44_out_o1[29]_i_24__3
+                                                                      r  a1_add/out_o1[29]_i_10__0/I1
+                         LUT3 (Prop_LUT3_I1_O)        0.062     3.377 r  a1_add/out_o1[29]_i_10__0/O
+                         net (fo=2, unplaced)         0.308     3.685    a1_add/n_44_out_o1[29]_i_10__0
+                                                                      r  a1_add/out_o1[29]_i_16__3/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.037     3.722 r  a1_add/out_o1[29]_i_16__3/O
+                         net (fo=1, unplaced)         0.000     3.722    a1_add/n_44_out_o1[29]_i_16__3
+                                                                      r  a1_add/out_o1_reg[29]_i_6__0/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.965 r  a1_add/out_o1_reg[29]_i_6__0/CO[7]
+                         net (fo=1, unplaced)         0.013     3.978    a1_add/n_44_out_o1_reg[29]_i_6__0
+                                                                      r  a1_add/shift_out_reg[47]_i_30__3/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     4.083 f  a1_add/shift_out_reg[47]_i_30__3/O[0]
+                         net (fo=5, unplaced)         0.121     4.204    a1_add/u4/u7/I10[0]
+                                                                      f  a1_add/u4/u7/shift_out_reg[47]_i_28__11/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.100     4.304 r  a1_add/u4/u7/shift_out_reg[47]_i_28__11/O
+                         net (fo=37, unplaced)        0.291     4.595    a1_add/u4/u7/O11
+                                                                      r  a1_add/u4/u7/out_o1[30]_i_3__0/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     4.629 r  a1_add/u4/u7/out_o1[30]_i_3__0/O
+                         net (fo=3, unplaced)         0.291     4.920    a1_add/u4/u7/n_44_out_o1[30]_i_3__0
+                                                                      r  a1_add/u4/u7/shift_out_reg[47]_i_27__3/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.034     4.954 f  a1_add/u4/u7/shift_out_reg[47]_i_27__3/O
+                         net (fo=28, unplaced)        0.121     5.075    a1_add/u4/u7/n_44_shift_out_reg[47]_i_27__3
+                                                                      f  a1_add/u4/u7/out_o1[7]_i_3__0/I2
+                         LUT4 (Prop_LUT4_I2_O)        0.085     5.160 r  a1_add/u4/u7/out_o1[7]_i_3__0/O
+                         net (fo=1, unplaced)         0.241     5.401    a1_add/u4/u7/n_44_out_o1[7]_i_3__0
+                                                                      r  a1_add/u4/u7/out_o1_reg[7]_i_2__0/DI[0]
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330     5.731 r  a1_add/u4/u7/out_o1_reg[7]_i_2__0/CO[7]
+                         net (fo=1, unplaced)         0.013     5.744    a1_add/u4/u7/n_44_out_o1_reg[7]_i_2__0
+                                                                      r  a1_add/u4/u7/out_o1_reg[15]_i_2__0/CI
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     5.787 r  a1_add/u4/u7/out_o1_reg[15]_i_2__0/CO[7]
+                         net (fo=1, unplaced)         0.000     5.787    a1_add/u4/u7/n_44_out_o1_reg[15]_i_2__0
+                                                                      r  a1_add/u4/u7/out_o1_reg[21]_i_5__0/CI
+                         CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     5.969 r  a1_add/u4/u7/out_o1_reg[21]_i_5__0/O[7]
+                         net (fo=11, unplaced)        0.291     6.260    a1_add/u4/u7/fract_out_pl1[23]
+                                                                      r  a1_add/u4/u7/out_o1[30]_i_2__3/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     6.294 f  a1_add/u4/u7/out_o1[30]_i_2__3/O
+                         net (fo=3, unplaced)         0.309     6.603    a1_add/u4/u7/n_44_out_o1[30]_i_2__3
+                                                                      f  a1_add/u4/u7/out_o1[31]_i_9__0/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.085     6.688 f  a1_add/u4/u7/out_o1[31]_i_9__0/O
+                         net (fo=1, unplaced)         0.291     6.979    a1_add/u4/u7/n_44_out_o1[31]_i_9__0
+                                                                      f  a1_add/u4/u7/out_o1[31]_i_4__0/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     7.013 r  a1_add/u4/u7/out_o1[31]_i_4__0/O
+                         net (fo=1, unplaced)         0.291     7.304    a1_add/u1/I4
+                                                                      r  a1_add/u1/out_o1[31]_i_1__0/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.034     7.338 r  a1_add/u1/out_o1[31]_i_1__0/O
+                         net (fo=1, unplaced)         0.000     7.338    a1_add/n_151_u1
+                         FDRE                                         r  a1_add/out_o1_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)      5.500     5.500 r  
+                                                      0.000     5.500 r  clock
+                         net (fo=0)                   0.000     5.500    clock_IBUF_inst/I
+                                                                      r  clock_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     5.719 r  clock_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     5.719    clock_IBUF_inst/OUT
+                                                                      r  clock_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     5.719 r  clock_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     5.976    clock_IBUF
+                                                                      r  clock_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     6.035 r  clock_IBUF_BUFG_inst/O
+                         net (fo=4354, unplaced)      0.256     6.291    a1_add/clock_IBUF_BUFG
+                                                                      r  a1_add/out_o1_reg[31]/C
+                         clock pessimism              0.331     6.622    
+                         clock uncertainty           -0.035     6.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     6.634    a1_add/out_o1_reg[31]
+  -------------------------------------------------------------------
+                         required time                          6.634    
+                         arrival time                          -7.338    
+  -------------------------------------------------------------------
+                         slack                                 -0.704    
+
+
+
+

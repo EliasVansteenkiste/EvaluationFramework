@@ -1,0 +1,966 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 18:46:05 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postlogopt_timing_max.rpt
+| Design       : sv_chip1_hierarchy_no_mem
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/limxrim_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_2_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_2_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/Q[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__52/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__52/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/DI[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/limxrim_reg_reg[2]_i_1__52/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/limxrim_reg_reg[2]_i_1__52/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/CO[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__52/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__52/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I6[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_17__56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_17__56/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[10]_i_17__56
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_4__56/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_4__56/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[10]_i_4__56
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_9__52/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[10]_i_9__52/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[10]_i_9__52
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[10]_i_1__52/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[10]_i_1__52/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/I3[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/limxrim_reg_reg[15]_i_1__52/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/limxrim_reg_reg[15]_i_1__52/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/D[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/limxrim_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/limxrim_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/limxrim_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_1_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/lrexrre_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_1_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/dout_1_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/O11[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__52/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__52/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/I16[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/lrexrre_reg_reg[2]_i_1__52/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/lrexrre_reg_reg[2]_i_1__52/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I131[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__52/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__52/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I23[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_17__56/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_17__56/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[10]_i_17__56
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_4__56/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_4__56/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[10]_i_4__56
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_9__52/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[10]_i_9__52/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[10]_i_9__52
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[10]_i_1__52/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[10]_i_1__52/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/I20[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/lrexrre_reg_reg[15]_i_1__52/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_0/lrexrre_reg_reg[15]_i_1__52/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/I4[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/lrexrre_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/lrexrre_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_0/lrexrre_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/limxrim_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_2_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_2_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I81[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__53/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__53/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[2]_i_8__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__53/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__53/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg_reg[2]_i_1__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__53/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__53/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/I3[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_17__57/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_17__57/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_limxrim_reg[10]_i_17__57
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_4__57/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_4__57/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_limxrim_reg[10]_i_4__57
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_9__53/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg[10]_i_9__53/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_limxrim_reg[10]_i_9__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg_reg[10]_i_1__53/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg_reg[10]_i_1__53/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_limxrim_reg_reg[10]_i_1__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg_reg[15]_i_1__53/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/limxrim_reg_reg[15]_i_1__53/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/D[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/limxrim_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/limxrim_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/limxrim_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_1_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/lrexrre_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_1_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/dout_1_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I204[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__53/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__53/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[2]_i_8__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__53/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__53/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg_reg[2]_i_1__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__53/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__53/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/I8[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_17__57/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_17__57/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_lrexrre_reg[10]_i_17__57
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_4__57/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_4__57/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_lrexrre_reg[10]_i_4__57
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_9__53/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg[10]_i_9__53/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_lrexrre_reg[10]_i_9__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg_reg[10]_i_1__53/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg_reg[10]_i_1__53/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/n_0_lrexrre_reg_reg[10]_i_1__53
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg_reg[15]_i_1__53/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_1/lrexrre_reg_reg[15]_i_1__53/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/I4[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/lrexrre_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/lrexrre_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_1/lrexrre_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/limxrim_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_2_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_2_reg[1]/Q
+                         net (fo=20, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I104[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__62/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__62/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[2]_i_8__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__62/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__62/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg_reg[2]_i_1__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__62/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__62/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/O[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_17__66/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_17__66/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_limxrim_reg[10]_i_17__66
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_4__66/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_4__66/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_limxrim_reg[10]_i_4__66
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_9__62/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg[10]_i_9__62/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_limxrim_reg[10]_i_9__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg_reg[10]_i_1__62/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg_reg[10]_i_1__62/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_limxrim_reg_reg[10]_i_1__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg_reg[15]_i_1__62/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/limxrim_reg_reg[15]_i_1__62/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/D[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/limxrim_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/limxrim_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/limxrim_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_1_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/lrexrre_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_1_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/dout_1_reg[1]/Q
+                         net (fo=20, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I227[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__62/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__62/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[2]_i_8__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__62/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__62/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg_reg[2]_i_1__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__62/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__62/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/I4[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_17__66/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_17__66/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_lrexrre_reg[10]_i_17__66
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_4__66/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_4__66/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_lrexrre_reg[10]_i_4__66
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_9__62/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg[10]_i_9__62/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_lrexrre_reg[10]_i_9__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg_reg[10]_i_1__62/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg_reg[10]_i_1__62/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/n_0_lrexrre_reg_reg[10]_i_1__62
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg_reg[15]_i_1__62/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_10/lrexrre_reg_reg[15]_i_1__62/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/I4[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/lrexrre_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/lrexrre_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_10/lrexrre_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/limxrim_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_2_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_2_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I84[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__54/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__54/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[2]_i_8__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__54/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__54/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg_reg[2]_i_1__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__54/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__54/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/I3[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_17__58/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_17__58/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_limxrim_reg[10]_i_17__58
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_4__58/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_4__58/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_limxrim_reg[10]_i_4__58
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_9__54/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg[10]_i_9__54/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_limxrim_reg[10]_i_9__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg_reg[10]_i_1__54/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/limxrim_reg_reg[10]_i_1__54/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I21[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_1__54/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_1__54/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/D[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/limxrim_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/limxrim_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/limxrim_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_1_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/lrexrre_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_1_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/dout_1_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I207[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__54/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__54/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[2]_i_8__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__54/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__54/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg_reg[2]_i_1__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__54/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__54/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/I9[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_17__58/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_17__58/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_lrexrre_reg[10]_i_17__58
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_4__58/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_4__58/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_lrexrre_reg[10]_i_4__58
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_9__54/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg[10]_i_9__54/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/n_0_lrexrre_reg[10]_i_9__54
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg_reg[10]_i_1__54/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_2/lrexrre_reg_reg[10]_i_1__54/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I147[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_1__54/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_1__54/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/I4[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/lrexrre_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/lrexrre_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_2/lrexrre_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/limxrim_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_2_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_2_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I87[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__55/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg[2]_i_8__55/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg[2]_i_8__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__55/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[2]_i_1__55/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_limxrim_reg_reg[2]_i_1__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__55/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/limxrim_reg_reg[15]_i_16__55/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/I3[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_17__59/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_17__59/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_limxrim_reg[10]_i_17__59
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_4__59/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_4__59/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_limxrim_reg[10]_i_4__59
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_9__55/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg[10]_i_9__55/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_limxrim_reg[10]_i_9__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg_reg[10]_i_1__55/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg_reg[10]_i_1__55/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_limxrim_reg_reg[10]_i_1__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg_reg[15]_i_1__55/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/limxrim_reg_reg[15]_i_1__55/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/D[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/limxrim_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/limxrim_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/limxrim_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+Slack (VIOLATED) :        -0.205ns  (required time - arrival time)
+  Source:                 wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_1_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Destination:            wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/lrexrre_reg_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.250ns period=2.500ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (tm3_clk_v0 rise@2.500ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        2.703ns  (logic 1.105ns (40.881%)  route 1.598ns (59.119%))
+  Logic Levels:           8  (CARRY8=4 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.013ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.791ns = ( 3.291 - 2.500 ) 
+    Source Clock Delay      (SCD):    1.136ns
+    Clock Pessimism Removal (CPR):    0.331ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.529     0.529 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     0.529    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.529 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.270     0.799    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.067     0.866 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.270     1.136    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_1_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.103     1.239 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/dout_1_reg[1]/Q
+                         net (fo=21, unplaced)        0.275     1.514    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/I210[1]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__55/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.093     1.607 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg[2]_i_8__55/O
+                         net (fo=1, unplaced)         0.389     1.996    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg[2]_i_8__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__55/DI[1]
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.314     2.310 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[2]_i_1__55/CO[7]
+                         net (fo=1, unplaced)         0.013     2.323    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/n_0_lrexrre_reg_reg[2]_i_1__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__55/CI
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     2.428 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_r_1/lrexrre_reg_reg[15]_i_16__55/O[0]
+                         net (fo=3, unplaced)         0.309     2.737    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/I8[0]
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_17__59/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.034     2.771 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_17__59/O
+                         net (fo=2, unplaced)         0.291     3.062    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_lrexrre_reg[10]_i_17__59
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_4__59/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.034     3.096 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_4__59/O
+                         net (fo=2, unplaced)         0.308     3.404    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_lrexrre_reg[10]_i_4__59
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_9__55/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.037     3.441 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg[10]_i_9__55/O
+                         net (fo=1, unplaced)         0.000     3.441    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_lrexrre_reg[10]_i_9__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg_reg[10]_i_1__55/S[5]
+                         CARRY8 (Prop_CARRY8_S[5]_CO[7])
+                                                      0.243     3.684 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg_reg[10]_i_1__55/CO[7]
+                         net (fo=1, unplaced)         0.013     3.697    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/n_0_lrexrre_reg_reg[10]_i_1__55
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg_reg[15]_i_1__55/CI
+                         CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     3.839 r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_sh_reg_3/lrexrre_reg_reg[15]_i_1__55/O[4]
+                         net (fo=1, unplaced)         0.000     3.839    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/I4[11]
+                         FDRE                                         r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/lrexrre_reg_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      2.500     2.500 r  
+                                                      0.000     2.500 r  tm3_clk_v0
+                         net (fo=0)                   0.000     2.500    tm3_clk_v0_IBUF_inst/I
+                                                                      r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+                         INBUF (Prop_INBUF_PAD_O)     0.219     2.719 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, unplaced)         0.000     2.719    tm3_clk_v0_IBUF_inst/OUT
+                                                                      r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+                         IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     2.719 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, unplaced)         0.256     2.976    tm3_clk_v0_IBUF
+                                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+                         BUFGCE (Prop_BUFGCE_I_O)     0.059     3.035 r  tm3_clk_v0_IBUF_BUFG_inst/O
+                         net (fo=11401, unplaced)     0.256     3.291    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/tm3_clk_v0_IBUF_BUFG
+                                                                      r  wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/lrexrre_reg_reg[15]/C
+                         clock pessimism              0.331     3.622    
+                         clock uncertainty           -0.035     3.587    
+                         FDRE (Setup_FDRE_C_D)        0.047     3.634    wrapper_norm_corr_10_inst_n/corr_5_inst/inst_corr_3/lrexrre_reg_reg[15]
+  -------------------------------------------------------------------
+                         required time                          3.634    
+                         arrival time                          -3.839    
+  -------------------------------------------------------------------
+                         slack                                 -0.205    
+
+
+
+

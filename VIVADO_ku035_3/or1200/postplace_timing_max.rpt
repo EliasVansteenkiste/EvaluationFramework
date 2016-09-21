@@ -1,0 +1,1058 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:56:48 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type max -max_paths 10 -sort_by group -input_pins -file postplace_timing_max.rpt
+| Design       : or1200_flat
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.388ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[63]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.624ns  (logic 3.605ns (64.100%)  route 2.019ns (35.900%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[28])
+                                                      0.550     3.310 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[28]
+                         net (fo=1, routed)           0.000     3.310    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<28>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[28]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[28]_PCOUT[28])
+                                                      0.090     3.400 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[28]
+                         net (fo=1, estimated)        0.004     3.404    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[28]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[28]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[28]_ALU_OUT[14])
+                                                      0.535     3.939 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[14]
+                         net (fo=1, routed)           0.000     3.939    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<14>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[14]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[14]_P[14])
+                                                      0.066     4.005 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[14]
+                         net (fo=1, estimated)        0.664     4.669    or1200_mult_mac/n_91_mul_prod__0/mul_prod
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r[55]_i_10/I1
+    SLICE_X71Y118        LUT2 (Prop_LUT2_I1_O)        0.034     4.703 r  or1200_mult_mac/mul_prod_r[55]_i_10/O
+                         net (fo=1, routed)           0.002     4.705    or1200_mult_mac/n_0_mul_prod_r[55]_i_10
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/S[0]
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     5.074 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     5.074    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+    SLICE_X71Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+    SLICE_X71Y119        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     5.256 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[7]
+                         net (fo=1, estimated)        0.290     5.546    or1200_mult_mac/mul_prod__3[63]
+    SLICE_X70Y122                                                     r  or1200_mult_mac/mul_prod_r[63]_i_2/I4
+    SLICE_X70Y122        LUT6 (Prop_LUT6_I4_O)        0.035     5.581 r  or1200_mult_mac/mul_prod_r[63]_i_2/O
+                         net (fo=1, routed)           0.043     5.624    or1200_mult_mac/n_0_mul_prod_r[63]_i_2
+    SLICE_X70Y122        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[63]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X70Y122                                                     r  or1200_mult_mac/mul_prod_r_reg[63]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X70Y122        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[63]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.624    
+  -------------------------------------------------------------------
+                         slack                                  0.388    
+
+Slack (MET) :             0.405ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[60]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.607ns  (logic 3.565ns (63.581%)  route 2.042ns (36.419%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[28])
+                                                      0.550     3.310 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[28]
+                         net (fo=1, routed)           0.000     3.310    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<28>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[28]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[28]_PCOUT[28])
+                                                      0.090     3.400 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[28]
+                         net (fo=1, estimated)        0.004     3.404    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[28]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[28]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[28]_ALU_OUT[14])
+                                                      0.535     3.939 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[14]
+                         net (fo=1, routed)           0.000     3.939    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<14>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[14]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[14]_P[14])
+                                                      0.066     4.005 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[14]
+                         net (fo=1, estimated)        0.664     4.669    or1200_mult_mac/n_91_mul_prod__0/mul_prod
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r[55]_i_10/I1
+    SLICE_X71Y118        LUT2 (Prop_LUT2_I1_O)        0.034     4.703 r  or1200_mult_mac/mul_prod_r[55]_i_10/O
+                         net (fo=1, routed)           0.002     4.705    or1200_mult_mac/n_0_mul_prod_r[55]_i_10
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/S[0]
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     5.074 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     5.074    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+    SLICE_X71Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+    SLICE_X71Y119        CARRY8 (Prop_CARRY8_CI_O[4])
+                                                      0.142     5.216 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[4]
+                         net (fo=1, estimated)        0.315     5.531    or1200_mult_mac/mul_prod__3[60]
+    SLICE_X68Y121                                                     r  or1200_mult_mac/mul_prod_r[60]_i_1/I4
+    SLICE_X68Y121        LUT6 (Prop_LUT6_I4_O)        0.035     5.566 r  or1200_mult_mac/mul_prod_r[60]_i_1/O
+                         net (fo=1, routed)           0.041     5.607    or1200_mult_mac/n_0_mul_prod_r[60]_i_1
+    SLICE_X68Y121        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[60]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X68Y121                                                     r  or1200_mult_mac/mul_prod_r_reg[60]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X68Y121        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[60]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.607    
+  -------------------------------------------------------------------
+                         slack                                  0.405    
+
+Slack (MET) :             0.406ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[61]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.605ns  (logic 3.597ns (64.175%)  route 2.008ns (35.825%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[28])
+                                                      0.550     3.310 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[28]
+                         net (fo=1, routed)           0.000     3.310    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<28>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[28]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[28]_PCOUT[28])
+                                                      0.090     3.400 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[28]
+                         net (fo=1, estimated)        0.004     3.404    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[28]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[28]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[28]_ALU_OUT[14])
+                                                      0.535     3.939 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[14]
+                         net (fo=1, routed)           0.000     3.939    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<14>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[14]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[14]_P[14])
+                                                      0.066     4.005 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[14]
+                         net (fo=1, estimated)        0.664     4.669    or1200_mult_mac/n_91_mul_prod__0/mul_prod
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r[55]_i_10/I1
+    SLICE_X71Y118        LUT2 (Prop_LUT2_I1_O)        0.034     4.703 r  or1200_mult_mac/mul_prod_r[55]_i_10/O
+                         net (fo=1, routed)           0.002     4.705    or1200_mult_mac/n_0_mul_prod_r[55]_i_10
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/S[0]
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     5.074 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     5.074    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+    SLICE_X71Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+    SLICE_X71Y119        CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.173     5.247 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[5]
+                         net (fo=1, estimated)        0.284     5.531    or1200_mult_mac/mul_prod__3[61]
+    SLICE_X70Y122                                                     r  or1200_mult_mac/mul_prod_r[61]_i_1/I4
+    SLICE_X70Y122        LUT6 (Prop_LUT6_I4_O)        0.036     5.567 r  or1200_mult_mac/mul_prod_r[61]_i_1/O
+                         net (fo=1, routed)           0.038     5.605    or1200_mult_mac/n_0_mul_prod_r[61]_i_1
+    SLICE_X70Y122        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[61]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X70Y122                                                     r  or1200_mult_mac/mul_prod_r_reg[61]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X70Y122        FDRE (Setup_FDRE_C_D)        0.046     6.011    or1200_mult_mac/mul_prod_r_reg[61]
+  -------------------------------------------------------------------
+                         required time                          6.011    
+                         arrival time                          -5.605    
+  -------------------------------------------------------------------
+                         slack                                  0.406    
+
+Slack (MET) :             0.414ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[62]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.598ns  (logic 3.561ns (63.612%)  route 2.037ns (36.388%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[28])
+                                                      0.550     3.310 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[28]
+                         net (fo=1, routed)           0.000     3.310    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<28>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[28]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[28]_PCOUT[28])
+                                                      0.090     3.400 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[28]
+                         net (fo=1, estimated)        0.004     3.404    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[28]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[28]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[28]_ALU_OUT[14])
+                                                      0.535     3.939 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[14]
+                         net (fo=1, routed)           0.000     3.939    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<14>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[14]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[14]_P[14])
+                                                      0.066     4.005 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[14]
+                         net (fo=1, estimated)        0.664     4.669    or1200_mult_mac/n_91_mul_prod__0/mul_prod
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r[55]_i_10/I1
+    SLICE_X71Y118        LUT2 (Prop_LUT2_I1_O)        0.034     4.703 r  or1200_mult_mac/mul_prod_r[55]_i_10/O
+                         net (fo=1, routed)           0.002     4.705    or1200_mult_mac/n_0_mul_prod_r[55]_i_10
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/S[0]
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     5.074 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     5.074    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+    SLICE_X71Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+    SLICE_X71Y119        CARRY8 (Prop_CARRY8_CI_O[6])
+                                                      0.139     5.213 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[6]
+                         net (fo=1, estimated)        0.315     5.528    or1200_mult_mac/mul_prod__3[62]
+    SLICE_X68Y121                                                     r  or1200_mult_mac/mul_prod_r[62]_i_1/I4
+    SLICE_X68Y121        LUT6 (Prop_LUT6_I4_O)        0.034     5.562 r  or1200_mult_mac/mul_prod_r[62]_i_1/O
+                         net (fo=1, routed)           0.036     5.598    or1200_mult_mac/n_0_mul_prod_r[62]_i_1
+    SLICE_X68Y121        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[62]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X68Y121                                                     r  or1200_mult_mac/mul_prod_r_reg[62]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X68Y121        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[62]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.598    
+  -------------------------------------------------------------------
+                         slack                                  0.414    
+
+Slack (MET) :             0.428ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[53]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.583ns  (logic 3.552ns (63.622%)  route 2.031ns (36.378%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[47])
+                                                      0.540     3.300 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, routed)           0.000     3.300    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<47>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[47]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.076     3.376 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, estimated)        0.019     3.395    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[47]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[47]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[6])
+                                                      0.481     3.876 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[6]
+                         net (fo=1, routed)           0.000     3.876    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<6>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[6]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[6]_P[6])
+                                                      0.071     3.947 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[6]
+                         net (fo=1, estimated)        0.572     4.519    or1200_mult_mac/n_99_mul_prod__0/mul_prod
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r[47]_i_10/I1
+    SLICE_X71Y117        LUT2 (Prop_LUT2_I1_O)        0.034     4.553 r  or1200_mult_mac/mul_prod_r[47]_i_10/O
+                         net (fo=1, routed)           0.002     4.555    or1200_mult_mac/n_0_mul_prod_r[47]_i_10
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/S[0]
+    SLICE_X71Y117        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     4.924 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.924    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.173     5.097 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[5]
+                         net (fo=1, estimated)        0.382     5.479    or1200_mult_mac/mul_prod__3[53]
+    SLICE_X72Y119                                                     r  or1200_mult_mac/mul_prod_r[53]_i_1/I4
+    SLICE_X72Y119        LUT6 (Prop_LUT6_I4_O)        0.064     5.543 r  or1200_mult_mac/mul_prod_r[53]_i_1/O
+                         net (fo=1, routed)           0.040     5.583    or1200_mult_mac/n_0_mul_prod_r[53]_i_1
+    SLICE_X72Y119        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[53]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X72Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[53]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X72Y119        FDRE (Setup_FDRE_C_D)        0.046     6.011    or1200_mult_mac/mul_prod_r_reg[53]
+  -------------------------------------------------------------------
+                         required time                          6.011    
+                         arrival time                          -5.583    
+  -------------------------------------------------------------------
+                         slack                                  0.428    
+
+Slack (MET) :             0.431ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[55]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.581ns  (logic 3.559ns (63.770%)  route 2.022ns (36.230%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[47])
+                                                      0.540     3.300 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, routed)           0.000     3.300    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<47>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[47]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.076     3.376 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, estimated)        0.019     3.395    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[47]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[47]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[6])
+                                                      0.481     3.876 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[6]
+                         net (fo=1, routed)           0.000     3.876    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<6>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[6]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[6]_P[6])
+                                                      0.071     3.947 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[6]
+                         net (fo=1, estimated)        0.572     4.519    or1200_mult_mac/n_99_mul_prod__0/mul_prod
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r[47]_i_10/I1
+    SLICE_X71Y117        LUT2 (Prop_LUT2_I1_O)        0.034     4.553 r  or1200_mult_mac/mul_prod_r[47]_i_10/O
+                         net (fo=1, routed)           0.002     4.555    or1200_mult_mac/n_0_mul_prod_r[47]_i_10
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/S[0]
+    SLICE_X71Y117        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     4.924 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.924    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     5.106 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[7]
+                         net (fo=1, estimated)        0.377     5.483    or1200_mult_mac/mul_prod__3[55]
+    SLICE_X71Y120                                                     r  or1200_mult_mac/mul_prod_r[55]_i_1/I4
+    SLICE_X71Y120        LUT6 (Prop_LUT6_I4_O)        0.062     5.545 r  or1200_mult_mac/mul_prod_r[55]_i_1/O
+                         net (fo=1, routed)           0.036     5.581    or1200_mult_mac/n_0_mul_prod_r[55]_i_1
+    SLICE_X71Y120        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[55]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X71Y120                                                     r  or1200_mult_mac/mul_prod_r_reg[55]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X71Y120        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[55]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.581    
+  -------------------------------------------------------------------
+                         slack                                  0.431    
+
+Slack (MET) :             0.485ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[50]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.527ns  (logic 3.475ns (62.873%)  route 2.052ns (37.127%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[47])
+                                                      0.540     3.300 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, routed)           0.000     3.300    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<47>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[47]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.076     3.376 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, estimated)        0.019     3.395    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[47]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[47]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[6])
+                                                      0.481     3.876 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[6]
+                         net (fo=1, routed)           0.000     3.876    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<6>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[6]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[6]_P[6])
+                                                      0.071     3.947 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[6]
+                         net (fo=1, estimated)        0.572     4.519    or1200_mult_mac/n_99_mul_prod__0/mul_prod
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r[47]_i_10/I1
+    SLICE_X71Y117        LUT2 (Prop_LUT2_I1_O)        0.034     4.553 r  or1200_mult_mac/mul_prod_r[47]_i_10/O
+                         net (fo=1, routed)           0.002     4.555    or1200_mult_mac/n_0_mul_prod_r[47]_i_10
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/S[0]
+    SLICE_X71Y117        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     4.924 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.924    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.096     5.020 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[2]
+                         net (fo=1, estimated)        0.402     5.422    or1200_mult_mac/mul_prod__3[50]
+    SLICE_X71Y121                                                     r  or1200_mult_mac/mul_prod_r[50]_i_1/I4
+    SLICE_X71Y121        LUT6 (Prop_LUT6_I4_O)        0.064     5.486 r  or1200_mult_mac/mul_prod_r[50]_i_1/O
+                         net (fo=1, routed)           0.041     5.527    or1200_mult_mac/n_0_mul_prod_r[50]_i_1
+    SLICE_X71Y121        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[50]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X71Y121                                                     r  or1200_mult_mac/mul_prod_r_reg[50]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X71Y121        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[50]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.527    
+  -------------------------------------------------------------------
+                         slack                                  0.485    
+
+Slack (MET) :             0.498ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[48]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.514ns  (logic 3.484ns (63.185%)  route 2.030ns (36.815%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[47])
+                                                      0.540     3.300 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, routed)           0.000     3.300    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<47>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[47]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.076     3.376 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, estimated)        0.019     3.395    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[47]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[47]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[6])
+                                                      0.481     3.876 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[6]
+                         net (fo=1, routed)           0.000     3.876    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<6>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[6]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[6]_P[6])
+                                                      0.071     3.947 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[6]
+                         net (fo=1, estimated)        0.572     4.519    or1200_mult_mac/n_99_mul_prod__0/mul_prod
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r[47]_i_10/I1
+    SLICE_X71Y117        LUT2 (Prop_LUT2_I1_O)        0.034     4.553 r  or1200_mult_mac/mul_prod_r[47]_i_10/O
+                         net (fo=1, routed)           0.002     4.555    or1200_mult_mac/n_0_mul_prod_r[47]_i_10
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/S[0]
+    SLICE_X71Y117        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     4.924 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.924    or1200_mult_mac/n_0_mul_prod_r_reg[47]_i_2
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CI
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.105     5.029 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/O[0]
+                         net (fo=1, estimated)        0.380     5.409    or1200_mult_mac/mul_prod__3[48]
+    SLICE_X71Y120                                                     r  or1200_mult_mac/mul_prod_r[48]_i_1/I4
+    SLICE_X71Y120        LUT6 (Prop_LUT6_I4_O)        0.064     5.473 r  or1200_mult_mac/mul_prod_r[48]_i_1/O
+                         net (fo=1, routed)           0.041     5.514    or1200_mult_mac/n_0_mul_prod_r[48]_i_1
+    SLICE_X71Y120        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[48]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X71Y120                                                     r  or1200_mult_mac/mul_prod_r_reg[48]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X71Y120        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[48]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.498    
+
+Slack (MET) :             0.510ns  (required time - arrival time)
+  Source:                 or1200_ctrl/alu_op_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[47]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.502ns  (logic 3.393ns (61.668%)  route 2.109ns (38.332%))
+  Logic Levels:           15  (CARRY8=3 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT2=1 LUT4=1 LUT5=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_ctrl/clk
+    SLICE_X56Y113                                                     r  or1200_ctrl/alu_op_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X56Y113        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_ctrl/alu_op_reg[2]/Q
+                         net (fo=103, estimated)      0.595     0.697    or1200_ctrl/O53[2]
+    SLICE_X70Y117                                                     f  or1200_ctrl/mul_prod_i_38/I1
+    SLICE_X70Y117        LUT5 (Prop_LUT5_I1_O)        0.172     0.869 r  or1200_ctrl/mul_prod_i_38/O
+                         net (fo=64, estimated)       0.304     1.173    or1200_ctrl/or1200_mult_mac/y1
+    SLICE_X70Y114                                                     r  or1200_ctrl/mul_prod_i_27/I1
+    SLICE_X70Y114        LUT4 (Prop_LUT4_I1_O)        0.174     1.347 f  or1200_ctrl/mul_prod_i_27/O
+                         net (fo=2, estimated)        0.322     1.669    or1200_mult_mac/mul_prod__1/mul_prod/B[5]
+    DSP48E2_X12Y44                                                    f  or1200_mult_mac/mul_prod__1/mul_prod/DSP_A_B_DATA_INST/B[5]
+    DSP48E2_X12Y44       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[5]_B2_DATA[5])
+                                                      0.196     1.865 r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_A_B_DATA_INST/B2_DATA[5]
+                         net (fo=1, routed)           0.000     1.865    or1200_mult_mac/mul_prod__1/mul_prod/DSP_A_B_DATA.B2_DATA<5>
+    DSP48E2_X12Y44                                                    r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[5]
+    DSP48E2_X12Y44       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[5]_B2B1[5])
+                                                      0.079     1.944 r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_PREADD_DATA_INST/B2B1[5]
+                         net (fo=1, routed)           0.000     1.944    or1200_mult_mac/mul_prod__1/mul_prod/DSP_PREADD_DATA.B2B1<5>
+    DSP48E2_X12Y44                                                    r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_MULTIPLIER_INST/B2B1[5]
+    DSP48E2_X12Y44       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[5]_U[19])
+                                                      0.681     2.625 f  or1200_mult_mac/mul_prod__1/mul_prod/DSP_MULTIPLIER_INST/U[19]
+                         net (fo=1, routed)           0.000     2.625    or1200_mult_mac/mul_prod__1/mul_prod/DSP_MULTIPLIER.U<19>
+    DSP48E2_X12Y44                                                    f  or1200_mult_mac/mul_prod__1/mul_prod/DSP_M_DATA_INST/U[19]
+    DSP48E2_X12Y44       DSP_M_DATA (Prop_DSP_M_DATA_U[19]_U_DATA[19])
+                                                      0.058     2.683 r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_M_DATA_INST/U_DATA[19]
+                         net (fo=1, routed)           0.000     2.683    or1200_mult_mac/mul_prod__1/mul_prod/DSP_M_DATA.U_DATA<19>
+    DSP48E2_X12Y44                                                    r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_ALU_INST/U_DATA[19]
+    DSP48E2_X12Y44       DSP_ALU (Prop_DSP_ALU_U_DATA[19]_ALU_OUT[24])
+                                                      0.546     3.229 f  or1200_mult_mac/mul_prod__1/mul_prod/DSP_ALU_INST/ALU_OUT[24]
+                         net (fo=1, routed)           0.000     3.229    or1200_mult_mac/mul_prod__1/mul_prod/DSP_ALU.ALU_OUT<24>
+    DSP48E2_X12Y44                                                    f  or1200_mult_mac/mul_prod__1/mul_prod/DSP_OUTPUT_INST/ALU_OUT[24]
+    DSP48E2_X12Y44       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[24]_PCOUT[24])
+                                                      0.074     3.303 r  or1200_mult_mac/mul_prod__1/mul_prod/DSP_OUTPUT_INST/PCOUT[24]
+                         net (fo=1, estimated)        0.007     3.310    or1200_mult_mac/mul_prod__2/mul_prod/PCIN[24]
+    DSP48E2_X12Y45                                                    r  or1200_mult_mac/mul_prod__2/mul_prod/DSP_ALU_INST/PCIN[24]
+    DSP48E2_X12Y45       DSP_ALU (Prop_DSP_ALU_PCIN[24]_ALU_OUT[7])
+                                                      0.515     3.825 f  or1200_mult_mac/mul_prod__2/mul_prod/DSP_ALU_INST/ALU_OUT[7]
+                         net (fo=1, routed)           0.000     3.825    or1200_mult_mac/mul_prod__2/mul_prod/DSP_ALU.ALU_OUT<7>
+    DSP48E2_X12Y45                                                    f  or1200_mult_mac/mul_prod__2/mul_prod/DSP_OUTPUT_INST/ALU_OUT[7]
+    DSP48E2_X12Y45       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[7]_P[7])
+                                                      0.078     3.903 r  or1200_mult_mac/mul_prod__2/mul_prod/DSP_OUTPUT_INST/P[7]
+                         net (fo=2, estimated)        0.374     4.277    or1200_mult_mac/n_98_mul_prod__2/mul_prod
+    SLICE_X71Y115                                                     r  or1200_mult_mac/mul_prod_r[31]_i_10/I0
+    SLICE_X71Y115        LUT2 (Prop_LUT2_I0_O)        0.062     4.339 r  or1200_mult_mac/mul_prod_r[31]_i_10/O
+                         net (fo=1, routed)           0.002     4.341    or1200_mult_mac/n_0_mul_prod_r[31]_i_10
+    SLICE_X71Y115                                                     r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/S[0]
+    SLICE_X71Y115        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     4.710 r  or1200_mult_mac/mul_prod_r_reg[31]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.710    or1200_mult_mac/n_0_mul_prod_r_reg[31]_i_2
+    SLICE_X71Y116                                                     r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CI
+    SLICE_X71Y116        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     4.753 r  or1200_mult_mac/mul_prod_r_reg[39]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     4.753    or1200_mult_mac/n_0_mul_prod_r_reg[39]_i_2
+    SLICE_X71Y117                                                     r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/CI
+    SLICE_X71Y117        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     4.935 r  or1200_mult_mac/mul_prod_r_reg[47]_i_2/O[7]
+                         net (fo=1, estimated)        0.462     5.397    or1200_mult_mac/mul_prod__3[47]
+    SLICE_X72Y119                                                     r  or1200_mult_mac/mul_prod_r[47]_i_1/I4
+    SLICE_X72Y119        LUT6 (Prop_LUT6_I4_O)        0.062     5.459 r  or1200_mult_mac/mul_prod_r[47]_i_1/O
+                         net (fo=1, routed)           0.043     5.502    or1200_mult_mac/n_0_mul_prod_r[47]_i_1
+    SLICE_X72Y119        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[47]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X72Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[47]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X72Y119        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[47]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.502    
+  -------------------------------------------------------------------
+                         slack                                  0.510    
+
+Slack (MET) :             0.512ns  (required time - arrival time)
+  Source:                 or1200_operandmuxes/operand_a_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Destination:            or1200_mult_mac/mul_prod_r_reg[58]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@3.000ns period=6.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.000ns  (clk rise@6.000ns - clk rise@0.000ns)
+  Data Path Delay:        5.500ns  (logic 3.519ns (63.982%)  route 1.981ns (36.018%))
+  Logic Levels:           17  (CARRY8=5 DSP_A_B_DATA=1 DSP_ALU=2 DSP_M_DATA=1 DSP_MULTIPLIER=1 DSP_OUTPUT=2 DSP_PREADD_DATA=1 LUT1=1 LUT2=1 LUT4=1 LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk
+                         net (fo=682, unset)          0.000     0.000    or1200_operandmuxes/clk
+    SLICE_X65Y109                                                     r  or1200_operandmuxes/operand_a_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y109        FDRE (Prop_FDRE_C_Q)         0.102     0.102 f  or1200_operandmuxes/operand_a_reg[10]/Q
+                         net (fo=24, estimated)       0.405     0.507    or1200_operandmuxes/O4[10]
+    SLICE_X67Y110                                                     f  or1200_operandmuxes/mul_prod_i_25__0/I0
+    SLICE_X67Y110        LUT1 (Prop_LUT1_I0_O)        0.035     0.542 r  or1200_operandmuxes/mul_prod_i_25__0/O
+                         net (fo=1, routed)           0.001     0.543    or1200_operandmuxes/n_0_mul_prod_i_25__0
+    SLICE_X67Y110                                                     r  or1200_operandmuxes/mul_prod_i_18__0/S[2]
+    SLICE_X67Y110        CARRY8 (Prop_CARRY8_S[2]_CO[7])
+                                                      0.317     0.860 r  or1200_operandmuxes/mul_prod_i_18__0/CO[7]
+                         net (fo=1, estimated)        0.000     0.860    or1200_operandmuxes/n_0_mul_prod_i_18__0
+    SLICE_X67Y111                                                     r  or1200_operandmuxes/mul_prod_i_36/CI
+    SLICE_X67Y111        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043     0.903 r  or1200_operandmuxes/mul_prod_i_36/CO[7]
+                         net (fo=1, estimated)        0.000     0.903    or1200_operandmuxes/n_0_mul_prod_i_36
+    SLICE_X67Y112                                                     r  or1200_operandmuxes/mul_prod_i_33/CI
+    SLICE_X67Y112        CARRY8 (Prop_CARRY8_CI_O[7])
+                                                      0.182     1.085 f  or1200_operandmuxes/mul_prod_i_33/O[7]
+                         net (fo=1, estimated)        0.315     1.400    or1200_ctrl/x0[31]
+    SLICE_X70Y113                                                     f  or1200_ctrl/mul_prod_i_1/I0
+    SLICE_X70Y113        LUT4 (Prop_LUT4_I0_O)        0.034     1.434 f  or1200_ctrl/mul_prod_i_1/O
+                         net (fo=3, estimated)        0.295     1.729    or1200_mult_mac/mul_prod/mul_prod/B[14]
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B[14]
+    DSP48E2_X12Y46       DSP_A_B_DATA (Prop_DSP_A_B_DATA_B[14]_B2_DATA[14])
+                                                      0.209     1.938 r  or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA_INST/B2_DATA[14]
+                         net (fo=1, routed)           0.000     1.938    or1200_mult_mac/mul_prod/mul_prod/DSP_A_B_DATA.B2_DATA<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2_DATA[14]
+    DSP48E2_X12Y46       DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_B2_DATA[14]_B2B1[14])
+                                                      0.071     2.009 r  or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA_INST/B2B1[14]
+                         net (fo=1, routed)           0.000     2.009    or1200_mult_mac/mul_prod/mul_prod/DSP_PREADD_DATA.B2B1<14>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/B2B1[14]
+    DSP48E2_X12Y46       DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_B2B1[14]_U[25])
+                                                      0.692     2.701 f  or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER_INST/U[25]
+                         net (fo=1, routed)           0.000     2.701    or1200_mult_mac/mul_prod/mul_prod/DSP_MULTIPLIER.U<25>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U[25]
+    DSP48E2_X12Y46       DSP_M_DATA (Prop_DSP_M_DATA_U[25]_U_DATA[25])
+                                                      0.059     2.760 r  or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA_INST/U_DATA[25]
+                         net (fo=1, routed)           0.000     2.760    or1200_mult_mac/mul_prod/mul_prod/DSP_M_DATA.U_DATA<25>
+    DSP48E2_X12Y46                                                    r  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/U_DATA[25]
+    DSP48E2_X12Y46       DSP_ALU (Prop_DSP_ALU_U_DATA[25]_ALU_OUT[28])
+                                                      0.550     3.310 f  or1200_mult_mac/mul_prod/mul_prod/DSP_ALU_INST/ALU_OUT[28]
+                         net (fo=1, routed)           0.000     3.310    or1200_mult_mac/mul_prod/mul_prod/DSP_ALU.ALU_OUT<28>
+    DSP48E2_X12Y46                                                    f  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/ALU_OUT[28]
+    DSP48E2_X12Y46       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[28]_PCOUT[28])
+                                                      0.090     3.400 r  or1200_mult_mac/mul_prod/mul_prod/DSP_OUTPUT_INST/PCOUT[28]
+                         net (fo=1, estimated)        0.004     3.404    or1200_mult_mac/mul_prod__0/mul_prod/PCIN[28]
+    DSP48E2_X12Y47                                                    r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/PCIN[28]
+    DSP48E2_X12Y47       DSP_ALU (Prop_DSP_ALU_PCIN[28]_ALU_OUT[14])
+                                                      0.535     3.939 f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU_INST/ALU_OUT[14]
+                         net (fo=1, routed)           0.000     3.939    or1200_mult_mac/mul_prod__0/mul_prod/DSP_ALU.ALU_OUT<14>
+    DSP48E2_X12Y47                                                    f  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/ALU_OUT[14]
+    DSP48E2_X12Y47       DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[14]_P[14])
+                                                      0.066     4.005 r  or1200_mult_mac/mul_prod__0/mul_prod/DSP_OUTPUT_INST/P[14]
+                         net (fo=1, estimated)        0.664     4.669    or1200_mult_mac/n_91_mul_prod__0/mul_prod
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r[55]_i_10/I1
+    SLICE_X71Y118        LUT2 (Prop_LUT2_I1_O)        0.034     4.703 r  or1200_mult_mac/mul_prod_r[55]_i_10/O
+                         net (fo=1, routed)           0.002     4.705    or1200_mult_mac/n_0_mul_prod_r[55]_i_10
+    SLICE_X71Y118                                                     r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/S[0]
+    SLICE_X71Y118        CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.369     5.074 r  or1200_mult_mac/mul_prod_r_reg[55]_i_2/CO[7]
+                         net (fo=1, estimated)        0.000     5.074    or1200_mult_mac/n_0_mul_prod_r_reg[55]_i_2
+    SLICE_X71Y119                                                     r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/CI
+    SLICE_X71Y119        CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.096     5.170 r  or1200_mult_mac/mul_prod_r_reg[63]_i_4/O[2]
+                         net (fo=1, estimated)        0.259     5.429    or1200_mult_mac/mul_prod__3[58]
+    SLICE_X71Y121                                                     r  or1200_mult_mac/mul_prod_r[58]_i_1/I4
+    SLICE_X71Y121        LUT6 (Prop_LUT6_I4_O)        0.035     5.464 r  or1200_mult_mac/mul_prod_r[58]_i_1/O
+                         net (fo=1, routed)           0.036     5.500    or1200_mult_mac/n_0_mul_prod_r[58]_i_1
+    SLICE_X71Y121        FDRE                                         r  or1200_mult_mac/mul_prod_r_reg[58]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        6.000     6.000 r  
+                                                      0.000     6.000 r  clk
+                         net (fo=682, unset)          0.000     6.000    or1200_mult_mac/clk
+    SLICE_X71Y121                                                     r  or1200_mult_mac/mul_prod_r_reg[58]/C
+                         clock pessimism              0.000     6.000    
+                         clock uncertainty           -0.035     5.965    
+    SLICE_X71Y121        FDRE (Setup_FDRE_C_D)        0.047     6.012    or1200_mult_mac/mul_prod_r_reg[58]
+  -------------------------------------------------------------------
+                         required time                          6.012    
+                         arrival time                          -5.500    
+  -------------------------------------------------------------------
+                         slack                                  0.512    
+
+
+
+

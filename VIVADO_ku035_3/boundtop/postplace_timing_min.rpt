@@ -1,0 +1,673 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 17:31:00 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -delay_type min -max_paths 10 -sort_by group -input_pins -file postplace_timing_min.rpt
+| Design       : paj_boundtop_hierarchy_no_mem
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+-----------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.035ns  (arrival time - required time)
+  Source:                 rayint/rgAddrl_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            rayint/rayaddr_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.228ns  (logic 0.098ns (42.917%)  route 0.130ns (57.083%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.137ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.332ns
+    Source Clock Delay      (SCD):    1.860ns
+    Clock Pessimism Removal (CPR):    0.336ns
+  Clock Net Delay (Source):      1.413ns (routing 0.695ns, distribution 0.718ns)
+  Clock Net Delay (Destination): 1.643ns (routing 0.788ns, distribution 0.855ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.413     1.860    rayint/tm3_clk_v0_IBUF_BUFG
+    SLICE_X48Y178                                                     r  rayint/rgAddrl_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y178        FDRE (Prop_FDRE_C_Q)         0.052     1.912 r  rayint/rgAddrl_reg[2]/Q
+                         net (fo=1, estimated)        0.114     2.026    rayint/rgAddrl[2]
+    SLICE_X48Y182                                                     r  rayint/rayaddr[2]_i_1/I0
+    SLICE_X48Y182        LUT3 (Prop_LUT3_I0_O)        0.046     2.072 r  rayint/rayaddr[2]_i_1/O
+                         net (fo=1, routed)           0.016     2.088    rayint/n_24_rayaddr[2]_i_1
+    SLICE_X48Y182        FDRE                                         r  rayint/rayaddr_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.643     2.332    rayint/tm3_clk_v0_IBUF_BUFG
+    SLICE_X48Y182                                                     r  rayint/rayaddr_reg[2]/C
+                         clock pessimism             -0.336     1.997    
+    SLICE_X48Y182        FDRE (Hold_FDRE_C_D)         0.056     2.053    rayint/rayaddr_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -2.053    
+                         arrival time                           2.088    
+  -------------------------------------------------------------------
+                         slack                                  0.035    
+
+Slack (MET) :             0.052ns  (arrival time - required time)
+  Source:                 rc/count_reg[3]/C
+                            (rising edge-triggered cell FDSE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            rc/count_reg[3]/D
+                            (rising edge-triggered cell FDSE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.108ns  (logic 0.067ns (62.275%)  route 0.041ns (37.725%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.278ns
+    Source Clock Delay      (SCD):    1.830ns
+    Clock Pessimism Removal (CPR):    0.449ns
+  Clock Net Delay (Source):      1.383ns (routing 0.695ns, distribution 0.688ns)
+  Clock Net Delay (Destination): 1.589ns (routing 0.788ns, distribution 0.801ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.383     1.830    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y175        FDSE (Prop_FDSE_C_Q)         0.052     1.882 r  rc/count_reg[3]/Q
+                         net (fo=3, estimated)        0.029     1.910    rc/count_reg__0[3]
+    SLICE_X30Y175                                                     r  rc/count[3]_i_1/I3
+    SLICE_X30Y175        LUT4 (Prop_LUT4_I3_O)        0.015     1.925 r  rc/count[3]_i_1/O
+                         net (fo=1, routed)           0.012     1.937    rc/count0[3]
+    SLICE_X30Y175        FDSE                                         r  rc/count_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.589     2.278    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[3]/C
+                         clock pessimism             -0.449     1.830    
+    SLICE_X30Y175        FDSE (Hold_FDSE_C_D)         0.056     1.886    rc/count_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.886    
+                         arrival time                           1.937    
+  -------------------------------------------------------------------
+                         slack                                  0.052    
+
+Slack (MET) :             0.055ns  (arrival time - required time)
+  Source:                 ri/t1b_reg[21]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            st/key0_reg[21]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.159ns  (logic 0.051ns (32.106%)  route 0.108ns (67.894%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.047ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.147ns
+    Source Clock Delay      (SCD):    1.716ns
+    Clock Pessimism Removal (CPR):    0.384ns
+  Clock Net Delay (Source):      1.269ns (routing 0.695ns, distribution 0.574ns)
+  Clock Net Delay (Destination): 1.458ns (routing 0.788ns, distribution 0.670ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.269     1.716    ri/tm3_clk_v0_IBUF_BUFG
+    SLICE_X2Y148                                                      r  ri/t1b_reg[21]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y148         FDRE (Prop_FDRE_C_Q)         0.051     1.767 r  ri/t1b_reg[21]/Q
+                         net (fo=21, estimated)       0.108     1.874    st/O18[21]
+    SLICE_X0Y148         FDRE                                         r  st/key0_reg[21]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.458     2.147    st/tm3_clk_v0_IBUF_BUFG
+    SLICE_X0Y148                                                      r  st/key0_reg[21]/C
+                         clock pessimism             -0.384     1.763    
+    SLICE_X0Y148         FDRE (Hold_FDRE_C_D)         0.056     1.819    st/key0_reg[21]
+  -------------------------------------------------------------------
+                         required time                         -1.819    
+                         arrival time                           1.874    
+  -------------------------------------------------------------------
+                         slack                                  0.055    
+
+Slack (MET) :             0.056ns  (arrival time - required time)
+  Source:                 restransinst/hit01al_reg/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            restransinst/hit01al_reg/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.112ns  (logic 0.067ns (60.043%)  route 0.045ns (39.957%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.190ns
+    Source Clock Delay      (SCD):    1.753ns
+    Clock Pessimism Removal (CPR):    0.438ns
+  Clock Net Delay (Source):      1.306ns (routing 0.695ns, distribution 0.611ns)
+  Clock Net Delay (Destination): 1.501ns (routing 0.788ns, distribution 0.713ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.306     1.753    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y46                                                      r  restransinst/hit01al_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X16Y46         FDRE (Prop_FDRE_C_Q)         0.052     1.805 r  restransinst/hit01al_reg/Q
+                         net (fo=2, estimated)        0.029     1.833    restransinst/n_24_hit01al_reg
+    SLICE_X16Y46                                                      r  restransinst/hit01al_i_1/I3
+    SLICE_X16Y46         LUT4 (Prop_LUT4_I3_O)        0.015     1.848 r  restransinst/hit01al_i_1/O
+                         net (fo=1, routed)           0.016     1.864    restransinst/n_24_hit01al_i_1
+    SLICE_X16Y46         FDRE                                         r  restransinst/hit01al_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.501     2.190    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y46                                                      r  restransinst/hit01al_reg/C
+                         clock pessimism             -0.438     1.753    
+    SLICE_X16Y46         FDRE (Hold_FDRE_C_D)         0.056     1.809    restransinst/hit01al_reg
+  -------------------------------------------------------------------
+                         required time                         -1.809    
+                         arrival time                           1.864    
+  -------------------------------------------------------------------
+                         slack                                  0.056    
+
+Slack (MET) :             0.056ns  (arrival time - required time)
+  Source:                 restransinst/pending10_reg/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            restransinst/pending10_reg/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.112ns  (logic 0.067ns (60.043%)  route 0.045ns (39.957%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.194ns
+    Source Clock Delay      (SCD):    1.757ns
+    Clock Pessimism Removal (CPR):    0.438ns
+  Clock Net Delay (Source):      1.310ns (routing 0.695ns, distribution 0.615ns)
+  Clock Net Delay (Destination): 1.505ns (routing 0.788ns, distribution 0.717ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.310     1.757    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X19Y44                                                      r  restransinst/pending10_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X19Y44         FDRE (Prop_FDRE_C_Q)         0.052     1.809 r  restransinst/pending10_reg/Q
+                         net (fo=3, estimated)        0.029     1.837    boundcont10/pending10
+    SLICE_X19Y44                                                      r  boundcont10/pending10_i_1/I1
+    SLICE_X19Y44         LUT2 (Prop_LUT2_I1_O)        0.015     1.852 r  boundcont10/pending10_i_1/O
+                         net (fo=1, routed)           0.016     1.868    restransinst/I2
+    SLICE_X19Y44         FDRE                                         r  restransinst/pending10_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.505     2.194    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X19Y44                                                      r  restransinst/pending10_reg/C
+                         clock pessimism             -0.438     1.757    
+    SLICE_X19Y44         FDRE (Hold_FDRE_C_D)         0.056     1.813    restransinst/pending10_reg
+  -------------------------------------------------------------------
+                         required time                         -1.813    
+                         arrival time                           1.868    
+  -------------------------------------------------------------------
+                         slack                                  0.056    
+
+Slack (MET) :             0.056ns  (arrival time - required time)
+  Source:                 restransinst/hit10al_reg/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            restransinst/hit10al_reg/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.112ns  (logic 0.066ns (59.058%)  route 0.046ns (40.942%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.187ns
+    Source Clock Delay      (SCD):    1.752ns
+    Clock Pessimism Removal (CPR):    0.436ns
+  Clock Net Delay (Source):      1.305ns (routing 0.695ns, distribution 0.610ns)
+  Clock Net Delay (Destination): 1.498ns (routing 0.788ns, distribution 0.710ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.305     1.752    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y44                                                      r  restransinst/hit10al_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X16Y44         FDRE (Prop_FDRE_C_Q)         0.051     1.803 r  restransinst/hit10al_reg/Q
+                         net (fo=2, estimated)        0.030     1.832    restransinst/n_24_hit10al_reg
+    SLICE_X16Y44                                                      r  restransinst/hit10al_i_1/I3
+    SLICE_X16Y44         LUT4 (Prop_LUT4_I3_O)        0.015     1.847 r  restransinst/hit10al_i_1/O
+                         net (fo=1, routed)           0.016     1.863    restransinst/n_24_hit10al_i_1
+    SLICE_X16Y44         FDRE                                         r  restransinst/hit10al_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.498     2.187    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y44                                                      r  restransinst/hit10al_reg/C
+                         clock pessimism             -0.436     1.752    
+    SLICE_X16Y44         FDRE (Hold_FDRE_C_D)         0.056     1.808    restransinst/hit10al_reg
+  -------------------------------------------------------------------
+                         required time                         -1.808    
+                         arrival time                           1.863    
+  -------------------------------------------------------------------
+                         slack                                  0.056    
+
+Slack (MET) :             0.056ns  (arrival time - required time)
+  Source:                 restransinst/pending01_reg/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            restransinst/pending01_reg/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.112ns  (logic 0.066ns (59.058%)  route 0.046ns (40.942%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.187ns
+    Source Clock Delay      (SCD):    1.752ns
+    Clock Pessimism Removal (CPR):    0.436ns
+  Clock Net Delay (Source):      1.305ns (routing 0.695ns, distribution 0.610ns)
+  Clock Net Delay (Destination): 1.498ns (routing 0.788ns, distribution 0.710ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.305     1.752    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y46                                                      r  restransinst/pending01_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X16Y46         FDRE (Prop_FDRE_C_Q)         0.051     1.803 r  restransinst/pending01_reg/Q
+                         net (fo=4, estimated)        0.030     1.832    boundcont01/pending01
+    SLICE_X16Y46                                                      r  boundcont01/pending01_i_1/I1
+    SLICE_X16Y46         LUT2 (Prop_LUT2_I1_O)        0.015     1.847 r  boundcont01/pending01_i_1/O
+                         net (fo=1, routed)           0.016     1.863    restransinst/I1
+    SLICE_X16Y46         FDRE                                         r  restransinst/pending01_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.498     2.187    restransinst/tm3_clk_v0_IBUF_BUFG
+    SLICE_X16Y46                                                      r  restransinst/pending01_reg/C
+                         clock pessimism             -0.436     1.752    
+    SLICE_X16Y46         FDRE (Hold_FDRE_C_D)         0.056     1.808    restransinst/pending01_reg
+  -------------------------------------------------------------------
+                         required time                         -1.808    
+                         arrival time                           1.863    
+  -------------------------------------------------------------------
+                         slack                                  0.056    
+
+Slack (MET) :             0.056ns  (arrival time - required time)
+  Source:                 rc/count_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            rc/count_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.112ns  (logic 0.068ns (60.622%)  route 0.044ns (39.378%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.278ns
+    Source Clock Delay      (SCD):    1.830ns
+    Clock Pessimism Removal (CPR):    0.449ns
+  Clock Net Delay (Source):      1.383ns (routing 0.695ns, distribution 0.688ns)
+  Clock Net Delay (Destination): 1.589ns (routing 0.788ns, distribution 0.801ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.383     1.830    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y175        FDRE (Prop_FDRE_C_Q)         0.052     1.882 r  rc/count_reg[2]/Q
+                         net (fo=4, estimated)        0.029     1.911    rc/count_reg__0[2]
+    SLICE_X30Y175                                                     r  rc/count[2]_i_1/I2
+    SLICE_X30Y175        LUT3 (Prop_LUT3_I2_O)        0.016     1.927 r  rc/count[2]_i_1/O
+                         net (fo=1, routed)           0.015     1.942    rc/count0[2]
+    SLICE_X30Y175        FDRE                                         r  rc/count_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.589     2.278    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[2]/C
+                         clock pessimism             -0.449     1.830    
+    SLICE_X30Y175        FDRE (Hold_FDRE_C_D)         0.056     1.886    rc/count_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.886    
+                         arrival time                           1.942    
+  -------------------------------------------------------------------
+                         slack                                  0.056    
+
+Slack (MET) :             0.058ns  (arrival time - required time)
+  Source:                 rc/count_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            rc/count_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.114ns  (logic 0.068ns (59.778%)  route 0.046ns (40.222%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.278ns
+    Source Clock Delay      (SCD):    1.830ns
+    Clock Pessimism Removal (CPR):    0.449ns
+  Clock Net Delay (Source):      1.383ns (routing 0.695ns, distribution 0.688ns)
+  Clock Net Delay (Destination): 1.589ns (routing 0.788ns, distribution 0.801ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.383     1.830    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y175        FDRE (Prop_FDRE_C_Q)         0.052     1.882 f  rc/count_reg[0]/Q
+                         net (fo=6, estimated)        0.030     1.911    rc/count_reg__0[0]
+    SLICE_X30Y175                                                     f  rc/count[0]_i_1/I0
+    SLICE_X30Y175        LUT1 (Prop_LUT1_I0_O)        0.016     1.927 r  rc/count[0]_i_1/O
+                         net (fo=1, routed)           0.016     1.943    rc/count0[0]
+    SLICE_X30Y175        FDRE                                         r  rc/count_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.589     2.278    rc/tm3_clk_v0_IBUF_BUFG
+    SLICE_X30Y175                                                     r  rc/count_reg[0]/C
+                         clock pessimism             -0.449     1.830    
+    SLICE_X30Y175        FDRE (Hold_FDRE_C_D)         0.056     1.886    rc/count_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -1.886    
+                         arrival time                           1.943    
+  -------------------------------------------------------------------
+                         slack                                  0.058    
+
+Slack (MET) :             0.060ns  (arrival time - required time)
+  Source:                 st/data3_reg[9]/C
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Destination:            st/data4_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by tm3_clk_v0  {rise@0.000ns fall@1.000ns period=2.000ns})
+  Path Group:             tm3_clk_v0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (tm3_clk_v0 rise@0.000ns - tm3_clk_v0 rise@0.000ns)
+  Data Path Delay:        0.162ns  (logic 0.081ns (50.152%)  route 0.081ns (49.848%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.046ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.160ns
+    Source Clock Delay      (SCD):    1.731ns
+    Clock Pessimism Removal (CPR):    0.384ns
+  Clock Net Delay (Source):      1.284ns (routing 0.695ns, distribution 0.589ns)
+  Clock Net Delay (Destination): 1.471ns (routing 0.788ns, distribution 0.683ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.218     0.218 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.027     0.245    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.245 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.174     0.420    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.027     0.447 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.284     1.731    st/tm3_clk_v0_IBUF_BUFG
+    SLICE_X4Y153                                                      r  st/data3_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y153         FDRE (Prop_FDRE_C_Q)         0.051     1.782 r  st/data3_reg[9]/Q
+                         net (fo=2, estimated)        0.067     1.848    ri/I21[6]
+    SLICE_X3Y153                                                      r  ri/data4[9]_i_1/I5
+    SLICE_X3Y153         LUT6 (Prop_LUT6_I5_O)        0.030     1.878 r  ri/data4[9]_i_1/O
+                         net (fo=1, routed)           0.014     1.892    st/I23[6]
+    SLICE_X3Y153         FDRE                                         r  st/data4_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock tm3_clk_v0 rise edge)
+                                                      0.000     0.000 r  
+    G9                                                0.000     0.000 r  tm3_clk_v0
+                         net (fo=0)                   0.000     0.000    tm3_clk_v0_IBUF_inst/I
+    G9                                                                r  tm3_clk_v0_IBUF_inst/INBUF_INST/PAD
+    G9                   INBUF (Prop_INBUF_PAD_O)     0.436     0.436 r  tm3_clk_v0_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.033     0.469    tm3_clk_v0_IBUF_inst/OUT
+    G9                                                                r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/I
+    G9                   IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.000     0.469 r  tm3_clk_v0_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, estimated)        0.190     0.658    tm3_clk_v0_IBUF
+    BUFGCE_X1Y48                                                      r  tm3_clk_v0_IBUF_BUFG_inst/I
+    BUFGCE_X1Y48         BUFGCE (Prop_BUFGCE_I_O)     0.031     0.689 r  tm3_clk_v0_IBUF_BUFG_inst/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1487, estimated)     1.471     2.160    st/tm3_clk_v0_IBUF_BUFG
+    SLICE_X3Y153                                                      r  st/data4_reg[9]/C
+                         clock pessimism             -0.384     1.776    
+    SLICE_X3Y153         FDRE (Hold_FDRE_C_D)         0.056     1.832    st/data4_reg[9]
+  -------------------------------------------------------------------
+                         required time                         -1.832    
+                         arrival time                           1.892    
+  -------------------------------------------------------------------
+                         slack                                  0.060    
+
+
+
+

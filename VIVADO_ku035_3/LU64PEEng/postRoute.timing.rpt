@@ -1,0 +1,350 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1034051 Fri Oct  3 16:32:59 MDT 2014
+| Date         : Wed Apr  8 18:38:10 2015
+| Host         : paasei running 64-bit Scientific Linux release 6.5 (Carbon)
+| Command      : report_timing -file postRoute.timing.rpt
+| Design       : LU64PEEng
+| Device       : xcku035-ffva1156
+| Speed File   : -3  PREVIEW 1.10 09-18-2014
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.239ns  (required time - arrival time)
+  Source:                 compBlock/rec/d_man_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@21.000ns period=42.000ns})
+  Destination:            compBlock/multOperand_reg[20]_rep/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@21.000ns period=42.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            42.000ns  (clk rise@42.000ns - clk rise@0.000ns)
+  Data Path Delay:        43.044ns  (logic 14.454ns (33.580%)  route 28.590ns (66.420%))
+  Logic Levels:           110  (CARRY8=53 LUT2=2 LUT3=2 LUT4=2 LUT5=28 LUT6=23)
+  Clock Path Skew:        -0.207ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.830ns = ( 44.830 - 42.000 ) 
+    Source Clock Delay      (SCD):    3.361ns
+    Clock Pessimism Removal (CPR):    0.324ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.342ns (routing 0.764ns, distribution 1.578ns)
+  Clock Net Delay (Destination): 2.000ns (routing 0.698ns, distribution 1.302ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    AG12                                              0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.559     0.559 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.035     0.594    clk_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.039     0.633 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.319     0.952    clk_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.067     1.019 r  clk_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=30944, routed)       2.342     3.361    compBlock/rec/clk_IBUF_BUFG
+    SLICE_X88Y113                                                     r  compBlock/rec/d_man_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X88Y113        FDRE (Prop_FDRE_C_Q)         0.101     3.462 f  compBlock/rec/d_man_reg[6]/Q
+                         net (fo=70, routed)          0.370     3.832    compBlock/rec/d_man[6]
+    SLICE_X87Y113        LUT2 (Prop_LUT2_I0_O)        0.115     3.947 r  compBlock/rec/multOperand[30]_i_23/O
+                         net (fo=1, routed)           0.000     3.947    compBlock/rec/n_0_multOperand[30]_i_23
+    SLICE_X87Y113        CARRY8 (Prop_CARRY8_S[3]_CO[7])
+                                                      0.304     4.251 r  compBlock/rec/multOperand_reg[30]_i_15_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000     4.251    compBlock/rec/n_0_multOperand_reg[30]_i_7
+    SLICE_X87Y114        CARRY8 (Prop_CARRY8_CI_CO[3])
+                                                      0.084     4.335 r  compBlock/rec/multOperand_reg[30]_i_3_CARRY8/CO[3]
+                         net (fo=242, routed)         0.571     4.906    compBlock/rec/div_man[23]
+    SLICE_X88Y111        LUT2 (Prop_LUT2_I1_O)        0.134     5.040 r  compBlock/rec/multOperand[22]_i_114/O
+                         net (fo=1, routed)           0.001     5.041    compBlock/rec/n_0_multOperand[22]_i_114
+    SLICE_X88Y111        CARRY8 (Prop_CARRY8_DI[2]_O[5])
+                                                      0.251     5.292 r  compBlock/rec/multOperand_reg[22]_i_85_CARRY8/O[5]
+                         net (fo=5, routed)           0.514     5.806    compBlock/rec/divide/numer210[5]
+    SLICE_X91Y114        LUT4 (Prop_LUT4_I0_O)        0.153     5.959 f  compBlock/rec/multOperand[22]_i_81/O
+                         net (fo=1, routed)           0.129     6.088    compBlock/rec/n_0_multOperand[22]_i_81
+    SLICE_X91Y113        LUT6 (Prop_LUT6_I4_O)        0.154     6.242 r  compBlock/rec/multOperand[22]_i_48/O
+                         net (fo=1, routed)           0.322     6.564    compBlock/rec/n_0_multOperand[22]_i_48
+    SLICE_X89Y113        CARRY8 (Prop_CARRY8_DI[3]_CO[7])
+                                                      0.315     6.879 r  compBlock/rec/multOperand_reg[22]_i_20_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000     6.879    compBlock/rec/n_0_multOperand_reg[22]_i_8
+    SLICE_X89Y114        CARRY8 (Prop_CARRY8_CI_CO[4])
+                                                      0.140     7.019 r  compBlock/rec/multOperand_reg[22]_i_4_CARRY8/CO[4]
+                         net (fo=120, routed)         0.591     7.610    compBlock/rec/O1[14]
+    SLICE_X87Y112        LUT6 (Prop_LUT6_I1_O)        0.035     7.645 r  compBlock/rec/multOperand[19]_i_46/O
+                         net (fo=9, routed)           0.489     8.134    compBlock/rec/n_0_multOperand[19]_i_46
+    SLICE_X88Y114        LUT5 (Prop_LUT5_I1_O)        0.035     8.169 r  compBlock/rec/multOperand[24]_i_23/O
+                         net (fo=1, routed)           0.475     8.644    compBlock/rec/n_0_multOperand[24]_i_23
+    SLICE_X87Y115        CARRY8 (Prop_CARRY8_DI[7]_CO[7])
+                                                      0.145     8.789 r  compBlock/rec/multOperand_reg[24]_i_22_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000     8.789    compBlock/rec/n_0_multOperand_reg[24]_i_11
+    SLICE_X87Y116        CARRY8 (Prop_CARRY8_CI_CO[5])
+                                                      0.123     8.912 r  compBlock/rec/multOperand_reg[24]_i_5_CARRY8/CO[5]
+                         net (fo=170, routed)         0.490     9.402    compBlock/rec/O1[13]
+    SLICE_X88Y118        LUT3 (Prop_LUT3_I1_O)        0.061     9.463 r  compBlock/rec/multOperand[19]_i_67/O
+                         net (fo=6, routed)           0.503     9.966    compBlock/rec/n_0_multOperand[19]_i_67
+    SLICE_X86Y114        LUT6 (Prop_LUT6_I0_O)        0.100    10.066 r  compBlock/rec/multOperand[19]_i_28/O
+                         net (fo=1, routed)           0.310    10.376    compBlock/rec/n_0_multOperand[19]_i_28
+    SLICE_X86Y116        CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.178    10.554 r  compBlock/rec/multOperand_reg[19]_i_25_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    10.554    compBlock/rec/n_0_multOperand_reg[19]_i_10
+    SLICE_X86Y117        CARRY8 (Prop_CARRY8_CI_CO[5])
+                                                      0.123    10.677 r  compBlock/rec/multOperand_reg[19]_i_4_CARRY8/CO[5]
+                         net (fo=150, routed)         0.583    11.260    compBlock/rec/O1[12]
+    SLICE_X88Y119        LUT5 (Prop_LUT5_I1_O)        0.062    11.322 r  compBlock/rec/multOperand[17]_i_58/O
+                         net (fo=9, routed)           0.445    11.767    compBlock/rec/n_0_multOperand[17]_i_58
+    SLICE_X86Y123        LUT4 (Prop_LUT4_I0_O)        0.121    11.888 r  compBlock/rec/multOperand[23]_i_72/O
+                         net (fo=1, routed)           0.248    12.136    compBlock/rec/n_0_multOperand[23]_i_72
+    SLICE_X86Y122        CARRY8 (Prop_CARRY8_DI[7]_CO[7])
+                                                      0.145    12.281 r  compBlock/rec/multOperand_reg[23]_i_71_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    12.281    compBlock/rec/n_0_multOperand_reg[23]_i_40
+    SLICE_X86Y123        CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.147    12.428 r  compBlock/rec/multOperand_reg[23]_i_19_CARRY8/CO[6]
+                         net (fo=176, routed)         0.446    12.874    compBlock/rec/O1[11]
+    SLICE_X84Y119        LUT5 (Prop_LUT5_I1_O)        0.154    13.028 r  compBlock/rec/multOperand[17]_i_100/O
+                         net (fo=9, routed)           0.403    13.431    compBlock/rec/n_0_multOperand[17]_i_100
+    SLICE_X85Y121        LUT6 (Prop_LUT6_I0_O)        0.062    13.493 r  compBlock/rec/multOperand[17]_i_43/O
+                         net (fo=1, routed)           0.329    13.822    compBlock/rec/n_0_multOperand[17]_i_43
+    SLICE_X85Y122        CARRY8 (Prop_CARRY8_DI[6]_CO[7])
+                                                      0.161    13.983 r  compBlock/rec/multOperand_reg[17]_i_41_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    13.983    compBlock/rec/n_0_multOperand_reg[17]_i_13
+    SLICE_X85Y123        CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.147    14.130 r  compBlock/rec/multOperand_reg[17]_i_4_CARRY8/CO[6]
+                         net (fo=164, routed)         0.404    14.534    compBlock/rec/O1[10]
+    SLICE_X86Y125        LUT5 (Prop_LUT5_I1_O)        0.100    14.634 r  compBlock/rec/multOperand[15]_i_54/O
+                         net (fo=9, routed)           0.195    14.829    compBlock/rec/n_0_multOperand[15]_i_54
+    SLICE_X86Y127        LUT6 (Prop_LUT6_I0_O)        0.062    14.891 r  compBlock/rec/multOperand[17]_i_82/O
+                         net (fo=1, routed)           0.665    15.556    compBlock/rec/n_0_multOperand[17]_i_82
+    SLICE_X88Y122        CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330    15.886 r  compBlock/rec/multOperand_reg[17]_i_31_CARRY8/CO[7]
+                         net (fo=180, routed)         0.591    16.477    compBlock/rec/div_man[16]
+    SLICE_X87Y127        LUT5 (Prop_LUT5_I1_O)        0.102    16.579 f  compBlock/rec/multOperand[15]_i_52/O
+                         net (fo=5, routed)           0.377    16.956    compBlock/rec/n_0_multOperand[15]_i_52
+    SLICE_X88Y127        LUT6 (Prop_LUT6_I5_O)        0.116    17.072 r  compBlock/rec/multOperand[15]_i_17/O
+                         net (fo=1, routed)           0.298    17.370    compBlock/rec/n_0_multOperand[15]_i_17
+    SLICE_X89Y124        CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.317    17.687 r  compBlock/rec/multOperand_reg[15]_i_4_CARRY8/CO[7]
+                         net (fo=170, routed)         0.339    18.026    compBlock/rec/div_man[15]
+    SLICE_X89Y120        LUT5 (Prop_LUT5_I1_O)        0.062    18.088 r  compBlock/rec/multOperand[13]_i_170/O
+                         net (fo=9, routed)           0.328    18.416    compBlock/rec/n_0_multOperand[13]_i_170
+    SLICE_X90Y126        LUT6 (Prop_LUT6_I0_O)        0.036    18.452 r  compBlock/rec/multOperand[15]_i_188/O
+                         net (fo=1, routed)           0.436    18.888    compBlock/rec/n_0_multOperand[15]_i_188
+    SLICE_X90Y127        CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.317    19.205 r  compBlock/rec/multOperand_reg[15]_i_164_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    19.205    compBlock/rec/n_0_multOperand_reg[15]_i_125
+    SLICE_X90Y128        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    19.248 r  compBlock/rec/multOperand_reg[15]_i_77_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    19.248    compBlock/rec/n_0_multOperand_reg[15]_i_35
+    SLICE_X90Y129        CARRY8 (Prop_CARRY8_CI_CO[0])
+                                                      0.105    19.353 r  compBlock/rec/multOperand_reg[15]_i_13_CARRY8/CO[0]
+                         net (fo=187, routed)         0.345    19.698    compBlock/rec/O1[9]
+    SLICE_X90Y125        LUT5 (Prop_LUT5_I1_O)        0.035    19.733 r  compBlock/rec/multOperand[13]_i_169/O
+                         net (fo=9, routed)           0.457    20.190    compBlock/rec/n_0_multOperand[13]_i_169
+    SLICE_X91Y119        LUT6 (Prop_LUT6_I0_O)        0.102    20.292 r  compBlock/rec/multOperand[13]_i_125/O
+                         net (fo=1, routed)           0.369    20.661    compBlock/rec/n_0_multOperand[13]_i_125
+    SLICE_X91Y120        CARRY8 (Prop_CARRY8_DI[3]_CO[7])
+                                                      0.315    20.976 r  compBlock/rec/multOperand_reg[13]_i_65_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    20.976    compBlock/rec/n_0_multOperand_reg[13]_i_27
+    SLICE_X91Y121        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    21.019 r  compBlock/rec/multOperand_reg[13]_i_9_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    21.019    compBlock/rec/n_0_multOperand_reg[13]_i_4
+    SLICE_X91Y122        CARRY8 (Prop_CARRY8_CI_CO[0])
+                                                      0.105    21.124 r  compBlock/rec/multOperand_reg[13]_i_2_CARRY8/CO[0]
+                         net (fo=179, routed)         0.207    21.331    compBlock/rec/O1[8]
+    SLICE_X91Y123        LUT5 (Prop_LUT5_I1_O)        0.163    21.494 r  compBlock/rec/multOperand[11]_i_181/O
+                         net (fo=9, routed)           0.326    21.820    compBlock/rec/n_0_multOperand[11]_i_181
+    SLICE_X92Y124        LUT6 (Prop_LUT6_I0_O)        0.163    21.983 r  compBlock/rec/multOperand[13]_i_189/O
+                         net (fo=1, routed)           0.202    22.185    compBlock/rec/n_0_multOperand[13]_i_189
+    SLICE_X92Y125        CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.317    22.502 r  compBlock/rec/multOperand_reg[13]_i_157_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    22.502    compBlock/rec/n_0_multOperand_reg[13]_i_103
+    SLICE_X92Y126        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    22.545 r  compBlock/rec/multOperand_reg[13]_i_53_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    22.545    compBlock/rec/n_0_multOperand_reg[13]_i_21
+    SLICE_X92Y127        CARRY8 (Prop_CARRY8_CI_CO[1])
+                                                      0.068    22.613 r  compBlock/rec/multOperand_reg[13]_i_7_CARRY8/CO[1]
+                         net (fo=194, routed)         0.340    22.953    compBlock/rec/O1[7]
+    SLICE_X93Y124        LUT5 (Prop_LUT5_I1_O)        0.163    23.116 f  compBlock/rec/multOperand[11]_i_82/O
+                         net (fo=5, routed)           0.345    23.461    compBlock/rec/n_0_multOperand[11]_i_82
+    SLICE_X92Y119        LUT6 (Prop_LUT6_I5_O)        0.116    23.577 r  compBlock/rec/multOperand[11]_i_34/O
+                         net (fo=1, routed)           0.155    23.732    compBlock/rec/n_0_multOperand[11]_i_34
+    SLICE_X93Y119        CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.317    24.049 r  compBlock/rec/multOperand_reg[11]_i_11_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    24.049    compBlock/rec/n_0_multOperand_reg[11]_i_4
+    SLICE_X93Y120        CARRY8 (Prop_CARRY8_CI_CO[1])
+                                                      0.068    24.117 r  compBlock/rec/multOperand_reg[11]_i_2_CARRY8/CO[1]
+                         net (fo=190, routed)         0.478    24.595    compBlock/rec/O1[6]
+    SLICE_X93Y128        LUT5 (Prop_LUT5_I1_O)        0.114    24.709 f  compBlock/rec/multOperand[11]_i_117/O
+                         net (fo=6, routed)           0.483    25.192    compBlock/rec/n_0_multOperand[11]_i_117
+    SLICE_X92Y120        LUT6 (Prop_LUT6_I5_O)        0.116    25.308 r  compBlock/rec/multOperand[11]_i_59/O
+                         net (fo=1, routed)           0.318    25.626    compBlock/rec/n_0_multOperand[11]_i_59
+    SLICE_X92Y122        CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.178    25.804 r  compBlock/rec/multOperand_reg[11]_i_56_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    25.804    compBlock/rec/n_0_multOperand_reg[11]_i_24
+    SLICE_X92Y123        CARRY8 (Prop_CARRY8_CI_CO[2])
+                                                      0.102    25.906 r  compBlock/rec/multOperand_reg[11]_i_9_CARRY8/CO[2]
+                         net (fo=202, routed)         0.388    26.294    compBlock/rec/O1[5]
+    SLICE_X93Y131        LUT5 (Prop_LUT5_I1_O)        0.062    26.356 f  compBlock/rec/multOperand[9]_i_105/O
+                         net (fo=5, routed)           0.124    26.480    compBlock/rec/n_0_multOperand[9]_i_105
+    SLICE_X93Y130        LUT6 (Prop_LUT6_I5_O)        0.116    26.596 r  compBlock/rec/multOperand[9]_i_43/O
+                         net (fo=1, routed)           0.543    27.139    compBlock/rec/n_0_multOperand[9]_i_43
+    SLICE_X93Y123        CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.316    27.455 r  compBlock/rec/multOperand_reg[9]_i_13_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    27.455    compBlock/rec/n_0_multOperand_reg[9]_i_4
+    SLICE_X93Y124        CARRY8 (Prop_CARRY8_CI_CO[2])
+                                                      0.102    27.557 r  compBlock/rec/multOperand_reg[9]_i_2_CARRY8/CO[2]
+                         net (fo=192, routed)         0.385    27.942    compBlock/rec/O1[4]
+    SLICE_X94Y121        LUT5 (Prop_LUT5_I1_O)        0.105    28.047 r  compBlock/rec/multOperand[7]_i_160/O
+                         net (fo=9, routed)           0.469    28.516    compBlock/rec/n_0_multOperand[7]_i_160
+    SLICE_X95Y125        LUT6 (Prop_LUT6_I0_O)        0.035    28.551 r  compBlock/rec/multOperand[9]_i_208/O
+                         net (fo=1, routed)           0.284    28.835    compBlock/rec/n_0_multOperand[9]_i_208
+    SLICE_X94Y127        CARRY8 (Prop_CARRY8_DI[3]_CO[7])
+                                                      0.315    29.150 r  compBlock/rec/multOperand_reg[9]_i_177_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    29.150    compBlock/rec/n_0_multOperand_reg[9]_i_127
+    SLICE_X94Y128        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    29.193 r  compBlock/rec/multOperand_reg[9]_i_77_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    29.193    compBlock/rec/n_0_multOperand_reg[9]_i_30
+    SLICE_X94Y129        CARRY8 (Prop_CARRY8_CI_CO[3])
+                                                      0.084    29.277 r  compBlock/rec/multOperand_reg[9]_i_11_CARRY8/CO[3]
+                         net (fo=205, routed)         0.452    29.729    compBlock/rec/div_man[8]
+    SLICE_X96Y126        LUT5 (Prop_LUT5_I1_O)        0.035    29.764 r  compBlock/rec/multOperand[7]_i_157/O
+                         net (fo=9, routed)           0.526    30.290    compBlock/rec/n_0_multOperand[7]_i_157
+    SLICE_X95Y121        LUT6 (Prop_LUT6_I0_O)        0.102    30.392 r  compBlock/rec/multOperand[7]_i_92/O
+                         net (fo=1, routed)           0.166    30.558    compBlock/rec/n_0_multOperand[7]_i_92
+    SLICE_X95Y122        CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.178    30.736 r  compBlock/rec/multOperand_reg[7]_i_89_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    30.736    compBlock/rec/n_0_multOperand_reg[7]_i_39
+    SLICE_X95Y123        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    30.779 r  compBlock/rec/multOperand_reg[7]_i_15_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    30.779    compBlock/rec/n_0_multOperand_reg[7]_i_4
+    SLICE_X95Y124        CARRY8 (Prop_CARRY8_CI_CO[3])
+                                                      0.084    30.863 r  compBlock/rec/multOperand_reg[7]_i_2_CARRY8/CO[3]
+                         net (fo=190, routed)         0.382    31.245    compBlock/rec/div_man[7]
+    SLICE_X97Y127        LUT5 (Prop_LUT5_I1_O)        0.101    31.346 r  compBlock/rec/multOperand[5]_i_133/O
+                         net (fo=9, routed)           0.415    31.761    compBlock/rec/n_0_multOperand[5]_i_133
+    SLICE_X95Y121        LUT6 (Prop_LUT6_I3_O)        0.102    31.863 r  compBlock/rec/multOperand[7]_i_184/O
+                         net (fo=1, routed)           0.321    32.184    compBlock/rec/n_0_multOperand[7]_i_184
+    SLICE_X94Y120        CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330    32.514 r  compBlock/rec/multOperand_reg[7]_i_126_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    32.514    compBlock/rec/n_0_multOperand_reg[7]_i_79
+    SLICE_X94Y121        CARRY8 (Prop_CARRY8_CI_CO[4])
+                                                      0.140    32.654 r  compBlock/rec/multOperand_reg[7]_i_35_CARRY8/CO[4]
+                         net (fo=212, routed)         0.332    32.986    compBlock/rec/CO[0]
+    SLICE_X95Y124        LUT5 (Prop_LUT5_I1_O)        0.101    33.087 r  compBlock/rec/multOperand[5]_i_130/O
+                         net (fo=8, routed)           0.317    33.404    compBlock/rec/n_0_multOperand[5]_i_130
+    SLICE_X95Y116        LUT6 (Prop_LUT6_I0_O)        0.155    33.559 r  compBlock/rec/multOperand[5]_i_63/O
+                         net (fo=1, routed)           0.454    34.013    compBlock/rec/n_0_multOperand[5]_i_63
+    SLICE_X95Y119        CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.317    34.330 r  compBlock/rec/multOperand_reg[5]_i_26_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    34.330    compBlock/rec/n_0_multOperand_reg[5]_i_9
+    SLICE_X95Y120        CARRY8 (Prop_CARRY8_CI_CO[4])
+                                                      0.140    34.470 r  compBlock/rec/multOperand_reg[5]_i_4_CARRY8/CO[4]
+                         net (fo=196, routed)         0.472    34.942    compBlock/rec/O1[3]
+    SLICE_X97Y116        LUT5 (Prop_LUT5_I1_O)        0.163    35.105 r  compBlock/rec/multOperand[3]_i_202/O
+                         net (fo=9, routed)           0.254    35.359    compBlock/rec/n_0_multOperand[3]_i_202
+    SLICE_X97Y115        LUT6 (Prop_LUT6_I0_O)        0.035    35.394 r  compBlock/rec/multOperand[5]_i_200/O
+                         net (fo=1, routed)           0.399    35.793    compBlock/rec/n_0_multOperand[5]_i_200
+    SLICE_X97Y117        CARRY8 (Prop_CARRY8_DI[6]_CO[7])
+                                                      0.161    35.954 r  compBlock/rec/multOperand_reg[5]_i_198_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    35.954    compBlock/rec/n_0_multOperand_reg[5]_i_156
+    SLICE_X97Y118        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    35.997 r  compBlock/rec/multOperand_reg[5]_i_99_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    35.997    compBlock/rec/n_0_multOperand_reg[5]_i_50
+    SLICE_X97Y119        CARRY8 (Prop_CARRY8_CI_CO[5])
+                                                      0.123    36.120 r  compBlock/rec/multOperand_reg[5]_i_21_CARRY8/CO[5]
+                         net (fo=220, routed)         0.338    36.458    compBlock/rec/O1[2]
+    SLICE_X97Y114        LUT5 (Prop_LUT5_I1_O)        0.063    36.521 r  compBlock/rec/multOperand[3]_i_253/O
+                         net (fo=9, routed)           0.133    36.654    compBlock/rec/n_0_multOperand[3]_i_253
+    SLICE_X97Y116        LUT6 (Prop_LUT6_I0_O)        0.100    36.754 r  compBlock/rec/multOperand[3]_i_193/O
+                         net (fo=1, routed)           0.591    37.345    compBlock/rec/n_0_multOperand[3]_i_193
+    SLICE_X99Y121        CARRY8 (Prop_CARRY8_DI[3]_CO[7])
+                                                      0.315    37.660 r  compBlock/rec/multOperand_reg[3]_i_124_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    37.660    compBlock/rec/n_0_multOperand_reg[3]_i_65
+    SLICE_X99Y122        CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    37.703 r  compBlock/rec/multOperand_reg[3]_i_30_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    37.703    compBlock/rec/n_0_multOperand_reg[3]_i_10
+    SLICE_X99Y123        CARRY8 (Prop_CARRY8_CI_CO[5])
+                                                      0.123    37.826 r  compBlock/rec/multOperand_reg[3]_i_4_CARRY8/CO[5]
+                         net (fo=200, routed)         0.198    38.024    compBlock/rec/O1[1]
+    SLICE_X99Y124        LUT5 (Prop_LUT5_I1_O)        0.062    38.086 r  compBlock/rec/multOperand[1]_i_177/O
+                         net (fo=8, routed)           0.584    38.670    compBlock/rec/n_0_multOperand[1]_i_177
+    SLICE_X99Y113        LUT6 (Prop_LUT6_I0_O)        0.035    38.705 r  compBlock/rec/multOperand[3]_i_173/O
+                         net (fo=1, routed)           0.389    39.094    compBlock/rec/n_0_multOperand[3]_i_173
+    SLICE_X99Y116        CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.316    39.410 r  compBlock/rec/multOperand_reg[3]_i_102_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    39.410    compBlock/rec/n_0_multOperand_reg[3]_i_52
+    SLICE_X99Y117        CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.147    39.557 r  compBlock/rec/multOperand_reg[3]_i_23_CARRY8/CO[6]
+                         net (fo=170, routed)         0.401    39.958    compBlock/rec/O2[0]
+    SLICE_X99Y113        LUT5 (Prop_LUT5_I1_O)        0.115    40.073 r  compBlock/rec/multOperand[1]_i_182/O
+                         net (fo=5, routed)           0.121    40.194    compBlock/rec/n_0_multOperand[1]_i_182
+    SLICE_X99Y112        LUT6 (Prop_LUT6_I0_O)        0.101    40.295 r  compBlock/rec/multOperand[1]_i_115/O
+                         net (fo=1, routed)           0.477    40.772    compBlock/rec/n_0_multOperand[1]_i_115
+    SLICE_X99Y119        CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.330    41.102 r  compBlock/rec/multOperand_reg[1]_i_54_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    41.102    compBlock/rec/n_0_multOperand_reg[1]_i_20
+    SLICE_X99Y120        CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.147    41.249 r  compBlock/rec/multOperand_reg[1]_i_4_CARRY8/CO[6]
+                         net (fo=89, routed)          0.521    41.770    compBlock/rec/O1[0]
+    SLICE_X100Y112       LUT5 (Prop_LUT5_I1_O)        0.035    41.805 r  compBlock/rec/multOperand[1]_i_298/O
+                         net (fo=2, routed)           0.272    42.077    compBlock/rec/n_0_multOperand[1]_i_298
+    SLICE_X100Y118       LUT6 (Prop_LUT6_I0_O)        0.116    42.193 r  compBlock/rec/multOperand[1]_i_252/O
+                         net (fo=1, routed)           0.320    42.513    compBlock/rec/n_0_multOperand[1]_i_252
+    SLICE_X100Y119       CARRY8 (Prop_CARRY8_DI[3]_CO[7])
+                                                      0.315    42.828 r  compBlock/rec/multOperand_reg[1]_i_196_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    42.828    compBlock/rec/n_0_multOperand_reg[1]_i_141
+    SLICE_X100Y120       CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    42.871 r  compBlock/rec/multOperand_reg[1]_i_83_CARRY8/CO[7]
+                         net (fo=1, routed)           0.000    42.871    compBlock/rec/n_0_multOperand_reg[1]_i_37
+    SLICE_X100Y121       CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.043    42.914 r  compBlock/rec/multOperand_reg[1]_i_11_CARRY8/CO[7]
+                         net (fo=32, routed)          0.913    43.827    compBlock/rec/div_man[0]
+    SLICE_X78Y119        LUT6 (Prop_LUT6_I3_O)        0.037    43.864 r  compBlock/rec/multOperand[20]_i_11/O
+                         net (fo=1, routed)           0.055    43.919    compBlock/rec/n_0_multOperand[20]_i_11
+    SLICE_X78Y119        LUT5 (Prop_LUT5_I4_O)        0.035    43.954 r  compBlock/rec/multOperand[20]_i_10/O
+                         net (fo=1, routed)           0.054    44.008    compBlock/rec/n_0_multOperand[20]_i_10
+    SLICE_X78Y119        LUT5 (Prop_LUT5_I4_O)        0.100    44.108 r  compBlock/rec/multOperand[20]_i_9/O
+                         net (fo=1, routed)           0.198    44.306    compBlock/rec/n_0_multOperand[20]_i_9
+    SLICE_X78Y119        LUT5 (Prop_LUT5_I4_O)        0.064    44.370 r  compBlock/rec/multOperand[20]_i_8/O
+                         net (fo=1, routed)           0.194    44.564    compBlock/rec/n_0_multOperand[20]_i_8
+    SLICE_X77Y120        LUT5 (Prop_LUT5_I4_O)        0.137    44.701 r  compBlock/rec/multOperand[20]_i_7/O
+                         net (fo=1, routed)           0.239    44.940    compBlock/rec/n_0_multOperand[20]_i_7
+    SLICE_X77Y120        LUT5 (Prop_LUT5_I4_O)        0.101    45.041 r  compBlock/rec/multOperand[20]_i_6/O
+                         net (fo=1, routed)           0.264    45.305    compBlock/rec/n_0_multOperand[20]_i_6
+    SLICE_X75Y121        LUT5 (Prop_LUT5_I4_O)        0.035    45.340 r  compBlock/rec/multOperand[20]_i_5/O
+                         net (fo=1, routed)           0.247    45.587    compBlock/rec/n_0_multOperand[20]_i_5
+    SLICE_X75Y121        LUT5 (Prop_LUT5_I4_O)        0.037    45.624 r  compBlock/rec/multOperand[20]_i_4/O
+                         net (fo=1, routed)           0.052    45.676    compBlock/rec/n_0_multOperand[20]_i_4
+    SLICE_X75Y121        LUT5 (Prop_LUT5_I4_O)        0.062    45.738 r  compBlock/rec/multOperand[20]_i_3/O
+                         net (fo=1, routed)           0.056    45.794    compBlock/rec/n_0_multOperand[20]_i_3
+    SLICE_X75Y121        LUT6 (Prop_LUT6_I1_O)        0.115    45.909 f  compBlock/rec/multOperand[20]_i_2/O
+                         net (fo=5, routed)           0.367    46.276    compBlock/conBlock/I33
+    SLICE_X73Y118        LUT3 (Prop_LUT3_I2_O)        0.083    46.359 r  compBlock/conBlock/multOperand[20]_rep_i_1/O
+                         net (fo=1, routed)           0.046    46.405    compBlock/n_239_conBlock
+    SLICE_X73Y118        FDRE                                         r  compBlock/multOperand_reg[20]_rep/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       42.000    42.000 r  
+    AG12                                              0.000    42.000 r  clk
+                         net (fo=0)                   0.000    42.000    clk_IBUF_inst/I
+    AG12                 INBUF (Prop_INBUF_PAD_O)     0.451    42.451 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.029    42.480    clk_IBUF_inst/OUT
+    AG12                 IBUFCTRL (Prop_IBUFCTRL_I_O)
+                                                      0.023    42.503 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.268    42.771    clk_IBUF
+    BUFGCE_X1Y0          BUFGCE (Prop_BUFGCE_I_O)     0.059    42.830 r  clk_IBUF_BUFG_inst/O
+    X1Y1 (CLOCK_ROOT)    net (fo=30944, routed)       2.000    44.830    compBlock/clk_IBUF_BUFG
+    SLICE_X73Y118                                                     r  compBlock/multOperand_reg[20]_rep/C
+                         clock pessimism              0.324    45.153    
+                         clock uncertainty           -0.035    45.118    
+    SLICE_X73Y118        FDRE (Setup_FDRE_C_D)        0.048    45.166    compBlock/multOperand_reg[20]_rep
+  -------------------------------------------------------------------
+                         required time                         45.166    
+                         arrival time                         -46.405    
+  -------------------------------------------------------------------
+                         slack                                 -1.239    
+
+
+
+
